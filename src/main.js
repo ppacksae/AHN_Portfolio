@@ -445,8 +445,8 @@ async function fetchBlogPosts() {
 
     const issues = await response.json();
 
-    // Pull Request는 이슈 API에도 나오므로 제외함
-    const onlyIssues = issues.filter(issue => !issue.pull_request);
+    // Pull Request는 이슈 API에도 나오므로 제외하고, 본인(ppacksae)이 작성한 글만 필터링
+    const onlyIssues = issues.filter(issue => !issue.pull_request && issue.user && issue.user.login === 'ppacksae');
 
     blogPosts = onlyIssues.map(issue => {
       const rawBody = issue.body || '내용이 없습니다.';
