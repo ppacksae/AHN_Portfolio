@@ -475,7 +475,7 @@ function renderHome() {
           <p class="description">${resumeData.description}</p>
         </div>
         <div class="hero-photo-placeholder" style="border: none; box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);">
-          <img src="/profile.jpg" alt="Ahn Sungjin" style="width:100%; height:100%; object-fit:cover;">
+          <img src="./profile.jpg" alt="Ahn Sungjin" style="width:100%; height:100%; object-fit:cover;">
         </div>
       </div>
       
