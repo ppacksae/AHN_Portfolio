@@ -640,7 +640,7 @@ function renderBlog() {
   }
 
   const blogsHtml = blogPosts.map(post => `
-    <a href="javascript:void(0)" class="blog-item panel" onclick="openBlogModal(${post.id})">
+    <a href="javascript:void(0)" class="blog-item panel" onclick="window.openBlogDetail(${post.id})">
       <div class="date">${post.date}</div>
       <h3>${post.title}</h3>
       <p class="excerpt">${post.excerpt}</p>
@@ -652,7 +652,6 @@ function renderBlog() {
       <div style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:1px solid var(--border-color); padding-bottom:1rem; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
         <div>
           <h2 style="font-size:1.5rem; font-weight:600; margin:0; padding:0; border:none;">Technical Insights</h2>
-          <p style="color:var(--text-light); font-size:0.85rem; margin-top:0.4rem;">본 블로그는 GitHub Issues와 실시간 연동되어 렌더링됩니다.</p>
         </div>
         <a href="https://github.com/ppacksae/AHN_Portfolio/issues/new" target="_blank" rel="noopener noreferrer" class="button" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem; background:var(--bg-secondary); border:1px solid var(--border-color); color:var(--text-main); padding:0.5rem 1rem; border-radius:8px; font-size:0.9rem; font-weight:600; transition:all 0.2s hover:background:rgba(255,255,255,0.1);">
           <i class="fab fa-github"></i> 깃허브에서 에디터 열기
@@ -661,6 +660,32 @@ function renderBlog() {
       <div class="blog-list">
         ${blogsHtml}
       </div>
+    </section>
+  `;
+}
+
+function renderBlogDetail(postId) {
+  const post = blogPosts.find(p => p.id === postId);
+  if (!post) return renderBlog();
+
+  return `
+    <section class="blog panel" style="padding: 2.5rem; border: none;">
+      <button class="back-btn" onclick="navigateTo('#blog')" style="margin-bottom: 2rem;">← 블로그 목록으로</button>
+
+      <div class="detail-header">
+        <h1 class="blog-detail-title" style="font-size: 2.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.4;">${post.title}</h1>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+          <div style="display:flex; align-items:center; gap:0.6rem;">
+            ${post.authorImg ? `<img src="${post.authorImg}" style="width:32px; height:32px; border-radius:50%; border:1px solid var(--border-color);">` : ''}
+            <span class="blog-detail-date" style="color: var(--text-muted); font-size: 0.95rem;">${post.date}</span>
+          </div>
+          ${post.url ? `<a href="${post.url}" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted); font-size:0.9rem; text-decoration:none; display:flex; align-items:center; gap:0.4rem; transition:color 0.2s;" onmouseover="this.style.color='var(--text-main)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fab fa-github"></i> 원문 보기</a>` : ''}
+        </div>
+      </div>
+
+      <article class="blog-detail-body markdown-body" style="line-height: 1.8; font-size: 1.05rem; overflow-wrap: break-word; color: var(--text-main);">
+        ${post.content}
+      </article>
     </section>
   `;
 }
@@ -677,10 +702,6 @@ function updateNavActive(hash) {
 function handleRoute() {
   const hash = window.location.hash;
   const renderer = routes[hash] || routes[''];
-
-  if (renderer !== renderBlog) {
-    closeBlogModal();
-  }
 
   updateNavActive(hash);
   mainContent.innerHTML = '';
@@ -699,6 +720,16 @@ window.openPortfolioDetail = function (projId) {
   mainContent.innerHTML = '';
   setTimeout(() => {
     mainContent.innerHTML = renderPortfolioDetail(projId);
+    window.scrollTo(0, 0);
+  }, 10);
+}
+
+window.openBlogDetail = function (postId) {
+  updateNavActive('#blog');
+  mainContent.innerHTML = '';
+  setTimeout(() => {
+    mainContent.innerHTML = renderBlogDetail(postId);
+    window.scrollTo(0, 0); // Viewport를 맨 위로 올림
   }, 10);
 }
 
@@ -845,55 +876,6 @@ window.printFullPortfolio = function () {
   }
 }
 
-
-// Blog Modal Functions
-window.openBlogModal = function (id) {
-  const post = blogPosts.find(p => p.id === id);
-  if (!post) return;
-
-  let modalOverlay = document.getElementById('blog-modal');
-  if (!modalOverlay) {
-    modalOverlay = document.createElement('div');
-    modalOverlay.id = 'blog-modal';
-    modalOverlay.className = 'modal-overlay';
-    modalOverlay.innerHTML = `
-      <div class="modal-content">
-        <button class="modal-close" onclick="closeBlogModal()">&times;</button>
-        <div id="modal-body-content"></div>
-      </div>
-    `;
-    document.body.appendChild(modalOverlay);
-    modalOverlay.addEventListener('click', (e) => {
-      if (e.target === modalOverlay) closeBlogModal();
-    });
-  }
-
-  const modalBody = document.getElementById('modal-body-content');
-  modalBody.innerHTML = `
-    <div class="blog-detail-title">${post.title}</div>
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
-      <div style="display:flex; align-items:center; gap:0.6rem;">
-        ${post.authorImg ? `<img src="${post.authorImg}" style="width:32px; height:32px; border-radius:50%; border:1px solid var(--border-color);">` : ''}
-        <span class="blog-detail-date">${post.date}</span>
-      </div>
-      ${post.url ? `<a href="${post.url}" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted); font-size:0.9rem; text-decoration:none; display:flex; align-items:center; gap:0.4rem; transition:color 0.2s;" onmouseover="this.style.color='var(--text-main)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fab fa-github"></i> 원문 보기</a>` : ''}
-    </div>
-    <div class="blog-detail-body markdown-body" style="line-height:1.7; font-size:1.05rem; overflow-wrap:break-word;">${post.content}</div>
-  `;
-
-  document.body.style.overflow = 'hidden';
-  setTimeout(() => { modalOverlay.classList.add('active'); }, 10);
-}
-
-window.closeBlogModal = function () {
-  const modalOverlay = document.getElementById('blog-modal');
-  if (modalOverlay) {
-    modalOverlay.classList.remove('active');
-    setTimeout(() => {
-      document.body.style.overflow = 'auto';
-    }, 300);
-  }
-}
 
 // Init
 window.addEventListener('hashchange', handleRoute);
