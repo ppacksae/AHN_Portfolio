@@ -433,22 +433,59 @@ const portfolioData = [
 
 
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "바이브 코딩(Vibe Coding)으로 제안의 판을 바꾸다",
-    date: "July 15, 2025",
-    excerpt: "삼성증권 리서치 프로젝트 제안 작업 시, 구두나 문서가 아닌 실제 작동하는 데모를 바이브 코딩으로 제작하여 고객과 내부 조직의 방향성을 일치시킨 경험 공유.",
-    content: "<h3>도입 배경</h3><p>과거의 IT 제안은 수십 장의 파워포인트 문서와 정적인 화면 정의서에 의존했습니다. 하지만 AI 기술은 글과 그림만으로는 그 효용성을 100% 체감하기 어렵습니다. 삼성증권 리서치 프로젝트 제안 과정에서 가장 큰 허들은 'AI가 애널리스트의 실제 업무를 어떻게 돕는가?'를 설득하는 것이었습니다.</p><h3>Vibe Coding의 활용</h3><p>저는 즉시 Vibe Coding을 활용하여, 하루 만에 작동하는 프로토타입 웹 애플리케이션을 구축했습니다. 프론트엔드부터 가벼운 백엔드 목업까지, AI 어시스턴트가 과거 리포트를 찾아 요약하고 피어(Peer) 그룹을 분석하는 과정을 눈으로 볼 수 있게 만들었습니다.</p><h3>결과</h3><p>결과는 성공적이었습니다. 고객은 추상적인 개념 대신 손에 잡히는 미래를 보았고, 내부 개발/기획 팀 역시 명확한 타겟 이미지를 바탕으로 업무 속도를 크게 높일 수 있었습니다. 제안의 패러다임이 '설명'에서 '증명'으로 바뀐 순간이었습니다.</p>"
-  },
-  {
-    id: 2,
-    title: "금융권 폐쇄망에서의 LLM Agentic 아키텍처 설계기",
-    date: "September 2, 2025",
-    excerpt: "보안이 엄격한 온프레미스 환경에서 어떻게 복수의 Agent를 통합하고 MCP 워크플로우를 구현했는지에 대한 기술적 성찰.",
-    content: "<h3>폐쇄망 환경의 도전 과제</h3><p>증권사 시스템은 보안 컴플라이언스가 매우 엄격합니다. 외부 API 호출이 완벽히 차단된 On-Premise 환경에서, 사내 문서(비정형)와 실적/시장 데이터(정형)를 동시에 다루는 AI 구축은 인프라적 제약이 큽니다.</p><h3>Multi-Agent 및 MCP 아키텍처 도입</h3><p>우리는 단일 거대 모델에 모든 역할을 부여하는 대신, 목적이 뚜렷한 서브 에이전트(리포트 요약 에이전트, 실적 데이터 조회 에이전트 등)를 구성했습니다. 이를 오케스트레이션하기 위해 MCP(Multi-Agent Collaboration Protocol) 기반의 워크플로우를 설계했습니다.</p><h3>하이라이트</h3><p>Router Agent가 사용자의 복합 질문(\"A기업의 최근 리포트 요약과 동종 업계 영업이익 비교해줘\")을 분석한 뒤, 각각의 서브 에이전트에게 Task를 분배하고 그 결과를 취합하여 최종 답변을 도출하도록 했습니다. 이는 환각(Hallucination)을 줄이고 답변의 정확도를 극적으로 향상시키는 결과를 가져왔습니다.</p>"
+let blogPosts = [];
+let isBlogLoading = true;
+
+async function fetchBlogPosts() {
+  try {
+    const defaultAvatar = 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png';
+    // GitHub API로 저장소의 열린 이슈만 가져오기
+    const response = await fetch('https://api.github.com/repos/ppacksae/AHN_Portfolio/issues?state=open');
+    if (!response.ok) throw new Error('Failed to fetch issues');
+
+    const issues = await response.json();
+
+    // Pull Request는 이슈 API에도 나오므로 제외함
+    const onlyIssues = issues.filter(issue => !issue.pull_request);
+
+    blogPosts = onlyIssues.map(issue => {
+      const rawBody = issue.body || '내용이 없습니다.';
+      // index.html에 추가된 marked.js가 있으면 마크다운 파싱, 없으면 기본 줄바꿈 처리
+      const contentHtml = window.marked ? window.marked.parse(rawBody) : rawBody.replace(/\\n/g, '<br>');
+
+      // 요약본 추출 (마크다운 특수기호 제거 후 앞부분만)
+      const plainText = rawBody.replace(/[#*`>_-]/g, '').trim();
+      const excerpt = plainText.length > 150 ? plainText.substring(0, 150) + '...' : plainText;
+
+      return {
+        id: issue.number,
+        title: issue.title,
+        date: new Date(issue.created_at).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' }),
+        excerpt: excerpt || '내용을 보려면 클릭하세요.',
+        content: contentHtml,
+        authorImg: issue.user ? issue.user.avatar_url : defaultAvatar,
+        url: issue.html_url
+      };
+    });
+  } catch (error) {
+    console.error('Error fetching GitHub issues:', error);
+    blogPosts = [
+      { id: 0, title: '블로그 글을 불러올 수 없습니다.', date: '', excerpt: '네트워크 상태나 GitHub API 연동을 확인해주세요.', content: '다시 시도해주세요.' }
+    ];
+  } finally {
+    isBlogLoading = false;
+    // 현재 접속해 있는 라우트가 #blog 라면 다시 렌더링
+    if (window.location.hash === '#blog') {
+      const mainContent = document.getElementById('main-content');
+      if (mainContent) {
+        mainContent.innerHTML = renderBlog();
+      }
+    }
   }
-]
+}
+
+// 스크립트 로드 시 바로 글 목록 가져오기 실행
+fetchBlogPosts();
 
 
 function renderHome() {
@@ -575,6 +612,33 @@ function renderPortfolioDetail(projId) {
 
 
 function renderBlog() {
+  if (isBlogLoading) {
+    return `
+      <section class="blog">
+        <h2 style="font-size:1.5rem; margin-bottom:1.5rem; border-bottom:1px solid var(--border-color); padding-bottom:1rem; font-weight:600;">Technical Insights (GitHub Issues Blog)</h2>
+        <div style="text-align:center; padding: 4rem 0; color: var(--text-muted);">
+          <i class="fas fa-spinner fa-spin" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent-primary);"></i>
+          <p style="font-size: 1.1rem;">깃허브(GitHub)에서 최신 블로그 글을 불러오는 중입니다...</p>
+        </div>
+      </section>
+    `;
+  }
+
+  if (blogPosts.length === 0) {
+    return `
+      <section class="blog">
+        <h2 style="font-size:1.5rem; margin-bottom:1.5rem; border-bottom:1px solid var(--border-color); padding-bottom:1rem; font-weight:600;">Technical Insights (GitHub Issues Blog)</h2>
+        <div style="text-align:center; padding: 4rem 0; color: var(--text-muted); background: rgba(255,255,255,0.02); border-radius:12px; border:1px dashed var(--border-color);">
+          <i class="fab fa-markdown" style="font-size: 3rem; margin-bottom: 1rem; color: var(--border-color);"></i>
+          <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">아직 작성된 블로그 글이 없습니다.</p>
+          <a href="https://github.com/ppacksae/AHN_Portfolio/issues/new" target="_blank" rel="noopener noreferrer" class="button" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; padding:0.6rem 1.2rem; background:var(--accent-primary); color:white; border-radius:8px; font-weight:600; transition:all 0.2s;">
+            <i class="fas fa-pen"></i> 첫 글 작성하기 (GitHub 이동)
+          </a>
+        </div>
+      </section>
+    `;
+  }
+
   const blogsHtml = blogPosts.map(post => `
     <a href="javascript:void(0)" class="blog-item panel" onclick="openBlogModal(${post.id})">
       <div class="date">${post.date}</div>
@@ -585,7 +649,15 @@ function renderBlog() {
 
   return `
     <section class="blog">
-      <h2 style="font-size:1.5rem; margin-bottom:1.5rem; border-bottom:1px solid var(--border-color); padding-bottom:1rem; font-weight:600;">Technical Insights</h2>
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:1px solid var(--border-color); padding-bottom:1rem; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <h2 style="font-size:1.5rem; font-weight:600; margin:0; padding:0; border:none;">Technical Insights</h2>
+          <p style="color:var(--text-light); font-size:0.85rem; margin-top:0.4rem;">본 블로그는 GitHub Issues와 실시간 연동되어 렌더링됩니다.</p>
+        </div>
+        <a href="https://github.com/ppacksae/AHN_Portfolio/issues/new" target="_blank" rel="noopener noreferrer" class="button" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem; background:var(--bg-secondary); border:1px solid var(--border-color); color:var(--text-main); padding:0.5rem 1rem; border-radius:8px; font-size:0.9rem; font-weight:600; transition:all 0.2s hover:background:rgba(255,255,255,0.1);">
+          <i class="fab fa-github"></i> 깃허브에서 에디터 열기
+        </a>
+      </div>
       <div class="blog-list">
         ${blogsHtml}
       </div>
@@ -799,8 +871,14 @@ window.openBlogModal = function (id) {
   const modalBody = document.getElementById('modal-body-content');
   modalBody.innerHTML = `
     <div class="blog-detail-title">${post.title}</div>
-    <span class="blog-detail-date">${post.date}</span>
-    <div class="blog-detail-body">${post.content}</div>
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        ${post.authorImg ? `<img src="${post.authorImg}" style="width:32px; height:32px; border-radius:50%; border:1px solid var(--border-color);">` : ''}
+        <span class="blog-detail-date">${post.date}</span>
+      </div>
+      ${post.url ? `<a href="${post.url}" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted); font-size:0.9rem; text-decoration:none; display:flex; align-items:center; gap:0.4rem; transition:color 0.2s;" onmouseover="this.style.color='var(--text-main)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fab fa-github"></i> 원문 보기</a>` : ''}
+    </div>
+    <div class="blog-detail-body markdown-body" style="line-height:1.7; font-size:1.05rem; overflow-wrap:break-word;">${post.content}</div>
   `;
 
   document.body.style.overflow = 'hidden';
