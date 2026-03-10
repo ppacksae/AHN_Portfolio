@@ -451,7 +451,14 @@ async function fetchBlogPosts() {
     blogPosts = onlyIssues.map(issue => {
       const rawBody = issue.body || '내용이 없습니다.';
       // index.html에 추가된 marked.js가 있으면 마크다운 파싱, 없으면 기본 줄바꿈 처리
-      const contentHtml = window.marked ? window.marked.parse(rawBody) : rawBody.replace(/\\n/g, '<br>');
+      let contentHtml = rawBody.replace(/\\n/g, '<br>');
+      try {
+        if (typeof window !== 'undefined' && window.marked && window.marked.parse) {
+          contentHtml = window.marked.parse(rawBody);
+        }
+      } catch (e) {
+        console.warn('Marked parsing failed, falling back to plaintext', e);
+      }
 
       // 요약본 추출 (마크다운 특수기호 제거 후 앞부분만)
       const plainText = rawBody.replace(/[#*`>_-]/g, '').trim();
@@ -474,8 +481,8 @@ async function fetchBlogPosts() {
     ];
   } finally {
     isBlogLoading = false;
-    // 현재 접속해 있는 라우트가 #blog 라면 다시 렌더링
-    if (window.location.hash === '#blog') {
+    // 현재 접속해 있는 라우트가 #blog 이거나, mainContent에 blog 섹션이 렌더링되어 있으면 업데이트
+    if (window.location.hash === '#blog' || (document.querySelector('.blog') && !document.querySelector('.blog-detail-title'))) {
       const mainContent = document.getElementById('main-content');
       if (mainContent) {
         mainContent.innerHTML = renderBlog();
