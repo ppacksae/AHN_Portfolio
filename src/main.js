@@ -70,14 +70,14 @@ const portfolioData = [
     coverIcon: "🏦",
     summary: "금융권의 엄격한 망 분리 및 폐쇄망 환경에서 애널리스트의 분석 업무 효율화를 위한 엔터프라이즈 생성형 AI 리서치 포털을 총괄 리딩. 단순한 챗봇 구현을 넘어 리서치 업무 전 과정(데이터 수집→분석→리포트 작성→활용)에 AI를 적용하여 비즈니스 가치를 창출하는 통합 플랫폼을 구축.",
     challenge: "금융권 폐쇄망(On-Premise) 환경에서는 외부 인터넷 접속이 완전 차단되어 일반적인 클라우드 기반 LLM API 호출이 불가능합니다. 데이터 수집, 분석, 리포트 작성, 활용에 이르는 리서치 업무 전 과정에 AI를 적용해야 함에도 불구하고, 기술적 제약이 큰 온프레미스 환경에서 수많은 파편화된 금융 데이터(정형/비정형)를 결합하고, 대규모 LLM 서빙 및 멀티 에이전트 워크플로우를 안정적으로 구현하는 것이 가장 큰 도전 과제였습니다.",
-    solution: "DMZ 단에 릴레이 서버를 구축하여 외부 데이터를 내부 망으로 안전하게 반입하고, K8s 환경에서 H200 GPU 16장 기반 vLLM 고속 서빙 클러스터를 구성했습니다. 정형 데이터(RDB) 조회에는 Text-to-SQL 기반 SQL Agent를, 비정형 데이터(VDB) 조회에는 Vector Store Retriever를 적용한 Hybrid Retrieval 아키텍처를 설계했습니다. Router Agent가 사용자의 복합 질문을 분류해 각 에이전트에 Task를 분배하는 Multi-Agent 오케스트레이션 체계를 구현했습니다.",
+    solution: "DMZ 단에 릴레이 서버를 구축하여 외부 데이터를 내부 망으로 안전하게 반입하고, K8s 환경에서 엔터프라이즈급 대규모 GPU 클러스터 기반 vLLM 고속 서빙 환경을 구성했습니다. 정형 데이터(RDB) 조회에는 Text-to-SQL 기반 SQL Agent를, 비정형 데이터(VDB) 조회에는 Vector Store Retriever를 적용한 Hybrid Retrieval 아키텍처를 설계했습니다. Router Agent가 사용자의 복합 질문을 분류해 각 에이전트에 Task를 분배하는 Multi-Agent 오케스트레이션 체계를 구현했습니다.",
     results: [
       "엔터프라이즈 보안 거버넌스 수립: 금융권 망 분리 지침을 준수한 데이터 반입 아키텍처 설계 및 웹 보안 취약점 100% 조치",
-      "대규모 LLM 서빙 환경 최적화: H200 GPU 클러스터 기반 vLLM을 적용하여 120B 이상 대형 모델의 추론 속도 및 안정성 확보",
+      "대규모 LLM 서빙 환경 최적화: 고성능 GPU 클러스터 기반 vLLM을 적용하여 120B 이상 대형 모델의 추론 속도 및 안정성 확보",
       "멀티 에이전트 협업 체계 설계: 목적별 서브 에이전트(Screening, Draft, Analysis 등)가 유기적으로 연동되는 워크플로우 빌더 도입",
       "E2E 제품 생애주기 총괄: 착수 보고부터 인프라 협의, 서비스 설계 및 개발 QA까지 프로젝트 전 과정을 PM으로서 주도적 관리"
     ],
-    techStack: ["LLM (120B+)", "Qwen3-VL (Multimodal)", "vLLM / TGI", "Qdrant / Weaviate (3중화 고가용성)", "MS-SQL", "Multi-Agent Framework", "Workflow Builder", "Kubernetes", "GPU HPC (H200 x16)", "L4 Switch / DMZ Relay", "RHEL 8.X / Ubuntu 22.04"],
+    techStack: ["LLM (120B+)", "Qwen3-VL (Multimodal)", "vLLM / TGI", "Qdrant / Weaviate (3중화 고가용성)", "RDB (금융 정형 데이터)", "Multi-Agent Framework", "Workflow Builder", "Kubernetes", "Enterprise GPU Cluster", "L4 Switch / DMZ Relay", "Enterprise Linux"],
     architecture: `
       <h4>AI & Data Pipeline 기술 스택</h4>
       <table>
@@ -95,10 +95,10 @@ const portfolioData = [
       <table>
         <thead><tr><th>항목</th><th>기술</th></tr></thead>
         <tbody>
-          <tr><td>컴퓨팅 자원</td><td>GPU HPC (H200 141GB VRAM x 16장)</td></tr>
+          <tr><td>컴퓨팅 자원</td><td>엔터프라이즈급 멀티 GPU 클러스터</td></tr>
           <tr><td>컨테이너 관리</td><td>Kubernetes (Master-Worker Cluster), Namespace 격리</td></tr>
           <tr><td>네트워크 보안</td><td>L4 Switch, DMZ Relay Server (데이터 반입 중계)</td></tr>
-          <tr><td>운영 체제</td><td>RHEL 8.X, Ubuntu 22.04</td></tr>
+          <tr><td>운영 체제</td><td>Enterprise Linux 환경</td></tr>
         </tbody>
       </table>
 
