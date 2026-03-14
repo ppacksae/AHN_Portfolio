@@ -479,9 +479,16 @@ async function fetchBlogPosts() {
         console.warn('Marked parsing failed, falling back to plaintext', e);
       }
 
-      // 요약본 추출 (마크다운 특수기호 제거 후 앞부분만)
-      const plainText = rawBody.replace(/[#*`>_-]/g, '').trim();
-      const excerpt = plainText.length > 150 ? plainText.substring(0, 150) + '...' : plainText;
+      // 요약본 추출 (HTML 태그 및 마크다운 특수기호 완벽 제거)
+      const cleanText = rawBody
+        .replace(/<[^>]*>?/igm, '') // HTML 태그 완전 제거 (단편화된 태그로 인한 DOM 파괴 방지)
+        .replace(/!\[.*?\]\(.*?\)/g, '') // 마크다운 이미지 제거
+        .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // 마크다운 링크 텍스트만 남김
+        .replace(/[#*`>_-]/g, '') // 마크다운 특수기호 제거
+        .replace(/\s+/g, ' ') // 줄바꿈 및 연속 공백을 공백 한 칸으로
+        .trim();
+
+      const excerpt = cleanText.length > 150 ? cleanText.substring(0, 150) + '...' : cleanText;
 
       return {
         id: issue.number,
