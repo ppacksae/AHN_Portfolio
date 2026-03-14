@@ -62,15 +62,13 @@
         <li>각 Sub-Agent는 부여된 자신의 도메인 툴에만 접근 가능한 <strong>Tool Isolation(격리)</strong> 패턴을 적용하여 잘못된 소스 참조를 원천 차단</li>
       </ul>
 
-      <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">동적 파라미터 추출 및 병렬/순차 워크플로우</h5>
+      <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">Tool Calling 설계</h5>
       <figure style="margin: 1rem 0;">
         <img src="./multi-agent-2.png" alt="Tool Calling 상세 흐름도" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
-        <figcaption style="font-size:0.85rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">동적 Parameter 추출 및 Dependency Graph 기반 실행 구조</figcaption>
+        <figcaption style="font-size:0.85rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">동적 Parameter 추출 및 탐색 공간 축소 설계도</figcaption>
       </figure>
       <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
-        <li>Agent가 질의에서 데이터 타입, 엔티티, 기간 등을 스스로 추론해 메타데이터 Pre-filter로 탐색 공간을 줄인 뒤 시맨틱 유사도를 계산하는 <strong>AND 구조의 정밀도/속도 향상 기법</strong> 적용</li>
-        <li>독립된 태스크가 병렬로 감지되면 <strong>asyncio 기반 병렬 실행</strong>으로 응답 속도를 극대화</li>
-        <li>선행 결과가 후행 에이전트의 입력으로 필요한 경우 <strong>Dependency Graph를 동적 생성</strong>하여 단계별 워크플로우의 순차 실행을 보장</li>
+        <li><strong>동적 파라미터 추출</strong>: Agent가 질의에서 데이터 타입·대상 엔티티·기간·범위를 스스로 추론해 파라미터를 구성합니다. 메타데이터 Pre-filter로 탐색 공간을 먼저 줄인 뒤, 그 안에서 시맨틱 유사도를 계산하는 AND 구조가 정밀도와 속도를 동시에 확보하는 핵심 설계입니다.</li>
       </ul>
 
       <h4>핵심 구현 포인트 (기술 리더십)</h4>
