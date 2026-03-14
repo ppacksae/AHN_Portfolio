@@ -131,6 +131,28 @@ const portfolioData = [
         <li><strong>Document Intelligence</strong>: 복잡한 테이블과 이미지 내 텍스트를 인식하여 의미 기반 청킹 및 RAG 품질 고도화</li>
       </ul>
 
+      <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">Multi-Agent Tool Calling 설계도</h5>
+      <figure style="margin: 1rem 0;">
+        <img src="./multi-agent-1.png" alt="전체 Agent 구조도" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
+        <figcaption style="font-size:0.85rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">VDB + RDB 하이브리드 방식 및 Master-Sub Agent 계층 구조</figcaption>
+      </figure>
+      <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
+        <li>리포트·뉴스와 같은 비정형 텍스트(VDB)와 재무/가격 등 정형 수치 데이터(RDB)의 극명한 특성 차이로 인한 수치 환각을 방지하기 위해 <strong>단일 RAG 대신 하이브리드 파이프라인</strong> 채택</li>
+        <li>Master Agent가 사용자의 의도를 분석하여 도메인 전문성이 있는 4개의 Sub-Agent(실적, 리포트, 시황 등)로 작업을 분리 할당</li>
+        <li>각 Sub-Agent는 부여된 자신의 도메인 툴에만 접근 가능한 <strong>Tool Isolation(격리)</strong> 패턴을 적용하여 잘못된 소스 참조를 원천 차단</li>
+      </ul>
+
+      <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">동적 파라미터 추출 및 병렬/순차 워크플로우</h5>
+      <figure style="margin: 1rem 0;">
+        <img src="./multi-agent-2.png" alt="Tool Calling 상세 흐름도" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
+        <figcaption style="font-size:0.85rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">동적 Parameter 추출 및 Dependency Graph 기반 실행 구조</figcaption>
+      </figure>
+      <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
+        <li>Agent가 질의에서 데이터 타입, 엔티티, 기간 등을 스스로 추론해 메타데이터 Pre-filter로 탐색 공간을 줄인 뒤 시맨틱 유사도를 계산하는 <strong>AND 구조의 정밀도/속도 향상 기법</strong> 적용</li>
+        <li>독립된 태스크가 병렬로 감지되면 <strong>asyncio 기반 병렬 실행</strong>으로 응답 속도를 극대화</li>
+        <li>선행 결과가 후행 에이전트의 입력으로 필요한 경우 <strong>Dependency Graph를 동적 생성</strong>하여 단계별 워크플로우의 순차 실행을 보장</li>
+      </ul>
+
       <h4>핵심 구현 포인트 (기술 리더십)</h4>
       <table>
         <thead><tr><th>구현 항목</th><th>기술 포인트 및 PM 성과</th></tr></thead>
@@ -138,8 +160,7 @@ const portfolioData = [
           <tr><td>폐쇄망 인프라 설계</td><td>DMZ 중계 서버 기반의 안전한 외부 데이터 수집 및 내부 VDB/RDB 적재 파이프라인 수립</td></tr>
           <tr><td>K8s 자원 관리</td><td>Namespace 분리 및 GPU 자원 공유 설계를 통해 전사 플랫폼과의 간섭 없이 서비스 격리 및 가용성 확보</td></tr>
           <tr><td>RAG 성능 고도화</td><td>지능형 전처리기와 메타데이터 Enrichment를 활용한 금융 도메인 특화 지식 네트워크 구축</td></tr>
-          <tr><td>멀티채널 알림 시스템</td><td>Router 기능을 통한 사용자 설정 기반의 실시간 시그널 전송 프로세스(팝업/메일/SMS) 자동화</td></tr>
-          <tr><td>검증된 보안 대응</td><td>금융사 보안 가이드라인 준수 및 실제 보안 점검 대응을 통한 안정적인 온프레미스 운영 기반 마련</td></tr>
+          <tr><td>신뢰성 확보 설계</td><td>인덱스 의무 표기 및 내부 DB 원문 뷰어 직접 연동으로 Compliance 검토 지원</td></tr>
         </tbody>
       </table>
     `
