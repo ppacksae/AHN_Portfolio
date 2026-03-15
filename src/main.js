@@ -486,9 +486,14 @@ function renderHome() {
       <div class="skills-container-wrapper" style="margin-top: 3rem;">
         <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 1px solid var(--border-color); padding-bottom: 0.8rem; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
           <h2 style="font-size: 1.4rem; font-weight: 600; color: var(--text-main); margin: 0; padding: 0; border: none;">Core Role & Responsibilities</h2>
-          <a href="#portfolio" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center; padding: 0.5rem 1.2rem; background: var(--accent-primary); color: white; border-radius: 8px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3); transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(56, 189, 248, 0.5)'; this.style.backgroundColor='#0284c7';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(56, 189, 248, 0.3)'; this.style.backgroundColor='var(--accent-primary)';">
-            포트폴리오 보기 <span aria-hidden="true">→</span>
-          </a>
+          <div style="display: flex; gap: 0.5rem;">
+            <a href="#portfolio" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center; padding: 0.5rem 1.2rem; background: var(--accent-primary); color: white; border-radius: 8px; font-weight: 600; font-size: 0.95rem; box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3); transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 16px rgba(56, 189, 248, 0.5)'; this.style.backgroundColor='#0284c7';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 12px rgba(56, 189, 248, 0.3)'; this.style.backgroundColor='var(--accent-primary)';">
+              포트폴리오 보기
+            </a>
+            <a href="https://www.notion.so/d0645ef771e083018b7e01647db13739?v=23e45ef771e082cebc1288366db80c8f" target="_blank" rel="noopener noreferrer" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; justify-content: center; padding: 0.5rem 1.2rem; background: var(--bg-secondary); border: 1px solid var(--border-color); color: var(--text-main); border-radius: 8px; font-weight: 600; font-size: 0.95rem; transition: transform 0.2s ease, background-color 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.backgroundColor='rgba(255,255,255,0.1)';" onmouseout="this.style.transform='translateY(0)'; this.style.backgroundColor='transparent';">
+              <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i> 노션 블로그 가기
+            </a>
+          </div>
         </div>
         <div class="skills-container" style="display: flex; flex-direction: column; gap: 1rem;">
           ${coreRolesHtml}
@@ -521,7 +526,12 @@ function renderPortfolio() {
           <h2>Portfolio</h2>
           <p style="color:var(--text-light); font-size:0.85rem; margin-top:0.5rem;">AI PM으로서 리딩한 주요 프로젝트를 소개합니다. 항목을 클릭하면 상세 내용을 확인할 수 있습니다.</p>
         </div>
-        <button onclick="window.printFullPortfolio()" class="btn btn-secondary" style="padding: 0.6rem 1rem;"><i class="fas fa-file-pdf"></i> PDF 다운로드</button>
+        <div style="display: flex; gap: 0.8rem;">
+          <button onclick="window.printFullPortfolio()" class="btn btn-secondary" style="padding: 0.6rem 1rem;"><i class="fas fa-file-pdf"></i> PDF 다운로드</button>
+          <a href="https://www.notion.so/d0645ef771e083018b7e01647db13739?v=23e45ef771e082cebc1288366db80c8f" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.6rem 1rem; border-color: var(--border-color); color: var(--text-main); text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 20px;" onmouseover="this.style.backgroundColor='rgba(255,255,255,0.05)';" onmouseout="this.style.backgroundColor='transparent';">
+            <i class="fas fa-external-link-alt" style="font-size: 0.8rem;"></i> 노션 블로그 가기
+          </a>
+        </div>
       </div>
       <div class="port-list">${cardsHtml}</div>
     </section>
