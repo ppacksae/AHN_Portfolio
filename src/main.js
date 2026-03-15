@@ -452,73 +452,7 @@ const portfolioData = [
 
 
 
-let blogPosts = [];
-let isBlogLoading = true;
-
-async function fetchBlogPosts() {
-  try {
-    const defaultAvatar = 'https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png';
-    // GitHub API로 저장소의 열린 이슈만 가져오기
-    const response = await fetch('https://api.github.com/repos/ppacksae/AHN_Portfolio/issues?state=open');
-    if (!response.ok) throw new Error('Failed to fetch issues');
-
-    const issues = await response.json();
-
-    // Pull Request는 이슈 API에도 나오므로 제외하고, 본인(ppacksae)이 작성한 글만 필터링
-    const onlyIssues = issues.filter(issue => !issue.pull_request && issue.user && issue.user.login === 'ppacksae');
-
-    blogPosts = onlyIssues.map(issue => {
-      const rawBody = issue.body || '내용이 없습니다.';
-      // index.html에 추가된 marked.js가 있으면 마크다운 파싱, 없으면 기본 줄바꿈 처리
-      let contentHtml = rawBody.replace(/\\n/g, '<br>');
-      try {
-        if (typeof window !== 'undefined' && window.marked && window.marked.parse) {
-          contentHtml = window.marked.parse(rawBody);
-        }
-      } catch (e) {
-        console.warn('Marked parsing failed, falling back to plaintext', e);
-      }
-
-      // 요약본 추출 (HTML 태그 및 마크다운 특수기호 완벽 제거)
-      const cleanText = rawBody
-        .replace(/<[^>]*>?/igm, '') // HTML 태그 완전 제거 (단편화된 태그로 인한 DOM 파괴 방지)
-        .replace(/!\[.*?\]\(.*?\)/g, '') // 마크다운 이미지 제거
-        .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1') // 마크다운 링크 텍스트만 남김
-        .replace(/[#*`>_-]/g, '') // 마크다운 특수기호 제거
-        .replace(/\s+/g, ' ') // 줄바꿈 및 연속 공백을 공백 한 칸으로
-        .trim();
-
-      const excerpt = cleanText.length > 150 ? cleanText.substring(0, 150) + '...' : cleanText;
-
-      return {
-        id: issue.number,
-        title: issue.title,
-        date: new Date(issue.created_at).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' }),
-        excerpt: excerpt || '내용을 보려면 클릭하세요.',
-        content: contentHtml,
-        authorImg: issue.user ? issue.user.avatar_url : defaultAvatar,
-        url: issue.html_url
-      };
-    });
-  } catch (error) {
-    console.error('Error fetching GitHub issues:', error);
-    blogPosts = [
-      { id: 0, title: '블로그 글을 불러올 수 없습니다.', date: '', excerpt: '네트워크 상태나 GitHub API 연동을 확인해주세요.', content: '다시 시도해주세요.' }
-    ];
-  } finally {
-    isBlogLoading = false;
-    // 현재 접속해 있는 라우트가 #blog 이거나, mainContent에 blog 섹션이 렌더링되어 있으면 업데이트
-    if (window.location.hash === '#blog' || (document.querySelector('.blog') && !document.querySelector('.blog-detail-title'))) {
-      const mainContent = document.getElementById('main-content');
-      if (mainContent) {
-        mainContent.innerHTML = renderBlog();
-      }
-    }
-  }
-}
-
-// 스크립트 로드 시 바로 글 목록 가져오기 실행
-fetchBlogPosts();
+// 깃허브 블로그 데이터 파이프라인(Legacy) 삭제 후 노션 링크 체제로 단순화
 
 
 function renderHome() {
@@ -645,83 +579,30 @@ function renderPortfolioDetail(projId) {
 
 
 function renderBlog() {
-  if (isBlogLoading) {
-    return `
-      <section class="blog">
-        <h2 style="font-size:1.5rem; margin-bottom:1.5rem; border-bottom:1px solid var(--border-color); padding-bottom:1rem; font-weight:600;">Technical Insights (GitHub Issues Blog)</h2>
-        <div style="text-align:center; padding: 4rem 0; color: var(--text-muted);">
-          <i class="fas fa-spinner fa-spin" style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--accent-primary);"></i>
-          <p style="font-size: 1.1rem;">깃허브(GitHub)에서 최신 블로그 글을 불러오는 중입니다...</p>
-        </div>
-      </section>
-    `;
-  }
-
-  if (blogPosts.length === 0) {
-    return `
-      <section class="blog">
-        <h2 style="font-size:1.5rem; margin-bottom:1.5rem; border-bottom:1px solid var(--border-color); padding-bottom:1rem; font-weight:600;">Technical Insights (GitHub Issues Blog)</h2>
-        <div style="text-align:center; padding: 4rem 0; color: var(--text-muted); background: rgba(255,255,255,0.02); border-radius:12px; border:1px dashed var(--border-color);">
-          <i class="fab fa-markdown" style="font-size: 3rem; margin-bottom: 1rem; color: var(--border-color);"></i>
-          <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">아직 작성된 블로그 글이 없습니다.</p>
-          <a href="https://github.com/ppacksae/AHN_Portfolio/issues/new" target="_blank" rel="noopener noreferrer" class="button" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.5rem; padding:0.6rem 1.2rem; background:var(--accent-primary); color:white; border-radius:8px; font-weight:600; transition:all 0.2s;">
-            <i class="fas fa-pen"></i> 첫 글 작성하기 (GitHub 이동)
-          </a>
-        </div>
-      </section>
-    `;
-  }
-
-  const blogsHtml = blogPosts.map(post => `
-    <a href="javascript:void(0)" class="blog-item panel" onclick="window.openBlogDetail(${post.id})">
-      <div class="date">${post.date}</div>
-      <h3>${post.title}</h3>
-      <p class="excerpt">${post.excerpt}</p>
-    </a>
-  `).join('');
-
   return `
     <section class="blog">
       <div style="display:flex; justify-content:space-between; align-items:flex-end; border-bottom:1px solid var(--border-color); padding-bottom:1rem; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
         <div>
-          <h2 style="font-size:1.5rem; font-weight:600; margin:0; padding:0; border:none;">Technical Insights</h2>
+          <h2 style="font-size:1.5rem; font-weight:600; margin:0; padding:0; border:none;">Tech & PM Blog</h2>
+          <p style="color:var(--text-muted); font-size:0.95rem; margin-top:0.5rem;">최신의 아티클과 인사이트는 노션 블로그에 정기적으로 연재하고 있습니다.</p>
         </div>
-        <a href="https://github.com/ppacksae/AHN_Portfolio/issues/new" target="_blank" rel="noopener noreferrer" class="button" style="text-decoration:none; display:inline-flex; align-items:center; gap:0.4rem; background:var(--bg-secondary); border:1px solid var(--border-color); color:var(--text-main); padding:0.5rem 1rem; border-radius:8px; font-size:0.9rem; font-weight:600; transition:all 0.2s hover:background:rgba(255,255,255,0.1);">
-          <i class="fab fa-github"></i> 깃허브에서 에디터 열기
+      </div>
+      <div class="blog-list" style="margin-top: 2rem;">
+        <a href="https://www.notion.so/d0645ef771e083018b7e01647db13739?v=23e45ef771e082cebc1288366db80c8f" target="_blank" rel="noopener noreferrer" class="blog-item panel" style="display: flex; align-items: center; justify-content: space-between; padding: 2.5rem; border: 1px solid var(--border-color); background: rgba(255,255,255,0.02); transition: all 0.3s ease;">
+          <div>
+            <h3 style="font-size: 1.4rem; color: var(--text-main); margin-bottom: 0.8rem;">📝 방문하기: Ahn Sungjin's Notion Blog</h3>
+            <p style="color: var(--text-muted); font-size: 1.05rem; line-height: 1.6;">생성형 AI, 프로덕트 매니지먼트, UX 심리학 등에 관한 깊이 있는 글들을 노션 워크스페이스에서 깔끔하게 정리하고 공유합니다.</p>
+          </div>
+          <div style="font-size: 2rem; color: var(--accent-primary); margin-left: 2rem;">
+            <i class="fas fa-external-link-alt"></i>
+          </div>
         </a>
       </div>
-      <div class="blog-list">
-        ${blogsHtml}
-      </div>
     </section>
   `;
 }
 
-function renderBlogDetail(postId) {
-  const post = blogPosts.find(p => p.id === postId);
-  if (!post) return renderBlog();
-
-  return `
-    <section class="blog panel" style="padding: 2.5rem; border: none;">
-      <button class="back-btn" onclick="navigateTo('#blog')" style="margin-bottom: 2rem;">← 블로그 목록으로</button>
-
-      <div class="detail-header">
-        <h1 class="blog-detail-title" style="font-size: 2.2rem; font-weight: 700; color: var(--text-main); margin-bottom: 1.5rem; line-height: 1.4;">${post.title}</h1>
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border-color);">
-          <div style="display:flex; align-items:center; gap:0.6rem;">
-            ${post.authorImg ? `<img src="${post.authorImg}" style="width:32px; height:32px; border-radius:50%; border:1px solid var(--border-color);">` : ''}
-            <span class="blog-detail-date" style="color: var(--text-muted); font-size: 0.95rem;">${post.date}</span>
-          </div>
-          ${post.url ? `<a href="${post.url}" target="_blank" rel="noopener noreferrer" style="color:var(--text-muted); font-size:0.9rem; text-decoration:none; display:flex; align-items:center; gap:0.4rem; transition:color 0.2s;" onmouseover="this.style.color='var(--text-main)'" onmouseout="this.style.color='var(--text-muted)'"><i class="fab fa-github"></i> 원문 보기</a>` : ''}
-        </div>
-      </div>
-
-      <article class="blog-detail-body markdown-body" style="line-height: 1.8; font-size: 1.05rem; overflow-wrap: break-word; color: var(--text-main);">
-        ${post.content}
-      </article>
-    </section>
-  `;
-}
+// renderBlogDetail은 노션 연동으로 인해 더 이상 사용하지 않음
 
 function updateNavActive(hash) {
   navLinks.forEach(link => {
@@ -757,14 +638,7 @@ window.openPortfolioDetail = function (projId) {
   }, 10);
 }
 
-window.openBlogDetail = function (postId) {
-  updateNavActive('#blog');
-  mainContent.innerHTML = '';
-  setTimeout(() => {
-    mainContent.innerHTML = renderBlogDetail(postId);
-    window.scrollTo(0, 0); // Viewport를 맨 위로 올림
-  }, 10);
-}
+// openBlogDetail은 노션 외부 링킹으로 대체되었으므로 삭제
 
 window.navigateTo = function (hash) {
   window.location.hash = hash;
