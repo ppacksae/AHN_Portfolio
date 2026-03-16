@@ -1,4 +1,4 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))d(r);new MutationObserver(r=>{for(const e of r)if(e.type==="childList")for(const a of e.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&d(a)}).observe(document,{childList:!0,subtree:!0});function i(r){const e={};return r.integrity&&(e.integrity=r.integrity),r.referrerPolicy&&(e.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?e.credentials="include":r.crossOrigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function d(r){if(r.ep)return;r.ep=!0;const e=i(r);fetch(r.href,e)}})();const l=document.getElementById("main-content"),I=document.querySelectorAll(".nav-links a"),u={"":y,"#home":y,"#portfolio":v,"#blog":D},s={name:"Ahn Sungjin",title:"Generative AI Project Manager",description:"Driving practical innovation by integrating large-scale IT/DX project leadership with cutting-edge Generative AI technologies (vLLM, Multi-Agent, RAG, MCP) to solve complex enterprise challenges.",coreRoles:[{title:"1. Gen AI 서비스 아키텍처 설계 및 시스템 통합 총괄",desc:"",bullets:["엔터프라이즈 환경(On-Premise/Cloud)을 고려한 Gen AI 서비스 아키텍처 수립 및 기술 이행 전략 리딩","K8s 기반 인프라 환경의 기술적 제약사항 조율 및 생성형 AI 파이프라인 전 과정의 이슈 해결 주도","레거시 및 타 시스템과의 연계를 고려한 시스템 통합 아키텍처 설계 및 검토","정형/비정형 데이터 수집부터 RAG 기반 서비스 오픈까지 생성형 AI 데이터 파이프라인 전 과정 총괄"]},{title:"2. Agentic AI 워크플로우 기획 및 프로덕트 생애주기(E2E) 리딩",desc:"",bullets:["제품 목표 설정부터 요구사항 분석, 개발, 출시, 운영까지 PM으로서 AI 프로덕트 생애주기 직접 리딩","LLM 및 Agentic AI에 대한 기술적 이해를 바탕으로 비즈니스 목적에 부합하는 Multi-Agent 워크플로우 기획","단순 챗봇을 넘어선 목적별 서브 에이전트 간 협력 및 Task 자동화 파이프라인 구축 리딩","특정 도메인(금융 등)의 이해를 바탕으로 실질적인 업무 생산성을 제고하는 AI 비즈니스 모델 발굴 및 적용"]},{title:"3. AI 기반 업무 생산성 혁신 및 Full-Cycle 프로토타이핑",desc:"",bullets:["AI를 활용한 실질적인 업무 생산성 제고에 지속적인 관심을 두고, 바이브 코딩 등 다양한 방법론을 실무에 적극 도입 및 시도","AI 바이브 코딩을 활용하여 기획 단계부터 사내 프로젝트 관리(WBS) 시스템을 직접 기획, 구축 및 배포한 경험 보유","제안 단계 및 신규 서비스 기획 시, PoC 데모 페이지 제작부터 서버 구축, 배포까지 전 과정을 직접 수행하여 제품 방향성 및 인사이트 빠른 검증","불확실성이 높은 AI 비즈니스 환경에서 프로토타이핑 툴을 활용한 빠른 아이디어 실체화로 의사결정 가속화"]},{title:"4. LLM & Agentic AI 기반 시스템 구축 및 인프라 아키텍처 총괄",desc:"",bullets:["LLM, Agentic AI 등 최신 기술 이해도를 바탕으로 한 AI 모델 기반 시스템 구축 전 주기 리딩","RAG 파이프라인 설계 및 Tool Calling, 워크플로우 오케스트레이션을 연계한 복합 AI 서비스 구현","대규모 AI 학습·추론을 위한 GPU 인프라 아키텍처 설계 및 vLLM 서빙 최적화를 통한 AI HPC급 환경 구축","성능, 비용, 지연시간을 종합적으로 고려하여 대용량 트래픽 처리가 가능한 인프라 환경 구축 경험 보유"]}]},b=[{id:"proj1",title:"S 증권사 생성형 AI 리서치 포털 구축 (Gen AI Research Assistant)",role:"총괄 AI PM (Architecture Design & Delivery Lead)",period:"2025.07 ~ 진행 중 | GenON AI",tags:["On-Premise","RAG","Multi-Agent","vLLM","K8s","금융권 폐쇄망"],coverColor:"linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4d7a 100%)",coverIcon:"🏦",summary:"금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축함.",challenge:"",solution:"",results:[],techStack:["K8s","RHEL 9.6","DMZ Relay","H200","vLLM","VDB","RDB","Multi-Tool","OOD"],architecture:`
+(function(){const e=document.createElement("link").relList;if(e&&e.supports&&e.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))l(r);new MutationObserver(r=>{for(const t of r)if(t.type==="childList")for(const d of t.addedNodes)d.tagName==="LINK"&&d.rel==="modulepreload"&&l(d)}).observe(document,{childList:!0,subtree:!0});function i(r){const t={};return r.integrity&&(t.integrity=r.integrity),r.referrerPolicy&&(t.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?t.credentials="include":r.crossOrigin==="anonymous"?t.credentials="omit":t.credentials="same-origin",t}function l(r){if(r.ep)return;r.ep=!0;const t=i(r);fetch(r.href,t)}})();const n=document.getElementById("main-content"),I=document.querySelectorAll(".nav-links a"),y={"":v,"#home":v,"#portfolio":u,"#blog":D},s={name:"Ahn Sungjin",title:"Generative AI Project Manager",description:"Driving practical innovation by integrating large-scale IT/DX project leadership with cutting-edge Generative AI technologies (vLLM, Multi-Agent, RAG, MCP) to solve complex enterprise challenges.",coreRoles:[{title:"1. Gen AI 서비스 아키텍처 설계 및 시스템 통합 총괄",desc:"",bullets:["엔터프라이즈 환경(On-Premise/Cloud)을 고려한 Gen AI 서비스 아키텍처 수립 및 기술 이행 전략 리딩","K8s 기반 인프라 환경의 기술적 제약사항 조율 및 생성형 AI 파이프라인 전 과정의 이슈 해결 주도","레거시 및 타 시스템과의 연계를 고려한 시스템 통합 아키텍처 설계 및 검토","정형/비정형 데이터 수집부터 RAG 기반 서비스 오픈까지 생성형 AI 데이터 파이프라인 전 과정 총괄"]},{title:"2. Agentic AI 워크플로우 기획 및 프로덕트 생애주기(E2E) 리딩",desc:"",bullets:["제품 목표 설정부터 요구사항 분석, 개발, 출시, 운영까지 PM으로서 AI 프로덕트 생애주기 직접 리딩","LLM 및 Agentic AI에 대한 기술적 이해를 바탕으로 비즈니스 목적에 부합하는 Multi-Agent 워크플로우 기획","단순 챗봇을 넘어선 목적별 서브 에이전트 간 협력 및 Task 자동화 파이프라인 구축 리딩","특정 도메인(금융 등)의 이해를 바탕으로 실질적인 업무 생산성을 제고하는 AI 비즈니스 모델 발굴 및 적용"]},{title:"3. AI 기반 업무 생산성 혁신 및 Full-Cycle 프로토타이핑",desc:"",bullets:["AI를 활용한 실질적인 업무 생산성 제고에 지속적인 관심을 두고, 바이브 코딩 등 다양한 방법론을 실무에 적극 도입 및 시도","AI 바이브 코딩을 활용하여 기획 단계부터 사내 프로젝트 관리(WBS) 시스템을 직접 기획, 구축 및 배포한 경험 보유","제안 단계 및 신규 서비스 기획 시, PoC 데모 페이지 제작부터 서버 구축, 배포까지 전 과정을 직접 수행하여 제품 방향성 및 인사이트 빠른 검증","불확실성이 높은 AI 비즈니스 환경에서 프로토타이핑 툴을 활용한 빠른 아이디어 실체화로 의사결정 가속화"]},{title:"4. LLM & Agentic AI 기반 시스템 구축 및 인프라 아키텍처 총괄",desc:"",bullets:["LLM, Agentic AI 등 최신 기술 이해도를 바탕으로 한 AI 모델 기반 시스템 구축 전 주기 리딩","RAG 파이프라인 설계 및 Tool Calling, 워크플로우 오케스트레이션을 연계한 복합 AI 서비스 구현","대규모 AI 학습·추론을 위한 GPU 인프라 아키텍처 설계 및 vLLM 서빙 최적화를 통한 AI HPC급 환경 구축","성능, 비용, 지연시간을 종합적으로 고려하여 대용량 트래픽 처리가 가능한 인프라 환경 구축 경험 보유"]}]},b=[{id:"proj1",title:"S 증권사 생성형 AI 리서치 포털 구축 (Gen AI Research Assistant)",role:"총괄 AI PM (Architecture Design & Delivery Lead)",period:"2025.07 ~ 진행 중 | GenON AI",tags:["On-Premise","RAG","Multi-Agent","vLLM","K8s","금융권 폐쇄망"],coverColor:"linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4d7a 100%)",coverIcon:"🏦",summary:"금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축함.",challenge:"",solution:"",results:[],techStack:["K8s","RHEL 9.6","DMZ Relay","H200","vLLM","VDB","RDB","Multi-Tool","OOD"],architecture:`
       <div class="panel" style="background:#1e293b; padding:1.5rem; border-radius:12px; margin-bottom:3rem; border:1px solid #334155;">
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; align-items:stretch;">
           
@@ -180,22 +180,204 @@
           <li><strong>동적 파라미터 추출</strong>: Agent가 질의에서 데이터 타입·대상 엔티티·기간·범위를 스스로 추론해 파라미터를 구성합니다. 메타데이터 Pre-filter로 탐색 공간을 먼저 줄인 뒤, 그 안에서 시맨틱 유사도를 계산하는 AND 구조가 정밀도와 속도를 동시에 확보하는 핵심 설계입니다.</li>
         </ul>
       </div>
-    `},{id:"proj2",title:"미래에셋증권 My-AI Assistant 고도화 (Agentic Workflow)",role:"프로젝트 PM",period:"2025 | Genon AI",tags:["Multi-Agent","MCP","RAG","LLMOps","A2A"],coverColor:"linear-gradient(135deg, #0f172a 0%, #3b1f5e 50%, #1a0a3d 100%)",coverIcon:"📈",summary:"기존 도입된 단일 AI Assistant 모델의 검색 품질을 높이고, 상황별 최적화된 목적별 AI 서브 에이전트를 모듈화하여 연계한 Agentic 시스템 고도화.",challenge:"단일 LLM 모델이 모든 금융 도메인의 복합 질문(실적 분석, 리포트 요약, 시황 해설 등)에 동시에 답변하는 구조는 답변 정확도와 환각(Hallucination) 문제에 취약합니다. 역할이 뚜렷한 전문 에이전트 체계로의 전환이 필요했습니다.",solution:"Biz Agent를 중앙 라우터로 두고 실적 분석, 리포트 조회, 시황 브리핑 등 목적별 서브 에이전트가 협업하는 MCP(A2A) 기반 Multi-Agent 워크플로우를 기획했습니다. 메타데이터/키워드를 결합한 하이브리드 RAG와 의미 기반 Semantic Chunking을 도입하여 컨텍스트 유실(Lost in the Middle) 문제를 최소화했습니다.",results:["에이전트 간 역할 분담으로 시스템 유지보수성 대폭 향상","복합 쿼리 오답률 기존 대비 40% 이상 개선","Multi-turn 질의응답 최적화 및 답변 근거 소스 하이라이팅 UX 구현"],techStack:["LangGraph","MCP (A2A)","RAG","Semantic Chunking","Tool Calling"],architecture:`
-      <h4 style="color: var(--accent-primary); margin: 1rem 0 0.5rem;">Multi-Agent 구성도 (요약)</h4>
-      <table style="width:100%; border-collapse: collapse; margin-bottom: 1.5rem;">
-        <thead>
-          <tr style="background: rgba(255,255,255,0.05);">
-            <th style="padding: 0.5rem 1rem; text-align:left; border-bottom: 1px solid var(--border-color);">에이전트</th>
-            <th style="padding: 0.5rem 1rem; text-align:left; border-bottom: 1px solid var(--border-color);">역할</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">Biz Agent (Router)</td><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">사용자 의도 분류 및 서브 에이전트 Task 분배</td></tr>
-          <tr><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">실적 분석 Agent</td><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">SQL Agent 기반 정형 데이터 실시간 조회</td></tr>
-          <tr><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">리포트 분석 Agent</td><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">VDB 기반 PDF 리포트 RAG 검색 및 요약</td></tr>
-          <tr><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">Formatter Agent</td><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">결과 취합 및 Markdown 포맷 출력</td></tr>
-        </tbody>
-      </table>
+    `},{id:"proj2",title:"미래에셋증권 전사 통합 AI 어시스턴트 고도화",role:"AI PM 총괄",period:"2025.07 ~ 2025.10 | 미래에셋증권",tags:["AI PM","Multi-Agent","RAG","Text-to-SQL","하이브리드 검색","MSA","GenOS","금융AI"],coverColor:"linear-gradient(135deg, #0f172a 0%, #3b1f5e 50%, #1a0a3d 100%)",coverIcon:"📈",summary:"부서별로 분산된 챗봇 구조의 한계를 극복하고, 멀티턴 대화 · 하이브리드 검색 · Multi-Agent 구조를 도입하여 전사 정보 허브로 확장한 AI 어시스턴트 고도화 프로젝트를 PM으로서 총괄 리딩함.",challenge:"",solution:"",results:[],techStack:["Kubernetes","vLLM","Weaviate","MariaDB","GenOS","Multi-Agent","Text-to-SQL"],architecture:`
+      <div class="panel" style="background:#1e293b; padding:1.5rem; border-radius:12px; margin-bottom:3rem; border:1px solid #334155;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; align-items:stretch;">
+          <!-- 1. Problem -->
+          <div>
+            <h4 style="color:var(--accent-primary); margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(56,189,248,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">1</span> Problem</h4>
+            <ul style="margin:0; padding-left:1.2rem; color:#e2e8f0; font-size:0.95rem; line-height:1.7;">
+              <li>단일 턴 응답 구조로 인한 맥락 단절</li>
+              <li>키워드 한계를 넘지 못한 검색 정밀도 부족</li>
+              <li>HR/사규/IT 등 부서별 분산 챗봇 구조</li>
+            </ul>
+          </div>
+          <!-- 2. Solution -->
+          <div>
+            <h4 style="color:#10b981; margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(16,185,129,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">2</span> Solution</h4>
+            <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); padding:1rem; border-radius:8px; height:calc(100% - 3rem); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+              <p style="margin:0; color:#d1fae5; font-weight:600; font-size:1rem;">전사 통합 AI 정보 허브화</p>
+              <p style="margin:0.5rem 0 0; color:#10b981; font-size:0.85rem;">(멀티턴, 횡단 검색, Multi-Agent)</p>
+            </div>
+          </div>
+          <!-- 3. Architecture -->
+          <div>
+            <h4 style="color:#a855f7; margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(168,85,247,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">3</span> Architecture</h4>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">MSA & Kubernetes</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">vLLM Serving</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">하이브리드 검색 (Weaviate)</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">Text-to-SQL (MariaDB)</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">GenOS 플랫폼</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:3rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:0.5rem;">PM 주도 핵심 의사결정 6가지</h4>
+        <p style="color:var(--text-muted); font-size:1rem; margin-bottom:1.5rem;">기술 구조의 설계 의도를 이해하고 결정에 직접 개입하여 프로젝트를 이끎.</p>
+        <table style="width:100%; text-align:left; border-collapse:collapse;">
+          <thead>
+            <tr style="border-bottom:2px solid #334155;">
+              <th style="padding:1rem; color:#94a3b8; font-weight:600; width:20%;">의사결정 영역</th>
+              <th style="padding:1rem; color:#94a3b8; font-weight:600; width:45%;">결정 내용</th>
+              <th style="padding:1rem; color:#94a3b8; font-weight:600; width:35%;">목적 및 효과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">에이전트 분화</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">통합 · 실적 · 리서치 3개 도메인별 역할 격리</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">도메인 특화 질의 처리 및 충돌 최소화</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">검색 전략</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">BM25 + 벡터 + 메타필터 3단 구조</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">단순 키워드 및 의미 기반 검색 정밀도 동시 확보</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">데이터 신뢰성</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">3단계 승인 프로세스 적용</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">검증된 콘텐츠만 검색에 노출하여 환각 방지</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">Text-to-SQL 안정성</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">실패 시 최대 3회 재시도 루프 구성</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">평가 루프를 통한 쿼리 생성 품질 확보</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">동의어 사전 운영</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">로그 기반 필수/선택 동의어 지속 업데이트</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">금융 도메인 특화 검색 품질 장기 유지</td>
+            </tr>
+            <tr>
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">출시 전략</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">플랫폼 → 프로토타입 → 통합 5단계 마일스톤</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">기존 시스템 연속성 보장 및 안정적 고도화</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="text-align:center; padding:1.5rem; background:rgba(255,255,255,0.03); border:1px dashed var(--border-color); border-radius:8px; color:white; font-weight:500; font-size:1.05rem; margin-top:1.5rem;">
+          <span style="color:#94a3b8; font-size:0.9rem; display:block; margin-bottom:0.5rem; font-weight:normal;">AI PM의 확장된 역할 경험</span>
+          단순한 일정 관리를 넘어 기술 구조의 설계 의도를 이해하고 비즈니스 목표와 성공적으로 연결함
+        </div>
+      </div>
+
+      <div style="margin-bottom:3rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem;">핵심 기능 설계 5가지</h4>
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          <div style="display:flex; background:#1e293b; border:1px solid #334155; border-radius:8px; overflow:hidden;">
+            <div style="background:#0284c7; width:60px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:700;">01</div>
+            <div style="padding:1.5rem; flex:1;">
+              <div style="color:white; font-weight:600; font-size:1.1rem; margin-bottom:0.5rem;">멀티턴 대화</div>
+              <div style="color:#bae6fd; font-size:0.95rem; margin-bottom:0.5rem;">Memory + AgentFlow — 이전 컨텍스트 유지 · 의도 변화 감지 · 명확화 질문 자동 유도</div>
+              <div style="color:#94a3b8; font-size:0.9rem;">연속 질문 자연스럽게 처리 · 대화 흐름 끊김 없음</div>
+            </div>
+          </div>
+          
+          <div style="display:flex; background:#1e293b; border:1px solid #334155; border-radius:8px; overflow:hidden;">
+            <div style="background:#0284c7; width:60px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:700;">02</div>
+            <div style="padding:1.5rem; flex:1;">
+              <div style="color:white; font-weight:600; font-size:1.1rem; margin-bottom:0.5rem;">하이브리드 검색</div>
+              <div style="color:#bae6fd; font-size:0.95rem; margin-bottom:0.5rem;">BM25(키워드) + 벡터(의미) + 메타데이터 AND 필터 — 한글 형태소 분석기 + 금융 동의어 사전</div>
+              <div style="color:#94a3b8; font-size:0.9rem;">정밀성과 유연성 동시 확보 · 도메인 특화 표현 정규화</div>
+            </div>
+          </div>
+
+          <div style="display:flex; background:#1e293b; border:1px solid #334155; border-radius:8px; overflow:hidden;">
+            <div style="background:#0284c7; width:60px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:700;">03</div>
+            <div style="padding:1.5rem; flex:1;">
+              <div style="color:white; font-weight:600; font-size:1.1rem; margin-bottom:0.5rem;">통합 Agent</div>
+              <div style="color:#bae6fd; font-size:0.95rem; margin-bottom:0.5rem;">전사 지식 DB 단일 통합 · 도메인 자동 인식 · 멀티 문서 횡단 검색</div>
+              <div style="color:#94a3b8; font-size:0.9rem;">하나의 질문으로 HR · 사규 · IT 등 복합 도메인 통합 응답</div>
+            </div>
+          </div>
+
+          <div style="display:flex; background:#1e293b; border:1px solid #334155; border-radius:8px; overflow:hidden;">
+            <div style="background:#0284c7; width:60px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:700;">04</div>
+            <div style="padding:1.5rem; flex:1;">
+              <div style="color:white; font-weight:600; font-size:1.1rem; margin-bottom:0.5rem;">실적 Agent (Text-to-SQL)</div>
+              <div style="color:#bae6fd; font-size:0.95rem; margin-bottom:0.5rem;">CSV/XLS 업로드 → DB 자동 생성 → 자연어 → SQL 변환·실행 · 실패 시 최대 3회 재시도</div>
+              <div style="color:#94a3b8; font-size:0.9rem;">비개발자도 즉시 데이터 분석 · 반복 분석 업무 자동화</div>
+            </div>
+          </div>
+
+          <div style="display:flex; background:#1e293b; border:1px solid #334155; border-radius:8px; overflow:hidden;">
+            <div style="background:#0284c7; width:60px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:700;">05</div>
+            <div style="padding:1.5rem; flex:1;">
+              <div style="color:white; font-weight:600; font-size:1.1rem; margin-bottom:0.5rem;">리서치 Agent</div>
+              <div style="color:#bae6fd; font-size:0.95rem; margin-bottom:0.5rem;">외부 금융 API 실시간 수집 · 종목 분석 리포트 자동 생성 · 포트폴리오 조정 의견 제공</div>
+              <div style="color:#94a3b8; font-size:0.9rem;">단순 질의 / 리서치 질의 자동 분기 · 파편화된 투자 정보 통합</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem;">기술 스택 레이어</h4>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1.5rem;">
+          <div style="background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155;">
+            <div style="color:#94a3b8; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">인프라</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">Kubernetes · Istio<br>Docker · MSA</div>
+          </div>
+          <div style="background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155;">
+            <div style="color:#94a3b8; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">LLM 서빙</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">LLM Serving Pod<br>Embedding Serving · vLLM</div>
+          </div>
+          <div style="background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155;">
+            <div style="color:#94a3b8; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">검색</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">Weaviate VDB · BM25<br>하이브리드 검색 · 형태소 분석기</div>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px; border:1px solid #0369a1;">
+            <div style="color:#bae6fd; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">데이터</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">MariaDB · MongoDB<br>Redis · RabbitMQ</div>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px; border:1px solid #0369a1;">
+            <div style="color:#bae6fd; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">에이전트</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">Multi-Agent (통합/실적/리서치)<br>Text-to-SQL · RAG · MCP</div>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px; border:1px solid #0369a1;">
+            <div style="color:#bae6fd; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">플랫폼</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">GenOS · Agent Studio<br>Knowledge / Plug-in Studio</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:3rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem;">주요 활용 사례</h4>
+        <table style="width:100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background: rgba(255,255,255,0.05);">
+              <th style="padding: 1rem; text-align:left; border-bottom: 2px solid #334155; color:#94a3b8;">사용 장면</th>
+              <th style="padding: 1rem; text-align:left; border-bottom: 2px solid #334155; color:#94a3b8;">질의 예시</th>
+              <th style="padding: 1rem; text-align:left; border-bottom: 2px solid #334155; color:#94a3b8;">효과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1rem; color:white; font-weight:500;">WM 상담사 실시간 대응</td>
+              <td style="padding:1rem; color:#cbd5e1; font-size:0.95rem;">"ISA 중도해지 시 세금이 얼마야?"<br>"ELS 가입 필수 서류가 뭐야?"</td>
+              <td style="padding:1rem; color:#10b981; font-weight:500;">통화 중 즉시 조회 · 상담 처리 시간 단축</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1rem; color:white; font-weight:500;">애널리스트 종목 분석</td>
+              <td style="padding:1rem; color:#cbd5e1; font-size:0.95rem;">"X 종목 투자 보고서 작성해줘"</td>
+              <td style="padding:1rem; color:#10b981; font-weight:500;">실적·재무·뉴스 자동 수집 → 리포트 초안 생성</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1rem; color:white; font-weight:500;">지점 실적 데이터 분석</td>
+              <td style="padding:1rem; color:#cbd5e1; font-size:0.95rem;">"최근 3개월 WM 수수료 수익 지점별 비교"</td>
+              <td style="padding:1rem; color:#10b981; font-weight:500;">비개발자도 자연어로 즉시 데이터 분석 가능</td>
+            </tr>
+            <tr>
+              <td style="padding:1rem; color:white; font-weight:500;">전사 복합 업무 문의</td>
+              <td style="padding:1rem; color:#cbd5e1; font-size:0.95rem;">"육아휴직하면 IT 시스템 접근 권한은 어떻게 돼?"</td>
+              <td style="padding:1rem; color:#10b981; font-weight:500;">HR + IT 도메인 동시 횡단 검색 → 통합 응답</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     `},{id:"proj3",title:"WBS 기반 사내 통합 프로젝트 관리 시스템 구축",role:"기획 및 풀스택 프론트/백엔드 완전 개발",period:"2025.12 ~ 2026.03 | 사내 프로젝트",tags:["Vibe Coding","React 19","Node.js","PostgreSQL","Docker","풀스택"],coverColor:"linear-gradient(135deg, #0f172a 0%, #0a2e1a 50%, #1a3d22 100%)",coverIcon:"⚙️",summary:"AI 스타트업 내부에서 사용하는 프로젝트 WBS(Work Breakdown Structure) 관리 시스템과 AI PM 온보딩 가이드 대시보드를 직접 기획하고 Vibe Coding 방식으로 개발하여 실무 적용한 웹 애플리케이션. 기존 엔셀 기반으로 관리하던 프로젝트 일정 및 산출물 추적 업무를 웹 애플리케이션으로 전환.",challenge:"다수의 AI 프로젝트가 동시에 진행되는 환경에서 각 PM별 일정 및 산출물 관리 방식이 파편화되어 전사 현황 파악과 리소스 배분이 어려웠습니다. 엔터프라이즈급 툴은 실시간성과 팀 매니지먼트 요구에 반응하기 어렵고, 신규 PM 온보딩에도 많은 시간이 소요되었습니다.",solution:"Vibe Coding(코딩 어시스턴트와의 긴밀한 AI 협업)으로 기획부터 코드 완성까지 직접 주도하여 제작했습니다. 프론트(React 19 SPA)부터 백엔드(Express REST API), PostgreSQL DB 설계, Docker Compose 기반 배포까지 전 영역을 단독 담당하였습니다. 자체 집필한 AI PM 방법론 가이드를 시스템 내에 탑재하여 지식 자산화를 완성했습니다.",results:["사내 실제 도입: 팀 내 프로젝트 일정 관리 도구로 실무 적용, 엑셀 기반 업무 대체","풀스택 단독 개발: React SPA + REST API + PostgreSQL DB + Docker/Nginx 인프라 전 영역 직접 담당","Vibe Coding 방식으로 기획·요구사항 정의부터 코드 완성까지 AI와 협업하여 주도적으로 전체 사이클 경험","컨테이너 기반 배포: Docker Compose로 DB·백엔드·프론트엔드 3개 서비스를 한 번에 구동, 사내 서버에 직접 배포 운영"],techStack:["React 19 (Vite)","React Router DOM v7","Node.js / Express.js","PostgreSQL 16","Docker + Docker Compose","Nginx","JWT + Google OAuth 2.0","XLSX / jsPDF"],architecture:`
       <h4>시스템 아키텍처</h4>
       <table>
@@ -332,10 +514,10 @@
           <tr><td>품평 워크플로우</td><td>디자인 검토 → 어노테이션(수정 지시) → 반영 확인까지 일원화된 VR 내 의사결정 프로세스</td></tr>
         </tbody>
       </table>
-    `}];function y(){const o=s.coreRoles.map(t=>{const i=t.bullets?`<ul>${t.bullets.map(d=>`<li style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem;">${d}</li>`).join("")}</ul>`:"";return`
+    `}];function v(){const o=s.coreRoles.map(e=>{const i=e.bullets?`<ul>${e.bullets.map(l=>`<li style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem;">${l}</li>`).join("")}</ul>`:"";return`
       <div class="skill-category">
-        <h3>${t.title}</h3>
-        ${t.desc?`<p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">${t.desc}</p>`:""}
+        <h3>${e.title}</h3>
+        ${e.desc?`<p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">${e.desc}</p>`:""}
         ${i}
       </div>
     `}).join("");return`
@@ -368,7 +550,7 @@
         </div>
       </div>
     </section>
-  `}function v(){return`
+  `}function u(){return`
     <section class="portfolio panel">
       <div class="portfolio-header">
         <div>
@@ -382,28 +564,28 @@
           </a>
         </div>
       </div>
-      <div class="port-list">${b.map(t=>{const i=t.tags.map(d=>`<span class="port-tag">${d}</span>`).join("");return`
-      <article class="port-card" onclick="openPortfolioDetail('${t.id}')">
+      <div class="port-list">${b.map(e=>{const i=e.tags.map(l=>`<span class="port-tag">${l}</span>`).join("");return`
+      <article class="port-card" onclick="openPortfolioDetail('${e.id}')">
         <div class="port-card-body">
           <div class="port-tags">${i}</div>
-          <h3 class="port-card-title">${t.title}</h3>
-          <p class="port-card-role">${t.role} &nbsp;|&nbsp; ${t.period}</p>
-          <p class="port-card-summary">${t.summary}</p>
+          <h3 class="port-card-title">${e.title}</h3>
+          <p class="port-card-role">${e.role} &nbsp;|&nbsp; ${e.period}</p>
+          <p class="port-card-summary">${e.summary}</p>
           <span class="port-read-more">자세히 보기 →</span>
         </div>
       </article>
     `}).join("")}</div>
     </section>
-  `}function A(o){const t=b.find(e=>e.id===o);if(!t)return v();const i=t.tags.map(e=>`<span class="port-tag">${e}</span>`).join(""),d=t.results.map(e=>`<li>${e}</li>`).join(""),r=t.techStack.map(e=>`<code class="tech-chip">${e}</code>`).join(" ");return`
+  `}function x(o){const e=b.find(t=>t.id===o);if(!e)return u();const i=e.tags.map(t=>`<span class="port-tag">${t}</span>`).join(""),l=e.results.map(t=>`<li>${t}</li>`).join(""),r=e.techStack.map(t=>`<code class="tech-chip">${t}</code>`).join(" ");return`
     <section class="portfolio panel">
       <button class="back-btn" onclick="navigateTo('#portfolio')">← 포트폴리오 목록으로</button>
 
       <div class="detail-header">
-        <h1 class="detail-title">${t.title}</h1>
+        <h1 class="detail-title">${e.title}</h1>
         <div class="detail-meta-row">
-          <span class="detail-meta-item"><strong>역할</strong> ${t.role}</span>
+          <span class="detail-meta-item"><strong>역할</strong> ${e.role}</span>
           <span class="detail-meta-sep">·</span>
-          <span class="detail-meta-item"><strong>기간</strong> ${t.period}</span>
+          <span class="detail-meta-item"><strong>기간</strong> ${e.period}</span>
         </div>
         <div class="port-tags" style="margin-top: 0.8rem;">${i}</div>
       </div>
@@ -412,14 +594,14 @@
 
       <article class="detail-article">
 
-        ${t.summary?`<h2>프로젝트 개요</h2><p>${t.summary}</p>`:""}
-        ${t.challenge?`<h2>도전 과제 (Challenge)</h2><p>${t.challenge}</p>`:""}
-        ${t.solution?`<h2>접근 방식 (Solution &amp; Architecture)</h2><p>${t.solution}</p>`:""}
+        ${e.summary?`<h2>프로젝트 개요</h2><p>${e.summary}</p>`:""}
+        ${e.challenge?`<h2>도전 과제 (Challenge)</h2><p>${e.challenge}</p>`:""}
+        ${e.solution?`<h2>접근 방식 (Solution &amp; Architecture)</h2><p>${e.solution}</p>`:""}
         
-        ${t.architecture}
+        ${e.architecture}
 
-        ${t.results&&t.results.length>0?`<h2>주요 성과 (Results)</h2><ul class="detail-results">${d}</ul>`:""}
-        ${t.techStack&&t.techStack.length>0?`<h2>기술 스택</h2><div class="tech-stack">${r}</div>`:""}
+        ${e.results&&e.results.length>0?`<h2>주요 성과 (Results)</h2><ul class="detail-results">${l}</ul>`:""}
+        ${e.techStack&&e.techStack.length>0?`<h2>기술 스택</h2><div class="tech-stack">${r}</div>`:""}
 
       </article>
     </section>
@@ -443,7 +625,7 @@
         </a>
       </div>
     </section>
-  `}function x(o){I.forEach(t=>{t.classList.remove("active"),(t.getAttribute("href")===o||o===""&&t.getAttribute("href")==="#home")&&t.classList.add("active")})}function f(){const o=window.location.hash,t=u[o]||u[""];x(o),l.innerHTML="";const i=t();setTimeout(()=>{l.innerHTML=i},10)}window.openPortfolioDetail=function(o){x("#portfolio"),l.innerHTML="",setTimeout(()=>{l.innerHTML=A(o),window.scrollTo(0,0)},10)};window.navigateTo=function(o){window.location.hash=o,f()};window.printFullPortfolio=function(){const o=window.scrollY,t=l.innerHTML,i=`
+  `}function w(o){I.forEach(e=>{e.classList.remove("active"),(e.getAttribute("href")===o||o===""&&e.getAttribute("href")==="#home")&&e.classList.add("active")})}function h(){const o=window.location.hash,e=y[o]||y[""];w(o),n.innerHTML="";const i=e();setTimeout(()=>{n.innerHTML=i},10)}window.openPortfolioDetail=function(o){w("#portfolio"),n.innerHTML="",setTimeout(()=>{n.innerHTML=x(o),window.scrollTo(0,0)},10)};window.navigateTo=function(o){window.location.hash=o,h()};window.printFullPortfolio=function(){const o=window.scrollY,e=n.innerHTML,i=`
     <div class="pdf-cover" style="height: 277mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; box-sizing: border-box; overflow: hidden;">
       <h1 style="font-size: 3.5rem; margin-bottom: 0.8rem; letter-spacing: 3px; color: #38bdf8; font-weight: 700;">Portfolio</h1>
       <div style="width: 60px; height: 3px; background: #38bdf8; margin: 1.5rem auto; border-radius: 2px;"></div>
@@ -451,10 +633,10 @@
       <h3 style="font-size: 1.3rem; color: #a1a1aa; font-weight: 400; letter-spacing: 1px;">AI Project Manager</h3>
     </div>
     <div class="html2pdf__page-break"></div>
-  `,d=s.coreRoles.map(n=>{const h=n.bullets?`<ul style="margin: 0 0 0 1rem; padding: 0; list-style-type: disc;">${n.bullets.map(c=>`<li style="color: #ffffff; font-size: 0.88rem; line-height: 1.65; margin-bottom: 0.3rem;">${c}</li>`).join("")}</ul>`:"";return`
+  `,l=s.coreRoles.map(a=>{const f=a.bullets?`<ul style="margin: 0 0 0 1rem; padding: 0; list-style-type: disc;">${a.bullets.map(g=>`<li style="color: #ffffff; font-size: 0.88rem; line-height: 1.65; margin-bottom: 0.3rem;">${g}</li>`).join("")}</ul>`:"";return`
       <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 14px 16px; break-inside: avoid;">
-        <h4 style="font-size: 0.95rem; color: #38bdf8; margin: 0 0 0.6rem 0; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(56,189,248,0.2);">${n.title}</h4>
-        ${h}
+        <h4 style="font-size: 0.95rem; color: #38bdf8; margin: 0 0 0.6rem 0; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(56,189,248,0.2);">${a.title}</h4>
+        ${f}
       </div>
     `}).join(""),r=`
     <div class="pdf-competencies" style="height: 277mm; padding: 30px 15px; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column;">
@@ -463,11 +645,11 @@
         ${s.description}
       </p>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; flex: 1;">
-        ${d}
+        ${l}
       </div>
     </div>
     <div class="html2pdf__page-break"></div>
-  `,e=b.map((n,h)=>{let c=A(n.id);return c=c.replace(/<button class="back-btn".*?<\/button>/,""),h<b.length-1&&(c+='<div class="html2pdf__page-break"></div>'),c}).join(""),a=document.querySelector('button[onclick="window.printFullPortfolio()"]');a&&a.innerHTML,a&&(a.innerHTML='<i class="fas fa-spinner fa-spin"></i> 이미지 로딩 중...',a.disabled=!0);const w=`
+  `,t=b.map((a,f)=>{let g=x(a.id);return g=g.replace(/<button class="back-btn".*?<\/button>/,""),f<b.length-1&&(g+='<div class="html2pdf__page-break"></div>'),g}).join(""),d=document.querySelector('button[onclick="window.printFullPortfolio()"]');d&&d.innerHTML,d&&(d.innerHTML='<i class="fas fa-spinner fa-spin"></i> 이미지 로딩 중...',d.disabled=!0);const A=`
     <style>
       .pdf-wrapper { background: #0a0a0a !important; padding: 0 !important; margin: 0 !important; }
       .pdf-wrapper .detail-article { max-width: 100% !important; width: 100% !important; margin: 0 !important; padding: 0 15px !important; }
@@ -481,4 +663,4 @@
       .pdf-wrapper th { color: #ffffff !important; }
       .pdf-wrapper .detail-header h1 { color: #ffffff !important; }
     </style>
-  `;l.innerHTML=w+'<div class="pdf-wrapper">'+i+r+e+"</div>",window.scrollTo(0,0);const P={margin:0,filename:"Ahn_Sungjin_Portfolio.pdf",image:{type:"jpeg",quality:.98},html2canvas:{scale:2,useCORS:!0,logging:!1,backgroundColor:"#0a0a0a"},jsPDF:{unit:"mm",format:"a4",orientation:"portrait"}},g=Array.from(l.querySelectorAll("img"));let m=0;const p=()=>{a&&(a.innerHTML='<i class="fas fa-spinner fa-spin"></i> PDF 변환 중...'),setTimeout(()=>{window.html2pdf().set(P).from(l).save().then(()=>{l.innerHTML=t,window.scrollTo(0,o)}).catch(n=>{console.error("PDF 생성 에러:",n),l.innerHTML=t,window.scrollTo(0,o),alert("PDF 생성 중 오류가 발생했습니다.")})},600)};g.length===0?p():g.forEach(n=>{n.complete?(m++,m===g.length&&p()):(n.onload=()=>{m++,m===g.length&&p()},n.onerror=()=>{m++,m===g.length&&p()})})};window.addEventListener("hashchange",f);window.addEventListener("DOMContentLoaded",f);
+  `;n.innerHTML=A+'<div class="pdf-wrapper">'+i+r+t+"</div>",window.scrollTo(0,0);const P={margin:0,filename:"Ahn_Sungjin_Portfolio.pdf",image:{type:"jpeg",quality:.98},html2canvas:{scale:2,useCORS:!0,logging:!1,backgroundColor:"#0a0a0a"},jsPDF:{unit:"mm",format:"a4",orientation:"portrait"}},c=Array.from(n.querySelectorAll("img"));let m=0;const p=()=>{d&&(d.innerHTML='<i class="fas fa-spinner fa-spin"></i> PDF 변환 중...'),setTimeout(()=>{window.html2pdf().set(P).from(n).save().then(()=>{n.innerHTML=e,window.scrollTo(0,o)}).catch(a=>{console.error("PDF 생성 에러:",a),n.innerHTML=e,window.scrollTo(0,o),alert("PDF 생성 중 오류가 발생했습니다.")})},600)};c.length===0?p():c.forEach(a=>{a.complete?(m++,m===c.length&&p()):(a.onload=()=>{m++,m===c.length&&p()},a.onerror=()=>{m++,m===c.length&&p()})})};window.addEventListener("hashchange",h);window.addEventListener("DOMContentLoaded",h);
