@@ -259,37 +259,215 @@ const portfolioData = [
   },
   {
     id: "proj2",
-    title: "미래에셋증권 My-AI Assistant 고도화 (Agentic Workflow)",
-    role: "프로젝트 PM",
-    period: "2025 | Genon AI",
-    tags: ["Multi-Agent", "MCP", "RAG", "LLMOps", "A2A"],
+    title: "미래에셋증권 전사 통합 AI 어시스턴트 고도화",
+    role: "AI PM 총괄",
+    period: "2025.07 ~ 2025.10 | 미래에셋증권",
+    tags: ["AI PM", "Multi-Agent", "RAG", "Text-to-SQL", "하이브리드 검색", "MSA", "GenOS", "금융AI"],
     coverColor: "linear-gradient(135deg, #0f172a 0%, #3b1f5e 50%, #1a0a3d 100%)",
     coverIcon: "📈",
-    summary: "기존 도입된 단일 AI Assistant 모델의 검색 품질을 높이고, 상황별 최적화된 목적별 AI 서브 에이전트를 모듈화하여 연계한 Agentic 시스템 고도화.",
-    challenge: "단일 LLM 모델이 모든 금융 도메인의 복합 질문(실적 분석, 리포트 요약, 시황 해설 등)에 동시에 답변하는 구조는 답변 정확도와 환각(Hallucination) 문제에 취약합니다. 역할이 뚜렷한 전문 에이전트 체계로의 전환이 필요했습니다.",
-    solution: "Biz Agent를 중앙 라우터로 두고 실적 분석, 리포트 조회, 시황 브리핑 등 목적별 서브 에이전트가 협업하는 MCP(A2A) 기반 Multi-Agent 워크플로우를 기획했습니다. 메타데이터/키워드를 결합한 하이브리드 RAG와 의미 기반 Semantic Chunking을 도입하여 컨텍스트 유실(Lost in the Middle) 문제를 최소화했습니다.",
-    results: [
-      "에이전트 간 역할 분담으로 시스템 유지보수성 대폭 향상",
-      "복합 쿼리 오답률 기존 대비 40% 이상 개선",
-      "Multi-turn 질의응답 최적화 및 답변 근거 소스 하이라이팅 UX 구현"
-    ],
-    techStack: ["LangGraph", "MCP (A2A)", "RAG", "Semantic Chunking", "Tool Calling"],
+    summary: "부서별로 분산된 챗봇 구조의 한계를 극복하고, 멀티턴 대화 · 하이브리드 검색 · Multi-Agent 구조를 도입하여 전사 정보 허브로 확장한 AI 어시스턴트 고도화 프로젝트를 PM으로서 총괄 리딩함.",
+    challenge: "",
+    solution: "",
+    results: [],
+    techStack: ["Kubernetes", "vLLM", "Weaviate", "MariaDB", "GenOS", "Multi-Agent", "Text-to-SQL"],
     architecture: `
-      <h4 style="color: var(--accent-primary); margin: 1rem 0 0.5rem;">Multi-Agent 구성도 (요약)</h4>
-      <table style="width:100%; border-collapse: collapse; margin-bottom: 1.5rem;">
-        <thead>
-          <tr style="background: rgba(255,255,255,0.05);">
-            <th style="padding: 0.5rem 1rem; text-align:left; border-bottom: 1px solid var(--border-color);">에이전트</th>
-            <th style="padding: 0.5rem 1rem; text-align:left; border-bottom: 1px solid var(--border-color);">역할</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">Biz Agent (Router)</td><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">사용자 의도 분류 및 서브 에이전트 Task 분배</td></tr>
-          <tr><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">실적 분석 Agent</td><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">SQL Agent 기반 정형 데이터 실시간 조회</td></tr>
-          <tr><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">리포트 분석 Agent</td><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">VDB 기반 PDF 리포트 RAG 검색 및 요약</td></tr>
-          <tr><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">Formatter Agent</td><td style="padding:0.5rem 1rem; border-bottom:1px solid var(--border-color);">결과 취합 및 Markdown 포맷 출력</td></tr>
-        </tbody>
-      </table>
+      <div class="panel" style="background:#1e293b; padding:1.5rem; border-radius:12px; margin-bottom:3rem; border:1px solid #334155;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; align-items:stretch;">
+          <!-- 1. Problem -->
+          <div>
+            <h4 style="color:var(--accent-primary); margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(56,189,248,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">1</span> Problem</h4>
+            <ul style="margin:0; padding-left:1.2rem; color:#e2e8f0; font-size:0.95rem; line-height:1.7;">
+              <li>단일 턴 응답 구조로 인한 맥락 단절</li>
+              <li>키워드 한계를 넘지 못한 검색 정밀도 부족</li>
+              <li>HR/사규/IT 등 부서별 분산 챗봇 구조</li>
+            </ul>
+          </div>
+          <!-- 2. Solution -->
+          <div>
+            <h4 style="color:#10b981; margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(16,185,129,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">2</span> Solution</h4>
+            <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); padding:1rem; border-radius:8px; height:calc(100% - 3rem); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+              <p style="margin:0; color:#d1fae5; font-weight:600; font-size:1rem;">전사 통합 AI 정보 허브화</p>
+              <p style="margin:0.5rem 0 0; color:#10b981; font-size:0.85rem;">(멀티턴, 횡단 검색, Multi-Agent)</p>
+            </div>
+          </div>
+          <!-- 3. Architecture -->
+          <div>
+            <h4 style="color:#a855f7; margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(168,85,247,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">3</span> Architecture</h4>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">MSA & Kubernetes</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">vLLM Serving</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">하이브리드 검색 (Weaviate)</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">Text-to-SQL (MariaDB)</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">GenOS 플랫폼</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:3rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:0.5rem;">PM 주도 핵심 의사결정 6가지</h4>
+        <p style="color:var(--text-muted); font-size:1rem; margin-bottom:1.5rem;">기술 구조의 설계 의도를 이해하고 결정에 직접 개입하여 프로젝트를 이끎.</p>
+        <table style="width:100%; text-align:left; border-collapse:collapse;">
+          <thead>
+            <tr style="border-bottom:2px solid #334155;">
+              <th style="padding:1rem; color:#94a3b8; font-weight:600; width:20%;">의사결정 영역</th>
+              <th style="padding:1rem; color:#94a3b8; font-weight:600; width:45%;">결정 내용</th>
+              <th style="padding:1rem; color:#94a3b8; font-weight:600; width:35%;">목적 및 효과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">에이전트 분화</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">통합 · 실적 · 리서치 3개 도메인별 역할 격리</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">도메인 특화 질의 처리 및 충돌 최소화</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">검색 전략</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">BM25 + 벡터 + 메타필터 3단 구조</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">단순 키워드 및 의미 기반 검색 정밀도 동시 확보</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">데이터 신뢰성</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">3단계 승인 프로세스 적용</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">검증된 콘텐츠만 검색에 노출하여 환각 방지</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">Text-to-SQL 안정성</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">실패 시 최대 3회 재시도 루프 구성</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">평가 루프를 통한 쿼리 생성 품질 확보</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">동의어 사전 운영</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">로그 기반 필수/선택 동의어 지속 업데이트</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">금융 도메인 특화 검색 품질 장기 유지</td>
+            </tr>
+            <tr>
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">출시 전략</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">플랫폼 → 프로토타입 → 통합 5단계 마일스톤</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">기존 시스템 연속성 보장 및 안정적 고도화</td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="text-align:center; padding:1.5rem; background:rgba(255,255,255,0.03); border:1px dashed var(--border-color); border-radius:8px; color:white; font-weight:500; font-size:1.05rem; margin-top:1.5rem;">
+          <span style="color:#94a3b8; font-size:0.9rem; display:block; margin-bottom:0.5rem; font-weight:normal;">AI PM의 확장된 역할 경험</span>
+          단순한 일정 관리를 넘어 기술 구조의 설계 의도를 이해하고 비즈니스 목표와 성공적으로 연결함
+        </div>
+      </div>
+
+      <div style="margin-bottom:3rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem;">핵심 기능 설계 5가지</h4>
+        <div style="display:flex; flex-direction:column; gap:1rem;">
+          <div style="display:flex; background:#1e293b; border:1px solid #334155; border-radius:8px; overflow:hidden;">
+            <div style="background:#0284c7; width:60px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:700;">01</div>
+            <div style="padding:1.5rem; flex:1;">
+              <div style="color:white; font-weight:600; font-size:1.1rem; margin-bottom:0.5rem;">멀티턴 대화</div>
+              <div style="color:#bae6fd; font-size:0.95rem; margin-bottom:0.5rem;">Memory + AgentFlow — 이전 컨텍스트 유지 · 의도 변화 감지 · 명확화 질문 자동 유도</div>
+              <div style="color:#94a3b8; font-size:0.9rem;">연속 질문 자연스럽게 처리 · 대화 흐름 끊김 없음</div>
+            </div>
+          </div>
+          
+          <div style="display:flex; background:#1e293b; border:1px solid #334155; border-radius:8px; overflow:hidden;">
+            <div style="background:#0284c7; width:60px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:700;">02</div>
+            <div style="padding:1.5rem; flex:1;">
+              <div style="color:white; font-weight:600; font-size:1.1rem; margin-bottom:0.5rem;">하이브리드 검색</div>
+              <div style="color:#bae6fd; font-size:0.95rem; margin-bottom:0.5rem;">BM25(키워드) + 벡터(의미) + 메타데이터 AND 필터 — 한글 형태소 분석기 + 금융 동의어 사전</div>
+              <div style="color:#94a3b8; font-size:0.9rem;">정밀성과 유연성 동시 확보 · 도메인 특화 표현 정규화</div>
+            </div>
+          </div>
+
+          <div style="display:flex; background:#1e293b; border:1px solid #334155; border-radius:8px; overflow:hidden;">
+            <div style="background:#0284c7; width:60px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:700;">03</div>
+            <div style="padding:1.5rem; flex:1;">
+              <div style="color:white; font-weight:600; font-size:1.1rem; margin-bottom:0.5rem;">통합 Agent</div>
+              <div style="color:#bae6fd; font-size:0.95rem; margin-bottom:0.5rem;">전사 지식 DB 단일 통합 · 도메인 자동 인식 · 멀티 문서 횡단 검색</div>
+              <div style="color:#94a3b8; font-size:0.9rem;">하나의 질문으로 HR · 사규 · IT 등 복합 도메인 통합 응답</div>
+            </div>
+          </div>
+
+          <div style="display:flex; background:#1e293b; border:1px solid #334155; border-radius:8px; overflow:hidden;">
+            <div style="background:#0284c7; width:60px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:700;">04</div>
+            <div style="padding:1.5rem; flex:1;">
+              <div style="color:white; font-weight:600; font-size:1.1rem; margin-bottom:0.5rem;">실적 Agent (Text-to-SQL)</div>
+              <div style="color:#bae6fd; font-size:0.95rem; margin-bottom:0.5rem;">CSV/XLS 업로드 → DB 자동 생성 → 자연어 → SQL 변환·실행 · 실패 시 최대 3회 재시도</div>
+              <div style="color:#94a3b8; font-size:0.9rem;">비개발자도 즉시 데이터 분석 · 반복 분석 업무 자동화</div>
+            </div>
+          </div>
+
+          <div style="display:flex; background:#1e293b; border:1px solid #334155; border-radius:8px; overflow:hidden;">
+            <div style="background:#0284c7; width:60px; display:flex; align-items:center; justify-content:center; color:white; font-size:1.5rem; font-weight:700;">05</div>
+            <div style="padding:1.5rem; flex:1;">
+              <div style="color:white; font-weight:600; font-size:1.1rem; margin-bottom:0.5rem;">리서치 Agent</div>
+              <div style="color:#bae6fd; font-size:0.95rem; margin-bottom:0.5rem;">외부 금융 API 실시간 수집 · 종목 분석 리포트 자동 생성 · 포트폴리오 조정 의견 제공</div>
+              <div style="color:#94a3b8; font-size:0.9rem;">단순 질의 / 리서치 질의 자동 분기 · 파편화된 투자 정보 통합</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem;">기술 스택 레이어</h4>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin-bottom:1.5rem;">
+          <div style="background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155;">
+            <div style="color:#94a3b8; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">인프라</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">Kubernetes · Istio<br>Docker · MSA</div>
+          </div>
+          <div style="background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155;">
+            <div style="color:#94a3b8; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">LLM 서빙</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">LLM Serving Pod<br>Embedding Serving · vLLM</div>
+          </div>
+          <div style="background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155;">
+            <div style="color:#94a3b8; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">검색</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">Weaviate VDB · BM25<br>하이브리드 검색 · 형태소 분석기</div>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px; border:1px solid #0369a1;">
+            <div style="color:#bae6fd; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">데이터</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">MariaDB · MongoDB<br>Redis · RabbitMQ</div>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px; border:1px solid #0369a1;">
+            <div style="color:#bae6fd; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">에이전트</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">Multi-Agent (통합/실적/리서치)<br>Text-to-SQL · RAG · MCP</div>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px; border:1px solid #0369a1;">
+            <div style="color:#bae6fd; font-weight:600; margin-bottom:0.6rem; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:0.3rem;">플랫폼</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.6;">GenOS · Agent Studio<br>Knowledge / Plug-in Studio</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:3rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem;">주요 활용 사례</h4>
+        <table style="width:100%; border-collapse: collapse;">
+          <thead>
+            <tr style="background: rgba(255,255,255,0.05);">
+              <th style="padding: 1rem; text-align:left; border-bottom: 2px solid #334155; color:#94a3b8;">사용 장면</th>
+              <th style="padding: 1rem; text-align:left; border-bottom: 2px solid #334155; color:#94a3b8;">질의 예시</th>
+              <th style="padding: 1rem; text-align:left; border-bottom: 2px solid #334155; color:#94a3b8;">효과</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1rem; color:white; font-weight:500;">WM 상담사 실시간 대응</td>
+              <td style="padding:1rem; color:#cbd5e1; font-size:0.95rem;">"ISA 중도해지 시 세금이 얼마야?"<br>"ELS 가입 필수 서류가 뭐야?"</td>
+              <td style="padding:1rem; color:#10b981; font-weight:500;">통화 중 즉시 조회 · 상담 처리 시간 단축</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1rem; color:white; font-weight:500;">애널리스트 종목 분석</td>
+              <td style="padding:1rem; color:#cbd5e1; font-size:0.95rem;">"X 종목 투자 보고서 작성해줘"</td>
+              <td style="padding:1rem; color:#10b981; font-weight:500;">실적·재무·뉴스 자동 수집 → 리포트 초안 생성</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1rem; color:white; font-weight:500;">지점 실적 데이터 분석</td>
+              <td style="padding:1rem; color:#cbd5e1; font-size:0.95rem;">"최근 3개월 WM 수수료 수익 지점별 비교"</td>
+              <td style="padding:1rem; color:#10b981; font-weight:500;">비개발자도 자연어로 즉시 데이터 분석 가능</td>
+            </tr>
+            <tr>
+              <td style="padding:1rem; color:white; font-weight:500;">전사 복합 업무 문의</td>
+              <td style="padding:1rem; color:#cbd5e1; font-size:0.95rem;">"육아휴직하면 IT 시스템 접근 권한은 어떻게 돼?"</td>
+              <td style="padding:1rem; color:#10b981; font-weight:500;">HR + IT 도메인 동시 횡단 검색 → 통합 응답</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     `
   },
   {
