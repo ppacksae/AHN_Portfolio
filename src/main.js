@@ -68,7 +68,7 @@ const portfolioData = [
     tags: ["On-Premise", "RAG", "Multi-Agent", "vLLM", "K8s", "금융권 폐쇄망"],
     coverColor: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4d7a 100%)",
     coverIcon: "🏦",
-    summary: "금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축했다.",
+    summary: "금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축함.",
     challenge: "",
     solution: "",
     results: [],
@@ -111,7 +111,7 @@ const portfolioData = [
 
       <div style="margin-bottom:3rem;">
         <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:0.5rem;">PM으로서 내가 한 것</h4>
-        <p style="color:var(--text-muted); font-size:1rem; margin-bottom:1.5rem;">단순히 개발팀을 관리한 게 아니라, 기술 구조 자체를 설계하는 의사결정을 주도했다.</p>
+        <p style="color:var(--text-muted); font-size:1rem; margin-bottom:1.5rem;">단순히 개발팀을 관리한 게 아니라, 기술 구조 자체를 설계하는 의사결정을 주도함.</p>
         <table style="width:100%; text-align:left; border-collapse:collapse;">
           <thead>
             <tr style="border-bottom:2px solid #334155;">
@@ -186,7 +186,7 @@ const portfolioData = [
           </div>
         </div>
         <div style="text-align:center; padding:1.5rem; background:rgba(255,255,255,0.03); border:1px dashed var(--border-color); border-radius:8px; color:#cbd5e1; font-size:1rem; margin-top:1.5rem;">
-          세 가지 모두 PM이 기술 구조 의사결정을 주도하고, 개발팀과 협업하여 구현
+          세 가지 모두 PM이 기술 구조 의사결정을 주도하고, 개발팀과 협업하여 구현함
         </div>
       </div>
 
@@ -233,34 +233,7 @@ const portfolioData = [
       </div>
 
       <div style="margin-top:4rem;">
-        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem; border-bottom:1px solid #334155; padding-bottom:0.8rem;">기술적 해결 과정 및 워크플로우 상세</h4>
-
-        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">1. Hybrid Retrieval Agent (복합 지능형 챗봇)</h5>
-        <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
-          <li>사용자의 질문 의도를 분석하여 실시간 수치 데이터(SQL)와 문맥 정보(RAG) 검색을 <strong>자동 판단 및 수행</strong>하는 중앙 허브 기능</li>
-          <li><strong>Text-to-SQL</strong>: 주가, 재무제표, 컨센서스 등 정형 데이터를 SQL 에이전트를 통해 실시간 조회</li>
-          <li><strong>Markdown Formatter</strong>: 복잡한 DB 조회 결과를 사용자 친화적인 표 형식으로 자동 변환 출력</li>
-        </ul>
-
-        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">2. 마켓 센싱 (Market Sensing) 및 트렌드 분석</h5>
-        <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
-          <li>외부 뉴스 및 SNS 데이터를 VDB 기반으로 검색하여 시장 동향 및 감성 분석 수행</li>
-          <li>실시간 주요 이슈를 시각화하는 <strong>워드클라우드</strong> 및 특정 키워드에 대한 <strong>AI 요약 브리핑</strong> 제공</li>
-          <li>이상 징후 감지 시 지정된 채널(팝업, 메일, 문자)로 즉시 알림을 발송하는 <strong>모니터링 에이전트</strong></li>
-        </ul>
-
-        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">3. 상관관계 분석 (Correlation Analysis)</h5>
-        <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
-          <li>주가, 매크로 지표, 주요 이벤트(뉴스/공시) 간의 복잡한 관계를 시각화하고 원인을 추론하는 분석 도구</li>
-          <li><strong>Python Code Interpreter</strong>: RDB에서 추출된 데이터의 상관계수를 산출하고 차트로 시각화</li>
-          <li><strong>미래 주가 영향도 예측</strong>: 과거 패턴과 최신 뉴스를 종합 분석하여 이벤트 발생 시 시나리오별 전망 제시</li>
-        </ul>
-
-        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">4. 리서치 어시스턴트 및 문서 자동화</h5>
-        <ul style="margin: 0 0 2rem 1rem; color: var(--text-muted); line-height: 1.7;">
-          <li>애널리스트의 업무를 보조하는 번역, 요약, 콘텐츠 포맷팅(PPT/Excel 템플릿 기반) 도구 지원</li>
-          <li><strong>Document Intelligence</strong>: 복잡한 테이블과 이미지 내 텍스트를 인식하여 의미 기반 청킹 및 RAG 품질 고도화</li>
-        </ul>
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem; border-bottom:1px solid #334155; padding-bottom:0.8rem;">워크플로우 설계 예시</h4>
 
         <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">Multi-Agent Tool Calling 설계도</h5>
         <figure style="margin: 1rem 0;">
