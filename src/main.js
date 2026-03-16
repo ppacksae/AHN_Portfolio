@@ -231,6 +231,57 @@ const portfolioData = [
           요구사항 정의 &nbsp;·&nbsp; 아키텍처 의사결정 &nbsp;·&nbsp; 기술 이슈 조율 &nbsp;·&nbsp; 보안 심의 대응 &nbsp;·&nbsp; 개발팀 리딩
         </div>
       </div>
+
+      <div style="margin-top:4rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem; border-bottom:1px solid #334155; padding-bottom:0.8rem;">기술적 해결 과정 및 워크플로우 상세</h4>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">1. Hybrid Retrieval Agent (복합 지능형 챗봇)</h5>
+        <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li>사용자의 질문 의도를 분석하여 실시간 수치 데이터(SQL)와 문맥 정보(RAG) 검색을 <strong>자동 판단 및 수행</strong>하는 중앙 허브 기능</li>
+          <li><strong>Text-to-SQL</strong>: 주가, 재무제표, 컨센서스 등 정형 데이터를 SQL 에이전트를 통해 실시간 조회</li>
+          <li><strong>Markdown Formatter</strong>: 복잡한 DB 조회 결과를 사용자 친화적인 표 형식으로 자동 변환 출력</li>
+        </ul>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">2. 마켓 센싱 (Market Sensing) 및 트렌드 분석</h5>
+        <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li>외부 뉴스 및 SNS 데이터를 VDB 기반으로 검색하여 시장 동향 및 감성 분석 수행</li>
+          <li>실시간 주요 이슈를 시각화하는 <strong>워드클라우드</strong> 및 특정 키워드에 대한 <strong>AI 요약 브리핑</strong> 제공</li>
+          <li>이상 징후 감지 시 지정된 채널(팝업, 메일, 문자)로 즉시 알림을 발송하는 <strong>모니터링 에이전트</strong></li>
+        </ul>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">3. 상관관계 분석 (Correlation Analysis)</h5>
+        <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li>주가, 매크로 지표, 주요 이벤트(뉴스/공시) 간의 복잡한 관계를 시각화하고 원인을 추론하는 분석 도구</li>
+          <li><strong>Python Code Interpreter</strong>: RDB에서 추출된 데이터의 상관계수를 산출하고 차트로 시각화</li>
+          <li><strong>미래 주가 영향도 예측</strong>: 과거 패턴과 최신 뉴스를 종합 분석하여 이벤트 발생 시 시나리오별 전망 제시</li>
+        </ul>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">4. 리서치 어시스턴트 및 문서 자동화</h5>
+        <ul style="margin: 0 0 2rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li>애널리스트의 업무를 보조하는 번역, 요약, 콘텐츠 포맷팅(PPT/Excel 템플릿 기반) 도구 지원</li>
+          <li><strong>Document Intelligence</strong>: 복잡한 테이블과 이미지 내 텍스트를 인식하여 의미 기반 청킹 및 RAG 품질 고도화</li>
+        </ul>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">Multi-Agent Tool Calling 설계도</h5>
+        <figure style="margin: 1rem 0;">
+          <img src="./multi-agent-1.png" alt="전체 Agent 구조도" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
+          <figcaption style="font-size:0.85rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">VDB + RDB 하이브리드 방식 및 Master-Sub Agent 계층 구조</figcaption>
+        </figure>
+        <ul style="margin: 0 0 2rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li>리포트·뉴스와 같은 비정형 텍스트(VDB)와 재무/가격 등 정형 수치 데이터(RDB)의 극명한 특성 차이로 인한 수치 환각을 방지하기 위해 <strong>단일 RAG 대신 하이브리드 파이프라인</strong> 채택</li>
+          <li>Master Agent가 사용자의 의도를 분석하여 도메인 전문성이 있는 4개의 Sub-Agent(실적, 리포트, 시황 등)로 작업을 분리 할당</li>
+          <li>각 Sub-Agent는 부여된 자신의 도메인 툴에만 접근 가능한 <strong>Tool Isolation(격리)</strong> 패턴을 적용하여 잘못된 소스 참조를 원천 차단</li>
+        </ul>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">Tool Calling 설계</h5>
+        <figure style="margin: 1rem 0;">
+          <img src="./multi-agent-2.png" alt="Tool Calling 상세 흐름도" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
+          <figcaption style="font-size:0.85rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">동적 Parameter 추출 및 탐색 공간 축소 설계도</figcaption>
+        </figure>
+        <ul style="margin: 0 0 2rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li><strong>동적 파라미터 추출</strong>: Agent가 질의에서 데이터 타입·대상 엔티티·기간·범위를 스스로 추론해 파라미터를 구성합니다. 메타데이터 Pre-filter로 탐색 공간을 먼저 줄인 뒤, 그 안에서 시맨틱 유사도를 계산하는 AND 구조가 정밀도와 속도를 동시에 확보하는 핵심 설계입니다.</li>
+        </ul>
+      </div>
     `
   },
   {
