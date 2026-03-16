@@ -211,15 +211,15 @@
       <h4>시스템 스크린샷</h4>
       <div style="display:flex; flex-direction:column; gap:1.5rem; margin: 1rem 0 1.5rem;">
         <figure style="margin:0;">
-          <img src="/wbs-01.png" alt="WBS 대시보드 화면" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
+          <img src="./wbs-01.png" alt="WBS 대시보드 화면" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
           <figcaption style="font-size:0.82rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">WBS 프로젝트 대시보드 화면</figcaption>
         </figure>
         <figure style="margin:0;">
-          <img src="/wbs-02.png" alt="간트 차트 화면" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
+          <img src="./wbs-02.png" alt="간트 차트 화면" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
           <figcaption style="font-size:0.82rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">인터랙티브 간트 차트 화면</figcaption>
         </figure>
         <figure style="margin:0;">
-          <img src="/wbs-03.png" alt="AI PM 가이드 대시보드" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
+          <img src="./wbs-03.png" alt="AI PM 가이드 대시보드" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
           <figcaption style="font-size:0.82rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">AI PM 가이드 대시보드 화면</figcaption>
         </figure>
       </div>
