@@ -74,31 +74,39 @@ const portfolioData = [
     results: [],
     techStack: ["K8s", "RHEL 9.6", "DMZ Relay", "H200", "vLLM", "VDB", "RDB", "Multi-Tool", "OOD"],
     architecture: `
-      <div class="panel" style="background:#1e293b; padding:1.5rem; border-radius:12px; margin-bottom:2.5rem; border:1px solid #334155;">
-        <h4 style="color:white; margin-top:0; border-bottom:1px solid #334155; padding-bottom:0.8rem; font-size:1.2rem;">프로젝트가 풀어야 했던 문제</h4>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; text-align:center; align-items:stretch; margin-top:1.5rem;">
-          <div style="background:#334155; padding:1.5rem; border-radius:8px; border:1px solid #475569;">
-            <div style="color:#94a3b8; font-weight:bold; margin-bottom:1rem;">제약 환경</div>
-            <div style="color:#e2e8f0; font-size:0.95rem; line-height:1.7;">금융 폐쇄망<br>외부 API 차단<br>클라우드 LLM 불가<br>데이터 파편화<br>(정형 + 비정형 혼재)</div>
+      <div class="panel" style="background:#1e293b; padding:1.5rem; border-radius:12px; margin-bottom:3rem; border:1px solid #334155;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; align-items:stretch;">
+          
+          <!-- 1. Problem -->
+          <div>
+            <h4 style="color:var(--accent-primary); margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(56,189,248,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">1</span> Problem</h4>
+            <ul style="margin:0; padding-left:1.2rem; color:#e2e8f0; font-size:0.95rem; line-height:1.7;">
+              <li>증권사 내부 데이터 활용 어려움</li>
+              <li>리서치 / RDB / 문서 분산</li>
+            </ul>
           </div>
-          <div style="display:flex; align-items:center; justify-content:center; color:#475569; font-size:1.5rem;">
-            <i class="fas fa-arrow-right"></i>
+
+          <!-- 2. Solution -->
+          <div>
+            <h4 style="color:#10b981; margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(16,185,129,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">2</span> Solution</h4>
+            <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); padding:1rem; border-radius:8px; height:calc(100% - 3rem);">
+              <p style="margin:0; color:#d1fae5; font-weight:600; font-size:1rem; text-align:center; display:flex; align-items:center; justify-content:center; height:100%;">온프레미스 GenAI 플랫폼 구축</p>
+            </div>
           </div>
-          <div style="background:#0284c7; padding:1.5rem; border-radius:8px;">
-            <div style="color:#bae6fd; font-weight:bold; margin-bottom:1rem;">필요한 것</div>
-            <div style="color:white; font-size:0.95rem; line-height:1.7;">내부 LLM 서빙<br>이기종 데이터 통합<br>업무 전 과정 AI 적용<br>데이터 수집 → 분석<br>→ 리포트 → 활용</div>
+
+          <!-- 3. Architecture -->
+          <div>
+            <h4 style="color:#a855f7; margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(168,85,247,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">3</span> Architecture</h4>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">Kubernetes LLMops</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">GPU cluster (H200)</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">vLLM</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">RAG (Weaviate)</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">SQL Tool agent</span>
+            </div>
           </div>
-          <div style="display:flex; align-items:center; justify-content:center; color:#475569; font-size:1.5rem;">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-          <div style="background:#0369a1; padding:1.5rem; border-radius:8px; border:1px solid #0ea5e9;">
-            <div style="color:#bae6fd; font-weight:bold; margin-bottom:1rem;">결과물</div>
-            <div style="color:white; font-size:0.95rem; line-height:1.7; font-weight:500;">AI 리서치 포털<br>온프레미스 전용<br>멀티 에이전트 기반<br>AI Chat + 데이터 통합<br>엔터프라이즈 플랫폼</div>
-          </div>
+
         </div>
-        <p style="color:#cbd5e1; font-size:1rem; margin-top:2rem; line-height:1.7; padding:1rem; background:rgba(0,0,0,0.2); border-radius:8px;">
-          금융권 리서치센터 애널리스트들은 수십만 건의 내부 리포트, 공시, 뉴스, 재무 데이터를 매일 다루지만 이를 통합해서 질의하거나 분석에 즉시 활용할 수 있는 환경이 없었다. 동시에 금융 폐쇄망 특성상 외부 클라우드 LLM API는 완전 차단된 상태였다.
-        </p>
       </div>
 
       <div style="margin-bottom:3rem;">
@@ -114,14 +122,9 @@ const portfolioData = [
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid #1e293b;">
-              <td style="padding:1.2rem 1rem; color:#e2e8f0;">인프라 구조</td>
-              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">DMZ 릴레이 서버 + 온프레미스 GPU 클러스터</td>
-              <td style="padding:1.2rem 1rem; color:#cbd5e1;">폐쇄망에서 외부 데이터 반입 유일한 경로</td>
-            </tr>
-            <tr style="border-bottom:1px solid #1e293b;">
-              <td style="padding:1.2rem 1rem; color:#e2e8f0;">LLM 서빙</td>
-              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">vLLM 기반 고속 서빙</td>
-              <td style="padding:1.2rem 1rem; color:#cbd5e1;">K8s 환경에서 엔터프라이즈급 처리량 확보</td>
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">LLMOps 및 모델 서빙</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">LLMOps 기반 GenAI 플랫폼 구축 및 K8s 자원/GPU 부하 관리</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">엔터프라이즈급 처리량 확보 및 안정적인 내부 서비스 운영</td>
             </tr>
             <tr style="border-bottom:1px solid #1e293b;">
               <td style="padding:1.2rem 1rem; color:#e2e8f0;">데이터 아키텍처</td>
