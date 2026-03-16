@@ -68,99 +68,166 @@ const portfolioData = [
     tags: ["On-Premise", "RAG", "Multi-Agent", "vLLM", "K8s", "금융권 폐쇄망"],
     coverColor: "linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4d7a 100%)",
     coverIcon: "🏦",
-    summary: "금융권의 엄격한 망 분리 및 폐쇄망 환경에서 애널리스트의 분석 업무 효율화를 위한 엔터프라이즈 생성형 AI 리서치 포털을 총괄 리딩. 단순한 챗봇 구현을 넘어 리서치 업무 전 과정(데이터 수집→분석→리포트 작성→활용)에 AI를 적용하여 비즈니스 가치를 창출하는 통합 플랫폼을 구축.",
-    challenge: "금융권 폐쇄망(On-Premise) 환경에서는 외부 인터넷 접속이 완전 차단되어 일반적인 클라우드 기반 LLM API 호출이 불가능합니다. 데이터 수집, 분석, 리포트 작성, 활용에 이르는 리서치 업무 전 과정에 AI를 적용해야 함에도 불구하고, 기술적 제약이 큰 온프레미스 환경에서 수많은 파편화된 금융 데이터(정형/비정형)를 결합하고, 대규모 LLM 서빙 및 멀티 에이전트 워크플로우를 안정적으로 구현하는 것이 가장 큰 도전 과제였습니다.",
-    solution: "DMZ 단에 릴레이 서버를 구축하여 외부 데이터를 내부 망으로 안전하게 반입하고, K8s 환경에서 엔터프라이즈급 대규모 GPU 클러스터 기반 vLLM 고속 서빙 환경을 구성했습니다. 정형 데이터(RDB) 조회에는 Text-to-SQL 기반 SQL Agent를, 비정형 데이터(VDB) 조회에는 Vector Store Retriever를 적용한 Hybrid Retrieval 아키텍처를 설계했습니다. Router Agent가 사용자의 복합 질문을 분류해 각 에이전트에 Task를 분배하는 Multi-Agent 오케스트레이션 체계를 구현했습니다.",
-    results: [
-      "엔터프라이즈 보안 거버넌스 수립: 금융권 망 분리 지침을 준수한 데이터 반입 아키텍처 설계 및 웹 보안 취약점 100% 조치",
-      "대규모 LLM 서빙 환경 최적화: 고성능 GPU 클러스터 기반 vLLM을 적용하여 120B 이상 대형 모델의 추론 속도 및 안정성 확보",
-      "멀티 에이전트 협업 체계 설계: 목적별 서브 에이전트(Screening, Draft, Analysis 등)가 유기적으로 연동되는 워크플로우 빌더 도입",
-      "E2E 제품 생애주기 총괄: 착수 보고부터 인프라 협의, 서비스 설계 및 개발 QA까지 프로젝트 전 과정을 PM으로서 주도적 관리"
-    ],
-    techStack: ["LLM (120B+)", "Qwen3-VL (Multimodal)", "vLLM / TGI", "Qdrant / Weaviate (3중화 고가용성)", "RDB (금융 정형 데이터)", "Multi-Agent Framework", "Workflow Builder", "Kubernetes", "Enterprise GPU Cluster", "L4 Switch / DMZ Relay", "Enterprise Linux"],
+    summary: "금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축했다.",
+    challenge: "",
+    solution: "",
+    results: [],
+    techStack: ["K8s", "RHEL 9.6", "DMZ Relay", "H200", "vLLM", "VDB", "RDB", "Multi-Tool", "OOD"],
     architecture: `
-      <h4>AI & Data Pipeline 기술 스택</h4>
-      <table>
-        <thead><tr><th>항목</th><th>기술</th></tr></thead>
-        <tbody>
-          <tr><td>핵심 모델</td><td>대규모 오픈소스 LLM (120B+), Multimodal (Qwen3-VL)</td></tr>
-          <tr><td>서빙/최적화</td><td>vLLM, TGI (Inference Optimization)</td></tr>
-          <tr><td>오케스트레이션</td><td>Multi-Agent Framework, Workflow Builder</td></tr>
-          <tr><td>벡터 DB (VDB)</td><td>Qdrant, Weaviate (3중화 고가용성 구성)</td></tr>
-          <tr><td>관계형 DB (RDB)</td><td>MS-SQL (금융 정형 데이터 연동)</td></tr>
-        </tbody>
-      </table>
+      <div class="panel" style="background:#1e293b; padding:1.5rem; border-radius:12px; margin-bottom:2.5rem; border:1px solid #334155;">
+        <h4 style="color:white; margin-top:0; border-bottom:1px solid #334155; padding-bottom:0.8rem; font-size:1.2rem;">프로젝트가 풀어야 했던 문제</h4>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; text-align:center; align-items:stretch; margin-top:1.5rem;">
+          <div style="background:#334155; padding:1.5rem; border-radius:8px; border:1px solid #475569;">
+            <div style="color:#94a3b8; font-weight:bold; margin-bottom:1rem;">제약 환경</div>
+            <div style="color:#e2e8f0; font-size:0.95rem; line-height:1.7;">금융 폐쇄망<br>외부 API 차단<br>클라우드 LLM 불가<br>데이터 파편화<br>(정형 + 비정형 혼재)</div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; color:#475569; font-size:1.5rem;">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px;">
+            <div style="color:#bae6fd; font-weight:bold; margin-bottom:1rem;">필요한 것</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.7;">내부 LLM 서빙<br>이기종 데이터 통합<br>업무 전 과정 AI 적용<br>데이터 수집 → 분석<br>→ 리포트 → 활용</div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; color:#475569; font-size:1.5rem;">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+          <div style="background:#0369a1; padding:1.5rem; border-radius:8px; border:1px solid #0ea5e9;">
+            <div style="color:#bae6fd; font-weight:bold; margin-bottom:1rem;">결과물</div>
+            <div style="color:white; font-size:0.95rem; line-height:1.7; font-weight:500;">AI 리서치 포털<br>온프레미스 전용<br>멀티 에이전트 기반<br>AI Chat + 데이터 통합<br>엔터프라이즈 플랫폼</div>
+          </div>
+        </div>
+        <p style="color:#cbd5e1; font-size:1rem; margin-top:2rem; line-height:1.7; padding:1rem; background:rgba(0,0,0,0.2); border-radius:8px;">
+          금융권 리서치센터 애널리스트들은 수십만 건의 내부 리포트, 공시, 뉴스, 재무 데이터를 매일 다루지만 이를 통합해서 질의하거나 분석에 즉시 활용할 수 있는 환경이 없었다. 동시에 금융 폐쇄망 특성상 외부 클라우드 LLM API는 완전 차단된 상태였다.
+        </p>
+      </div>
 
-      <h4>인프라 / DevOps 기술 스택</h4>
-      <table>
-        <thead><tr><th>항목</th><th>기술</th></tr></thead>
-        <tbody>
-          <tr><td>컴퓨팅 자원</td><td>엔터프라이즈급 멀티 GPU 클러스터</td></tr>
-          <tr><td>컨테이너 관리</td><td>Kubernetes (Master-Worker Cluster), Namespace 격리</td></tr>
-          <tr><td>네트워크 보안</td><td>L4 Switch, DMZ Relay Server (데이터 반입 중계)</td></tr>
-          <tr><td>운영 체제</td><td>Enterprise Linux 환경</td></tr>
-        </tbody>
-      </table>
+      <div style="margin-bottom:3rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:0.5rem;">PM으로서 내가 한 것</h4>
+        <p style="color:var(--text-muted); font-size:1rem; margin-bottom:1.5rem;">단순히 개발팀을 관리한 게 아니라, 기술 구조 자체를 설계하는 의사결정을 주도했다.</p>
+        <table style="width:100%; text-align:left; border-collapse:collapse;">
+          <thead>
+            <tr style="border-bottom:2px solid #334155;">
+              <th style="padding:1rem; color:#94a3b8; font-weight:600; width:15%;">의사결정 영역</th>
+              <th style="padding:1rem; color:#94a3b8; font-weight:600; width:45%;">결정 내용</th>
+              <th style="padding:1rem; color:#94a3b8; font-weight:600; width:40%;">이유</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">인프라 구조</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">DMZ 릴레이 서버 + 온프레미스 GPU 클러스터</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">폐쇄망에서 외부 데이터 반입 유일한 경로</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">LLM 서빙</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">vLLM 기반 고속 서빙</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">K8s 환경에서 엔터프라이즈급 처리량 확보</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">데이터 아키텍처</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">VDB + RDB 하이브리드 분리</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">수치 환각 차단 + 비정형 검색 정밀도 동시 확보</td>
+            </tr>
+            <tr style="border-bottom:1px solid #1e293b;">
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">에이전트 구조</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">단일 Agent + Multi-Tool 우선 구성</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">속도·안정성 확보 후 Multi-Agent 전환 검토</td>
+            </tr>
+            <tr>
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">OOD 설계</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">5유형 판별 체계 + 유형별 대응 방식 차별화</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">금융 도메인 특화 신뢰성 확보</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <h4>주요 기능 상세</h4>
+      <div style="margin-bottom:3rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem;">핵심 도전 과제 3가지와 해결 방식</h4>
+        <div style="display:flex; flex-direction:column; gap:1.2rem;">
+          <!-- Row 1 -->
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <div style="flex:1; background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155;">
+              <div style="color:white; font-weight:600; margin-bottom:0.6rem; font-size:1.1rem;">① 폐쇄망에서 LLM 구동</div>
+              <div style="color:#94a3b8; font-size:0.95rem; line-height:1.6;">외부 API 차단 → 클라우드 LLM 사용 불가<br>DMZ 릴레이 + GPU 클러스터 + vLLM 서빙</div>
+            </div>
+            <div style="color:#475569; font-size:1.5rem;"><i class="fas fa-arrow-right"></i></div>
+            <div style="flex:1; background:#0284c7; padding:1.5rem; border-radius:8px;">
+              <div style="color:white; font-weight:600; margin-bottom:0.6rem; font-size:1.1rem;">내부 전용 LLM 서빙 환경 구축</div>
+              <div style="color:#bae6fd; font-size:0.95rem; line-height:1.6;">K8s + H200 GPU 클러스터 + vLLM<br>엔터프라이즈급 처리량 확보</div>
+            </div>
+          </div>
+          <!-- Row 2 -->
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <div style="flex:1; background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155;">
+              <div style="color:white; font-weight:600; margin-bottom:0.6rem; font-size:1.1rem;">② 수만 건 이기종 데이터 통합</div>
+              <div style="color:#94a3b8; font-size:0.95rem; line-height:1.6;">정형(재무·수치) + 비정형(리포트·뉴스)<br>단일 RAG로는 수치 환각 불가피</div>
+            </div>
+            <div style="color:#475569; font-size:1.5rem;"><i class="fas fa-arrow-right"></i></div>
+            <div style="flex:1; background:#0284c7; padding:1.5rem; border-radius:8px;">
+              <div style="color:white; font-weight:600; margin-bottom:0.6rem; font-size:1.1rem;">하이브리드 데이터 아키텍처 설계</div>
+              <div style="color:#bae6fd; font-size:0.95rem; line-height:1.6;">VDB(비정형) + RDB(수치) 분리 구성<br>마스터 스키마 VDB → 파라미터 자동 구성</div>
+            </div>
+          </div>
+          <!-- Row 3 -->
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <div style="flex:1; background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155;">
+              <div style="color:white; font-weight:600; margin-bottom:0.6rem; font-size:1.1rem;">③ 복합 질의 처리 + 신뢰성 확보</div>
+              <div style="color:#94a3b8; font-size:0.95rem; line-height:1.6;">다양한 질의 유형 + OOD 판별<br>금융 도메인 컴플라이언스 요건</div>
+            </div>
+            <div style="color:#475569; font-size:1.5rem;"><i class="fas fa-arrow-right"></i></div>
+            <div style="flex:1; background:#0284c7; padding:1.5rem; border-radius:8px;">
+              <div style="color:white; font-weight:600; margin-bottom:0.6rem; font-size:1.1rem;">멀티 툴 에이전트 + OOD 설계</div>
+              <div style="color:#bae6fd; font-size:0.95rem; line-height:1.6;">단일 Agent + 13개 툴 + 최대 5회 콜링<br>5유형 OOD 판별 체계 + 출처 인덱스 의무화</div>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; padding:1.5rem; background:rgba(255,255,255,0.03); border:1px dashed var(--border-color); border-radius:8px; color:#cbd5e1; font-size:1rem; margin-top:1.5rem;">
+          세 가지 모두 PM이 기술 구조 의사결정을 주도하고, 개발팀과 협업하여 구현
+        </div>
+      </div>
 
-      <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">1. Hybrid Retrieval Agent (복합 지능형 챗봇)</h5>
-      <ul style="margin: 0 0 0.8rem 1rem; color: var(--text-muted); line-height: 1.7;">
-        <li>사용자의 질문 의도를 분석하여 실시간 수치 데이터(SQL)와 문맥 정보(RAG) 검색을 <strong>자동 판단 및 수행</strong>하는 중앙 허브 기능</li>
-        <li><strong>Text-to-SQL</strong>: 주가, 재무제표, 컨센서스 등 정형 데이터를 SQL 에이전트를 통해 실시간 조회</li>
-        <li><strong>Markdown Formatter</strong>: 복잡한 DB 조회 결과를 사용자 친화적인 표 형식으로 자동 변환 출력</li>
-      </ul>
-
-      <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">2. 마켓 센싱 (Market Sensing) 및 트렌드 분석</h5>
-      <ul style="margin: 0 0 0.8rem 1rem; color: var(--text-muted); line-height: 1.7;">
-        <li>외부 뉴스 및 SNS 데이터를 VDB 기반으로 검색하여 시장 동향 및 감성 분석 수행</li>
-        <li>실시간 주요 이슈를 시각화하는 <strong>워드클라우드</strong> 및 특정 키워드에 대한 <strong>AI 요약 브리핑</strong> 제공</li>
-        <li>이상 징후 감지 시 지정된 채널(팝업, 메일, 문자)로 즉시 알림을 발송하는 <strong>모니터링 에이전트</strong></li>
-      </ul>
-
-      <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">3. 상관관계 분석 (Correlation Analysis)</h5>
-      <ul style="margin: 0 0 0.8rem 1rem; color: var(--text-muted); line-height: 1.7;">
-        <li>주가, 매크로 지표, 주요 이벤트(뉴스/공시) 간의 복잡한 관계를 시각화하고 원인을 추론하는 분석 도구</li>
-        <li><strong>Python Code Interpreter</strong>: RDB에서 추출된 데이터의 상관계수를 산출하고 차트로 시각화</li>
-        <li><strong>미래 주가 영향도 예측</strong>: 과거 패턴과 최신 뉴스를 종합 분석하여 이벤트 발생 시 시나리오별 전망 제시</li>
-      </ul>
-
-      <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">4. 리서치 어시스턴트 및 문서 자동화</h5>
-      <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
-        <li>애널리스트의 업무를 보조하는 번역, 요약, 콘텐츠 포맷팅(PPT/Excel 템플릿 기반) 도구 지원</li>
-        <li><strong>Document Intelligence</strong>: 복잡한 테이블과 이미지 내 텍스트를 인식하여 의미 기반 청킹 및 RAG 품질 고도화</li>
-      </ul>
-
-      <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">Multi-Agent Tool Calling 설계도</h5>
-      <figure style="margin: 1rem 0;">
-        <img src="./multi-agent-1.png" alt="전체 Agent 구조도" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
-        <figcaption style="font-size:0.85rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">VDB + RDB 하이브리드 방식 및 Master-Sub Agent 계층 구조</figcaption>
-      </figure>
-      <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
-        <li>리포트·뉴스와 같은 비정형 텍스트(VDB)와 재무/가격 등 정형 수치 데이터(RDB)의 극명한 특성 차이로 인한 수치 환각을 방지하기 위해 <strong>단일 RAG 대신 하이브리드 파이프라인</strong> 채택</li>
-        <li>Master Agent가 사용자의 의도를 분석하여 도메인 전문성이 있는 4개의 Sub-Agent(실적, 리포트, 시황 등)로 작업을 분리 할당</li>
-        <li>각 Sub-Agent는 부여된 자신의 도메인 툴에만 접근 가능한 <strong>Tool Isolation(격리)</strong> 패턴을 적용하여 잘못된 소스 참조를 원천 차단</li>
-      </ul>
-
-      <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">Tool Calling 설계</h5>
-      <figure style="margin: 1rem 0;">
-        <img src="./multi-agent-2.png" alt="Tool Calling 상세 흐름도" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
-        <figcaption style="font-size:0.85rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">동적 Parameter 추출 및 탐색 공간 축소 설계도</figcaption>
-      </figure>
-      <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
-        <li><strong>동적 파라미터 추출</strong>: Agent가 질의에서 데이터 타입·대상 엔티티·기간·범위를 스스로 추론해 파라미터를 구성합니다. 메타데이터 Pre-filter로 탐색 공간을 먼저 줄인 뒤, 그 안에서 시맨틱 유사도를 계산하는 AND 구조가 정밀도와 속도를 동시에 확보하는 핵심 설계입니다.</li>
-      </ul>
-
-      <h4>핵심 구현 포인트 (기술 리더십)</h4>
-      <table>
-        <thead><tr><th>구현 항목</th><th>기술 포인트 및 PM 성과</th></tr></thead>
-        <tbody>
-          <tr><td>폐쇄망 인프라 설계</td><td>DMZ 중계 서버 기반의 안전한 외부 데이터 수집 및 내부 VDB/RDB 적재 파이프라인 수립</td></tr>
-          <tr><td>K8s 자원 관리</td><td>Namespace 분리 및 GPU 자원 공유 설계를 통해 전사 플랫폼과의 간섭 없이 서비스 격리 및 가용성 확보</td></tr>
-          <tr><td>RAG 성능 고도화</td><td>지능형 전처리기와 메타데이터 Enrichment를 활용한 금융 도메인 특화 지식 네트워크 구축</td></tr>
-          <tr><td>신뢰성 확보 설계</td><td>인덱스 의무 표기 및 내부 DB 원문 뷰어 직접 연동으로 Compliance 검토 지원</td></tr>
-        </tbody>
-      </table>
+      <div style="margin-bottom:1rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem;">기술 스택 레이어</h4>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:1rem; margin-bottom:1.5rem;">
+          <div style="background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155; text-align:center;">
+            <div style="color:#94a3b8; font-weight:600; margin-bottom:0.6rem;">인프라</div>
+            <div style="color:white; font-size:0.95rem;">K8s · RHEL 9.6</div>
+          </div>
+          <div style="background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155; text-align:center;">
+            <div style="color:#94a3b8; font-weight:600; margin-bottom:0.6rem;">네트워크</div>
+            <div style="color:white; font-size:0.95rem;">DMZ 릴레이 서버</div>
+          </div>
+          <div style="background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155; text-align:center;">
+            <div style="color:#94a3b8; font-weight:600; margin-bottom:0.6rem;">GPU 서빙</div>
+            <div style="color:white; font-size:0.95rem;">H200 · vLLM · CUDA</div>
+          </div>
+          <div style="background:#1e293b; padding:1.5rem; border-radius:8px; border:1px solid #334155; text-align:center;">
+            <div style="color:#94a3b8; font-weight:600; margin-bottom:0.6rem;">검색</div>
+            <div style="color:white; font-size:0.95rem;">메타 필터 + 시맨틱</div>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px; border:1px solid #0369a1; text-align:center;">
+            <div style="color:#bae6fd; font-weight:600; margin-bottom:0.6rem;">데이터</div>
+            <div style="color:white; font-size:0.95rem;">VDB · RDB · Hybrid</div>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px; border:1px solid #0369a1; text-align:center;">
+            <div style="color:#bae6fd; font-weight:600; margin-bottom:0.6rem;">LLM</div>
+            <div style="color:white; font-size:0.95rem;">온프레미스 전용 서빙</div>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px; border:1px solid #0369a1; text-align:center;">
+            <div style="color:#bae6fd; font-weight:600; margin-bottom:0.6rem;">에이전트</div>
+            <div style="color:white; font-size:0.95rem;">Multi-Tool · OOD</div>
+          </div>
+          <div style="background:#0284c7; padding:1.5rem; border-radius:8px; border:1px solid #0369a1; text-align:center;">
+            <div style="color:#bae6fd; font-weight:600; margin-bottom:0.6rem;">신뢰성</div>
+            <div style="color:white; font-size:0.95rem;">출처 인덱스 의무화</div>
+          </div>
+        </div>
+        <div style="text-align:center; padding:1.5rem; background:rgba(255,255,255,0.03); border:1px dashed var(--border-color); border-radius:8px; color:white; font-weight:500; font-size:1.05rem;">
+          <span style="color:#94a3b8; font-size:0.9rem; display:block; margin-bottom:0.5rem; font-weight:normal;">PM 역할 범위</span>
+          요구사항 정의 &nbsp;·&nbsp; 아키텍처 의사결정 &nbsp;·&nbsp; 기술 이슈 조율 &nbsp;·&nbsp; 보안 심의 대응 &nbsp;·&nbsp; 개발팀 리딩
+        </div>
+      </div>
     `
   },
   {
@@ -564,22 +631,14 @@ function renderPortfolioDetail(projId) {
 
       <article class="detail-article">
 
-        <h2>프로젝트 개요</h2>
-        <p>${proj.summary}</p>
-
-        <h2>도전 과제 (Challenge)</h2>
-        <p>${proj.challenge}</p>
-
-        <h2>접근 방식 (Solution &amp; Architecture)</h2>
-        <p>${proj.solution}</p>
-
+        ${proj.summary ? `<h2>프로젝트 개요</h2><p>${proj.summary}</p>` : ''}
+        ${proj.challenge ? `<h2>도전 과제 (Challenge)</h2><p>${proj.challenge}</p>` : ''}
+        ${proj.solution ? `<h2>접근 방식 (Solution &amp; Architecture)</h2><p>${proj.solution}</p>` : ''}
+        
         ${proj.architecture}
 
-        <h2>주요 성과 (Results)</h2>
-        <ul class="detail-results">${resultsHtml}</ul>
-
-        <h2>기술 스택</h2>
-        <div class="tech-stack">${techHtml}</div>
+        ${proj.results && proj.results.length > 0 ? `<h2>주요 성과 (Results)</h2><ul class="detail-results">${resultsHtml}</ul>` : ''}
+        ${proj.techStack && proj.techStack.length > 0 ? `<h2>기술 스택</h2><div class="tech-stack">${techHtml}</div>` : ''}
 
       </article>
     </section>
