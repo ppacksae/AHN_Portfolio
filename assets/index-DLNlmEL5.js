@@ -1,29 +1,37 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))l(r);new MutationObserver(r=>{for(const e of r)if(e.type==="childList")for(const d of e.addedNodes)d.tagName==="LINK"&&d.rel==="modulepreload"&&l(d)}).observe(document,{childList:!0,subtree:!0});function i(r){const e={};return r.integrity&&(e.integrity=r.integrity),r.referrerPolicy&&(e.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?e.credentials="include":r.crossOrigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function l(r){if(r.ep)return;r.ep=!0;const e=i(r);fetch(r.href,e)}})();const n=document.getElementById("main-content"),I=document.querySelectorAll(".nav-links a"),y={"":v,"#home":v,"#portfolio":u,"#blog":D},s={name:"Ahn Sungjin",title:"Generative AI Project Manager",description:"Driving practical innovation by integrating large-scale IT/DX project leadership with cutting-edge Generative AI technologies (vLLM, Multi-Agent, RAG, MCP) to solve complex enterprise challenges.",coreRoles:[{title:"1. Gen AI 서비스 아키텍처 설계 및 시스템 통합 총괄",desc:"",bullets:["엔터프라이즈 환경(On-Premise/Cloud)을 고려한 Gen AI 서비스 아키텍처 수립 및 기술 이행 전략 리딩","K8s 기반 인프라 환경의 기술적 제약사항 조율 및 생성형 AI 파이프라인 전 과정의 이슈 해결 주도","레거시 및 타 시스템과의 연계를 고려한 시스템 통합 아키텍처 설계 및 검토","정형/비정형 데이터 수집부터 RAG 기반 서비스 오픈까지 생성형 AI 데이터 파이프라인 전 과정 총괄"]},{title:"2. Agentic AI 워크플로우 기획 및 프로덕트 생애주기(E2E) 리딩",desc:"",bullets:["제품 목표 설정부터 요구사항 분석, 개발, 출시, 운영까지 PM으로서 AI 프로덕트 생애주기 직접 리딩","LLM 및 Agentic AI에 대한 기술적 이해를 바탕으로 비즈니스 목적에 부합하는 Multi-Agent 워크플로우 기획","단순 챗봇을 넘어선 목적별 서브 에이전트 간 협력 및 Task 자동화 파이프라인 구축 리딩","특정 도메인(금융 등)의 이해를 바탕으로 실질적인 업무 생산성을 제고하는 AI 비즈니스 모델 발굴 및 적용"]},{title:"3. AI 기반 업무 생산성 혁신 및 Full-Cycle 프로토타이핑",desc:"",bullets:["AI를 활용한 실질적인 업무 생산성 제고에 지속적인 관심을 두고, 바이브 코딩 등 다양한 방법론을 실무에 적극 도입 및 시도","AI 바이브 코딩을 활용하여 기획 단계부터 사내 프로젝트 관리(WBS) 시스템을 직접 기획, 구축 및 배포한 경험 보유","제안 단계 및 신규 서비스 기획 시, PoC 데모 페이지 제작부터 서버 구축, 배포까지 전 과정을 직접 수행하여 제품 방향성 및 인사이트 빠른 검증","불확실성이 높은 AI 비즈니스 환경에서 프로토타이핑 툴을 활용한 빠른 아이디어 실체화로 의사결정 가속화"]},{title:"4. LLM & Agentic AI 기반 시스템 구축 및 인프라 아키텍처 총괄",desc:"",bullets:["LLM, Agentic AI 등 최신 기술 이해도를 바탕으로 한 AI 모델 기반 시스템 구축 전 주기 리딩","RAG 파이프라인 설계 및 Tool Calling, 워크플로우 오케스트레이션을 연계한 복합 AI 서비스 구현","대규모 AI 학습·추론을 위한 GPU 인프라 아키텍처 설계 및 vLLM 서빙 최적화를 통한 AI HPC급 환경 구축","성능, 비용, 지연시간을 종합적으로 고려하여 대용량 트래픽 처리가 가능한 인프라 환경 구축 경험 보유"]}]},b=[{id:"proj1",title:"S 증권사 생성형 AI 리서치 포털 구축 (Gen AI Research Assistant)",role:"총괄 AI PM (Architecture Design & Delivery Lead)",period:"2025.07 ~ 진행 중 | GenON AI",tags:["On-Premise","RAG","Multi-Agent","vLLM","K8s","금융권 폐쇄망"],coverColor:"linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4d7a 100%)",coverIcon:"🏦",summary:"금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축했다.",challenge:"",solution:"",results:[],techStack:["K8s","RHEL 9.6","DMZ Relay","H200","vLLM","VDB","RDB","Multi-Tool","OOD"],architecture:`
-      <div class="panel" style="background:#1e293b; padding:1.5rem; border-radius:12px; margin-bottom:2.5rem; border:1px solid #334155;">
-        <h4 style="color:white; margin-top:0; border-bottom:1px solid #334155; padding-bottom:0.8rem; font-size:1.2rem;">프로젝트가 풀어야 했던 문제</h4>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; text-align:center; align-items:stretch; margin-top:1.5rem;">
-          <div style="background:#334155; padding:1.5rem; border-radius:8px; border:1px solid #475569;">
-            <div style="color:#94a3b8; font-weight:bold; margin-bottom:1rem;">제약 환경</div>
-            <div style="color:#e2e8f0; font-size:0.95rem; line-height:1.7;">금융 폐쇄망<br>외부 API 차단<br>클라우드 LLM 불가<br>데이터 파편화<br>(정형 + 비정형 혼재)</div>
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))n(r);new MutationObserver(r=>{for(const e of r)if(e.type==="childList")for(const a of e.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&n(a)}).observe(document,{childList:!0,subtree:!0});function i(r){const e={};return r.integrity&&(e.integrity=r.integrity),r.referrerPolicy&&(e.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?e.credentials="include":r.crossOrigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function n(r){if(r.ep)return;r.ep=!0;const e=i(r);fetch(r.href,e)}})();const l=document.getElementById("main-content"),I=document.querySelectorAll(".nav-links a"),y={"":u,"#home":u,"#portfolio":v,"#blog":D},s={name:"Ahn Sungjin",title:"Generative AI Project Manager",description:"Driving practical innovation by integrating large-scale IT/DX project leadership with cutting-edge Generative AI technologies (vLLM, Multi-Agent, RAG, MCP) to solve complex enterprise challenges.",coreRoles:[{title:"1. Gen AI 서비스 아키텍처 설계 및 시스템 통합 총괄",desc:"",bullets:["엔터프라이즈 환경(On-Premise/Cloud)을 고려한 Gen AI 서비스 아키텍처 수립 및 기술 이행 전략 리딩","K8s 기반 인프라 환경의 기술적 제약사항 조율 및 생성형 AI 파이프라인 전 과정의 이슈 해결 주도","레거시 및 타 시스템과의 연계를 고려한 시스템 통합 아키텍처 설계 및 검토","정형/비정형 데이터 수집부터 RAG 기반 서비스 오픈까지 생성형 AI 데이터 파이프라인 전 과정 총괄"]},{title:"2. Agentic AI 워크플로우 기획 및 프로덕트 생애주기(E2E) 리딩",desc:"",bullets:["제품 목표 설정부터 요구사항 분석, 개발, 출시, 운영까지 PM으로서 AI 프로덕트 생애주기 직접 리딩","LLM 및 Agentic AI에 대한 기술적 이해를 바탕으로 비즈니스 목적에 부합하는 Multi-Agent 워크플로우 기획","단순 챗봇을 넘어선 목적별 서브 에이전트 간 협력 및 Task 자동화 파이프라인 구축 리딩","특정 도메인(금융 등)의 이해를 바탕으로 실질적인 업무 생산성을 제고하는 AI 비즈니스 모델 발굴 및 적용"]},{title:"3. AI 기반 업무 생산성 혁신 및 Full-Cycle 프로토타이핑",desc:"",bullets:["AI를 활용한 실질적인 업무 생산성 제고에 지속적인 관심을 두고, 바이브 코딩 등 다양한 방법론을 실무에 적극 도입 및 시도","AI 바이브 코딩을 활용하여 기획 단계부터 사내 프로젝트 관리(WBS) 시스템을 직접 기획, 구축 및 배포한 경험 보유","제안 단계 및 신규 서비스 기획 시, PoC 데모 페이지 제작부터 서버 구축, 배포까지 전 과정을 직접 수행하여 제품 방향성 및 인사이트 빠른 검증","불확실성이 높은 AI 비즈니스 환경에서 프로토타이핑 툴을 활용한 빠른 아이디어 실체화로 의사결정 가속화"]},{title:"4. LLM & Agentic AI 기반 시스템 구축 및 인프라 아키텍처 총괄",desc:"",bullets:["LLM, Agentic AI 등 최신 기술 이해도를 바탕으로 한 AI 모델 기반 시스템 구축 전 주기 리딩","RAG 파이프라인 설계 및 Tool Calling, 워크플로우 오케스트레이션을 연계한 복합 AI 서비스 구현","대규모 AI 학습·추론을 위한 GPU 인프라 아키텍처 설계 및 vLLM 서빙 최적화를 통한 AI HPC급 환경 구축","성능, 비용, 지연시간을 종합적으로 고려하여 대용량 트래픽 처리가 가능한 인프라 환경 구축 경험 보유"]}]},b=[{id:"proj1",title:"S 증권사 생성형 AI 리서치 포털 구축 (Gen AI Research Assistant)",role:"총괄 AI PM (Architecture Design & Delivery Lead)",period:"2025.07 ~ 진행 중 | GenON AI",tags:["On-Premise","RAG","Multi-Agent","vLLM","K8s","금융권 폐쇄망"],coverColor:"linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4d7a 100%)",coverIcon:"🏦",summary:"금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축했다.",challenge:"",solution:"",results:[],techStack:["K8s","RHEL 9.6","DMZ Relay","H200","vLLM","VDB","RDB","Multi-Tool","OOD"],architecture:`
+      <div class="panel" style="background:#1e293b; padding:1.5rem; border-radius:12px; margin-bottom:3rem; border:1px solid #334155;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; align-items:stretch;">
+          
+          <!-- 1. Problem -->
+          <div>
+            <h4 style="color:var(--accent-primary); margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(56,189,248,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">1</span> Problem</h4>
+            <ul style="margin:0; padding-left:1.2rem; color:#e2e8f0; font-size:0.95rem; line-height:1.7;">
+              <li>증권사 내부 데이터 활용 어려움</li>
+              <li>리서치 / RDB / 문서 분산</li>
+            </ul>
           </div>
-          <div style="display:flex; align-items:center; justify-content:center; color:#475569; font-size:1.5rem;">
-            <i class="fas fa-arrow-right"></i>
+
+          <!-- 2. Solution -->
+          <div>
+            <h4 style="color:#10b981; margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(16,185,129,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">2</span> Solution</h4>
+            <div style="background:rgba(16,185,129,0.1); border:1px solid rgba(16,185,129,0.2); padding:1rem; border-radius:8px; height:calc(100% - 3rem);">
+              <p style="margin:0; color:#d1fae5; font-weight:600; font-size:1rem; text-align:center; display:flex; align-items:center; justify-content:center; height:100%;">온프레미스 GenAI 플랫폼 구축</p>
+            </div>
           </div>
-          <div style="background:#0284c7; padding:1.5rem; border-radius:8px;">
-            <div style="color:#bae6fd; font-weight:bold; margin-bottom:1rem;">필요한 것</div>
-            <div style="color:white; font-size:0.95rem; line-height:1.7;">내부 LLM 서빙<br>이기종 데이터 통합<br>업무 전 과정 AI 적용<br>데이터 수집 → 분석<br>→ 리포트 → 활용</div>
+
+          <!-- 3. Architecture -->
+          <div>
+            <h4 style="color:#a855f7; margin-top:0; margin-bottom:0.8rem; font-size:1.1rem; border-bottom:1px solid #334155; padding-bottom:0.5rem;"><span style="display:inline-block; background:rgba(168,85,247,0.1); padding:0.2rem 0.6rem; border-radius:4px; margin-right:0.4rem;">3</span> Architecture</h4>
+            <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">Kubernetes LLMops</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">GPU cluster (H200)</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">vLLM</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">RAG (Weaviate)</span>
+              <span style="background:#334155; color:#e2e8f0; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.85rem;">SQL Tool agent</span>
+            </div>
           </div>
-          <div style="display:flex; align-items:center; justify-content:center; color:#475569; font-size:1.5rem;">
-            <i class="fas fa-arrow-right"></i>
-          </div>
-          <div style="background:#0369a1; padding:1.5rem; border-radius:8px; border:1px solid #0ea5e9;">
-            <div style="color:#bae6fd; font-weight:bold; margin-bottom:1rem;">결과물</div>
-            <div style="color:white; font-size:0.95rem; line-height:1.7; font-weight:500;">AI 리서치 포털<br>온프레미스 전용<br>멀티 에이전트 기반<br>AI Chat + 데이터 통합<br>엔터프라이즈 플랫폼</div>
-          </div>
+
         </div>
-        <p style="color:#cbd5e1; font-size:1rem; margin-top:2rem; line-height:1.7; padding:1rem; background:rgba(0,0,0,0.2); border-radius:8px;">
-          금융권 리서치센터 애널리스트들은 수십만 건의 내부 리포트, 공시, 뉴스, 재무 데이터를 매일 다루지만 이를 통합해서 질의하거나 분석에 즉시 활용할 수 있는 환경이 없었다. 동시에 금융 폐쇄망 특성상 외부 클라우드 LLM API는 완전 차단된 상태였다.
-        </p>
       </div>
 
       <div style="margin-bottom:3rem;">
@@ -39,14 +47,9 @@
           </thead>
           <tbody>
             <tr style="border-bottom:1px solid #1e293b;">
-              <td style="padding:1.2rem 1rem; color:#e2e8f0;">인프라 구조</td>
-              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">DMZ 릴레이 서버 + 온프레미스 GPU 클러스터</td>
-              <td style="padding:1.2rem 1rem; color:#cbd5e1;">폐쇄망에서 외부 데이터 반입 유일한 경로</td>
-            </tr>
-            <tr style="border-bottom:1px solid #1e293b;">
-              <td style="padding:1.2rem 1rem; color:#e2e8f0;">LLM 서빙</td>
-              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">vLLM 기반 고속 서빙</td>
-              <td style="padding:1.2rem 1rem; color:#cbd5e1;">K8s 환경에서 엔터프라이즈급 처리량 확보</td>
+              <td style="padding:1.2rem 1rem; color:#e2e8f0;">LLMOps 및 모델 서빙</td>
+              <td style="padding:1.2rem 1rem; color:white; font-weight:500;">LLMOps 기반 GenAI 플랫폼 구축 및 K8s 자원/GPU 부하 관리</td>
+              <td style="padding:1.2rem 1rem; color:#cbd5e1;">엔터프라이즈급 처리량 확보 및 안정적인 내부 서비스 운영</td>
             </tr>
             <tr style="border-bottom:1px solid #1e293b;">
               <td style="padding:1.2rem 1rem; color:#e2e8f0;">데이터 아키텍처</td>
@@ -305,7 +308,7 @@
           <tr><td>품평 워크플로우</td><td>디자인 검토 → 어노테이션(수정 지시) → 반영 확인까지 일원화된 VR 내 의사결정 프로세스</td></tr>
         </tbody>
       </table>
-    `}];function v(){const o=s.coreRoles.map(t=>{const i=t.bullets?`<ul>${t.bullets.map(l=>`<li style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem;">${l}</li>`).join("")}</ul>`:"";return`
+    `}];function u(){const o=s.coreRoles.map(t=>{const i=t.bullets?`<ul>${t.bullets.map(n=>`<li style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem;">${n}</li>`).join("")}</ul>`:"";return`
       <div class="skill-category">
         <h3>${t.title}</h3>
         ${t.desc?`<p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">${t.desc}</p>`:""}
@@ -341,7 +344,7 @@
         </div>
       </div>
     </section>
-  `}function u(){return`
+  `}function v(){return`
     <section class="portfolio panel">
       <div class="portfolio-header">
         <div>
@@ -355,7 +358,7 @@
           </a>
         </div>
       </div>
-      <div class="port-list">${b.map(t=>{const i=t.tags.map(l=>`<span class="port-tag">${l}</span>`).join("");return`
+      <div class="port-list">${b.map(t=>{const i=t.tags.map(n=>`<span class="port-tag">${n}</span>`).join("");return`
       <article class="port-card" onclick="openPortfolioDetail('${t.id}')">
         <div class="port-card-body">
           <div class="port-tags">${i}</div>
@@ -367,7 +370,7 @@
       </article>
     `}).join("")}</div>
     </section>
-  `}function A(o){const t=b.find(e=>e.id===o);if(!t)return u();const i=t.tags.map(e=>`<span class="port-tag">${e}</span>`).join(""),l=t.results.map(e=>`<li>${e}</li>`).join(""),r=t.techStack.map(e=>`<code class="tech-chip">${e}</code>`).join(" ");return`
+  `}function A(o){const t=b.find(e=>e.id===o);if(!t)return v();const i=t.tags.map(e=>`<span class="port-tag">${e}</span>`).join(""),n=t.results.map(e=>`<li>${e}</li>`).join(""),r=t.techStack.map(e=>`<code class="tech-chip">${e}</code>`).join(" ");return`
     <section class="portfolio panel">
       <button class="back-btn" onclick="navigateTo('#portfolio')">← 포트폴리오 목록으로</button>
 
@@ -391,7 +394,7 @@
         
         ${t.architecture}
 
-        ${t.results&&t.results.length>0?`<h2>주요 성과 (Results)</h2><ul class="detail-results">${l}</ul>`:""}
+        ${t.results&&t.results.length>0?`<h2>주요 성과 (Results)</h2><ul class="detail-results">${n}</ul>`:""}
         ${t.techStack&&t.techStack.length>0?`<h2>기술 스택</h2><div class="tech-stack">${r}</div>`:""}
 
       </article>
@@ -416,7 +419,7 @@
         </a>
       </div>
     </section>
-  `}function x(o){I.forEach(t=>{t.classList.remove("active"),(t.getAttribute("href")===o||o===""&&t.getAttribute("href")==="#home")&&t.classList.add("active")})}function f(){const o=window.location.hash,t=y[o]||y[""];x(o),n.innerHTML="";const i=t();setTimeout(()=>{n.innerHTML=i},10)}window.openPortfolioDetail=function(o){x("#portfolio"),n.innerHTML="",setTimeout(()=>{n.innerHTML=A(o),window.scrollTo(0,0)},10)};window.navigateTo=function(o){window.location.hash=o,f()};window.printFullPortfolio=function(){const o=window.scrollY,t=n.innerHTML,i=`
+  `}function x(o){I.forEach(t=>{t.classList.remove("active"),(t.getAttribute("href")===o||o===""&&t.getAttribute("href")==="#home")&&t.classList.add("active")})}function f(){const o=window.location.hash,t=y[o]||y[""];x(o),l.innerHTML="";const i=t();setTimeout(()=>{l.innerHTML=i},10)}window.openPortfolioDetail=function(o){x("#portfolio"),l.innerHTML="",setTimeout(()=>{l.innerHTML=A(o),window.scrollTo(0,0)},10)};window.navigateTo=function(o){window.location.hash=o,f()};window.printFullPortfolio=function(){const o=window.scrollY,t=l.innerHTML,i=`
     <div class="pdf-cover" style="height: 277mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; box-sizing: border-box; overflow: hidden;">
       <h1 style="font-size: 3.5rem; margin-bottom: 0.8rem; letter-spacing: 3px; color: #38bdf8; font-weight: 700;">Portfolio</h1>
       <div style="width: 60px; height: 3px; background: #38bdf8; margin: 1.5rem auto; border-radius: 2px;"></div>
@@ -424,9 +427,9 @@
       <h3 style="font-size: 1.3rem; color: #a1a1aa; font-weight: 400; letter-spacing: 1px;">AI Project Manager</h3>
     </div>
     <div class="html2pdf__page-break"></div>
-  `,l=s.coreRoles.map(a=>{const h=a.bullets?`<ul style="margin: 0 0 0 1rem; padding: 0; list-style-type: disc;">${a.bullets.map(c=>`<li style="color: #ffffff; font-size: 0.88rem; line-height: 1.65; margin-bottom: 0.3rem;">${c}</li>`).join("")}</ul>`:"";return`
+  `,n=s.coreRoles.map(d=>{const h=d.bullets?`<ul style="margin: 0 0 0 1rem; padding: 0; list-style-type: disc;">${d.bullets.map(c=>`<li style="color: #ffffff; font-size: 0.88rem; line-height: 1.65; margin-bottom: 0.3rem;">${c}</li>`).join("")}</ul>`:"";return`
       <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 14px 16px; break-inside: avoid;">
-        <h4 style="font-size: 0.95rem; color: #38bdf8; margin: 0 0 0.6rem 0; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(56,189,248,0.2);">${a.title}</h4>
+        <h4 style="font-size: 0.95rem; color: #38bdf8; margin: 0 0 0.6rem 0; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(56,189,248,0.2);">${d.title}</h4>
         ${h}
       </div>
     `}).join(""),r=`
@@ -436,11 +439,11 @@
         ${s.description}
       </p>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; flex: 1;">
-        ${l}
+        ${n}
       </div>
     </div>
     <div class="html2pdf__page-break"></div>
-  `,e=b.map((a,h)=>{let c=A(a.id);return c=c.replace(/<button class="back-btn".*?<\/button>/,""),h<b.length-1&&(c+='<div class="html2pdf__page-break"></div>'),c}).join(""),d=document.querySelector('button[onclick="window.printFullPortfolio()"]');d&&d.innerHTML,d&&(d.innerHTML='<i class="fas fa-spinner fa-spin"></i> 이미지 로딩 중...',d.disabled=!0);const w=`
+  `,e=b.map((d,h)=>{let c=A(d.id);return c=c.replace(/<button class="back-btn".*?<\/button>/,""),h<b.length-1&&(c+='<div class="html2pdf__page-break"></div>'),c}).join(""),a=document.querySelector('button[onclick="window.printFullPortfolio()"]');a&&a.innerHTML,a&&(a.innerHTML='<i class="fas fa-spinner fa-spin"></i> 이미지 로딩 중...',a.disabled=!0);const w=`
     <style>
       .pdf-wrapper { background: #0a0a0a !important; padding: 0 !important; margin: 0 !important; }
       .pdf-wrapper .detail-article { max-width: 100% !important; width: 100% !important; margin: 0 !important; padding: 0 15px !important; }
@@ -454,4 +457,4 @@
       .pdf-wrapper th { color: #ffffff !important; }
       .pdf-wrapper .detail-header h1 { color: #ffffff !important; }
     </style>
-  `;n.innerHTML=w+'<div class="pdf-wrapper">'+i+r+e+"</div>",window.scrollTo(0,0);const P={margin:0,filename:"Ahn_Sungjin_Portfolio.pdf",image:{type:"jpeg",quality:.98},html2canvas:{scale:2,useCORS:!0,logging:!1,backgroundColor:"#0a0a0a"},jsPDF:{unit:"mm",format:"a4",orientation:"portrait"}},g=Array.from(n.querySelectorAll("img"));let m=0;const p=()=>{d&&(d.innerHTML='<i class="fas fa-spinner fa-spin"></i> PDF 변환 중...'),setTimeout(()=>{window.html2pdf().set(P).from(n).save().then(()=>{n.innerHTML=t,window.scrollTo(0,o)}).catch(a=>{console.error("PDF 생성 에러:",a),n.innerHTML=t,window.scrollTo(0,o),alert("PDF 생성 중 오류가 발생했습니다.")})},600)};g.length===0?p():g.forEach(a=>{a.complete?(m++,m===g.length&&p()):(a.onload=()=>{m++,m===g.length&&p()},a.onerror=()=>{m++,m===g.length&&p()})})};window.addEventListener("hashchange",f);window.addEventListener("DOMContentLoaded",f);
+  `;l.innerHTML=w+'<div class="pdf-wrapper">'+i+r+e+"</div>",window.scrollTo(0,0);const P={margin:0,filename:"Ahn_Sungjin_Portfolio.pdf",image:{type:"jpeg",quality:.98},html2canvas:{scale:2,useCORS:!0,logging:!1,backgroundColor:"#0a0a0a"},jsPDF:{unit:"mm",format:"a4",orientation:"portrait"}},g=Array.from(l.querySelectorAll("img"));let m=0;const p=()=>{a&&(a.innerHTML='<i class="fas fa-spinner fa-spin"></i> PDF 변환 중...'),setTimeout(()=>{window.html2pdf().set(P).from(l).save().then(()=>{l.innerHTML=t,window.scrollTo(0,o)}).catch(d=>{console.error("PDF 생성 에러:",d),l.innerHTML=t,window.scrollTo(0,o),alert("PDF 생성 중 오류가 발생했습니다.")})},600)};g.length===0?p():g.forEach(d=>{d.complete?(m++,m===g.length&&p()):(d.onload=()=>{m++,m===g.length&&p()},d.onerror=()=>{m++,m===g.length&&p()})})};window.addEventListener("hashchange",f);window.addEventListener("DOMContentLoaded",f);
