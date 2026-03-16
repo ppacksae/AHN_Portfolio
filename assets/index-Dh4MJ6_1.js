@@ -1,4 +1,4 @@
-(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))n(r);new MutationObserver(r=>{for(const e of r)if(e.type==="childList")for(const a of e.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&n(a)}).observe(document,{childList:!0,subtree:!0});function i(r){const e={};return r.integrity&&(e.integrity=r.integrity),r.referrerPolicy&&(e.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?e.credentials="include":r.crossOrigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function n(r){if(r.ep)return;r.ep=!0;const e=i(r);fetch(r.href,e)}})();const l=document.getElementById("main-content"),I=document.querySelectorAll(".nav-links a"),y={"":u,"#home":u,"#portfolio":v,"#blog":D},s={name:"Ahn Sungjin",title:"Generative AI Project Manager",description:"Driving practical innovation by integrating large-scale IT/DX project leadership with cutting-edge Generative AI technologies (vLLM, Multi-Agent, RAG, MCP) to solve complex enterprise challenges.",coreRoles:[{title:"1. Gen AI 서비스 아키텍처 설계 및 시스템 통합 총괄",desc:"",bullets:["엔터프라이즈 환경(On-Premise/Cloud)을 고려한 Gen AI 서비스 아키텍처 수립 및 기술 이행 전략 리딩","K8s 기반 인프라 환경의 기술적 제약사항 조율 및 생성형 AI 파이프라인 전 과정의 이슈 해결 주도","레거시 및 타 시스템과의 연계를 고려한 시스템 통합 아키텍처 설계 및 검토","정형/비정형 데이터 수집부터 RAG 기반 서비스 오픈까지 생성형 AI 데이터 파이프라인 전 과정 총괄"]},{title:"2. Agentic AI 워크플로우 기획 및 프로덕트 생애주기(E2E) 리딩",desc:"",bullets:["제품 목표 설정부터 요구사항 분석, 개발, 출시, 운영까지 PM으로서 AI 프로덕트 생애주기 직접 리딩","LLM 및 Agentic AI에 대한 기술적 이해를 바탕으로 비즈니스 목적에 부합하는 Multi-Agent 워크플로우 기획","단순 챗봇을 넘어선 목적별 서브 에이전트 간 협력 및 Task 자동화 파이프라인 구축 리딩","특정 도메인(금융 등)의 이해를 바탕으로 실질적인 업무 생산성을 제고하는 AI 비즈니스 모델 발굴 및 적용"]},{title:"3. AI 기반 업무 생산성 혁신 및 Full-Cycle 프로토타이핑",desc:"",bullets:["AI를 활용한 실질적인 업무 생산성 제고에 지속적인 관심을 두고, 바이브 코딩 등 다양한 방법론을 실무에 적극 도입 및 시도","AI 바이브 코딩을 활용하여 기획 단계부터 사내 프로젝트 관리(WBS) 시스템을 직접 기획, 구축 및 배포한 경험 보유","제안 단계 및 신규 서비스 기획 시, PoC 데모 페이지 제작부터 서버 구축, 배포까지 전 과정을 직접 수행하여 제품 방향성 및 인사이트 빠른 검증","불확실성이 높은 AI 비즈니스 환경에서 프로토타이핑 툴을 활용한 빠른 아이디어 실체화로 의사결정 가속화"]},{title:"4. LLM & Agentic AI 기반 시스템 구축 및 인프라 아키텍처 총괄",desc:"",bullets:["LLM, Agentic AI 등 최신 기술 이해도를 바탕으로 한 AI 모델 기반 시스템 구축 전 주기 리딩","RAG 파이프라인 설계 및 Tool Calling, 워크플로우 오케스트레이션을 연계한 복합 AI 서비스 구현","대규모 AI 학습·추론을 위한 GPU 인프라 아키텍처 설계 및 vLLM 서빙 최적화를 통한 AI HPC급 환경 구축","성능, 비용, 지연시간을 종합적으로 고려하여 대용량 트래픽 처리가 가능한 인프라 환경 구축 경험 보유"]}]},b=[{id:"proj1",title:"S 증권사 생성형 AI 리서치 포털 구축 (Gen AI Research Assistant)",role:"총괄 AI PM (Architecture Design & Delivery Lead)",period:"2025.07 ~ 진행 중 | GenON AI",tags:["On-Premise","RAG","Multi-Agent","vLLM","K8s","금융권 폐쇄망"],coverColor:"linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4d7a 100%)",coverIcon:"🏦",summary:"금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축했다.",challenge:"",solution:"",results:[],techStack:["K8s","RHEL 9.6","DMZ Relay","H200","vLLM","VDB","RDB","Multi-Tool","OOD"],architecture:`
+(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))n(r);new MutationObserver(r=>{for(const e of r)if(e.type==="childList")for(const a of e.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&n(a)}).observe(document,{childList:!0,subtree:!0});function i(r){const e={};return r.integrity&&(e.integrity=r.integrity),r.referrerPolicy&&(e.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?e.credentials="include":r.crossOrigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function n(r){if(r.ep)return;r.ep=!0;const e=i(r);fetch(r.href,e)}})();const d=document.getElementById("main-content"),I=document.querySelectorAll(".nav-links a"),u={"":y,"#home":y,"#portfolio":v,"#blog":D},s={name:"Ahn Sungjin",title:"Generative AI Project Manager",description:"Driving practical innovation by integrating large-scale IT/DX project leadership with cutting-edge Generative AI technologies (vLLM, Multi-Agent, RAG, MCP) to solve complex enterprise challenges.",coreRoles:[{title:"1. Gen AI 서비스 아키텍처 설계 및 시스템 통합 총괄",desc:"",bullets:["엔터프라이즈 환경(On-Premise/Cloud)을 고려한 Gen AI 서비스 아키텍처 수립 및 기술 이행 전략 리딩","K8s 기반 인프라 환경의 기술적 제약사항 조율 및 생성형 AI 파이프라인 전 과정의 이슈 해결 주도","레거시 및 타 시스템과의 연계를 고려한 시스템 통합 아키텍처 설계 및 검토","정형/비정형 데이터 수집부터 RAG 기반 서비스 오픈까지 생성형 AI 데이터 파이프라인 전 과정 총괄"]},{title:"2. Agentic AI 워크플로우 기획 및 프로덕트 생애주기(E2E) 리딩",desc:"",bullets:["제품 목표 설정부터 요구사항 분석, 개발, 출시, 운영까지 PM으로서 AI 프로덕트 생애주기 직접 리딩","LLM 및 Agentic AI에 대한 기술적 이해를 바탕으로 비즈니스 목적에 부합하는 Multi-Agent 워크플로우 기획","단순 챗봇을 넘어선 목적별 서브 에이전트 간 협력 및 Task 자동화 파이프라인 구축 리딩","특정 도메인(금융 등)의 이해를 바탕으로 실질적인 업무 생산성을 제고하는 AI 비즈니스 모델 발굴 및 적용"]},{title:"3. AI 기반 업무 생산성 혁신 및 Full-Cycle 프로토타이핑",desc:"",bullets:["AI를 활용한 실질적인 업무 생산성 제고에 지속적인 관심을 두고, 바이브 코딩 등 다양한 방법론을 실무에 적극 도입 및 시도","AI 바이브 코딩을 활용하여 기획 단계부터 사내 프로젝트 관리(WBS) 시스템을 직접 기획, 구축 및 배포한 경험 보유","제안 단계 및 신규 서비스 기획 시, PoC 데모 페이지 제작부터 서버 구축, 배포까지 전 과정을 직접 수행하여 제품 방향성 및 인사이트 빠른 검증","불확실성이 높은 AI 비즈니스 환경에서 프로토타이핑 툴을 활용한 빠른 아이디어 실체화로 의사결정 가속화"]},{title:"4. LLM & Agentic AI 기반 시스템 구축 및 인프라 아키텍처 총괄",desc:"",bullets:["LLM, Agentic AI 등 최신 기술 이해도를 바탕으로 한 AI 모델 기반 시스템 구축 전 주기 리딩","RAG 파이프라인 설계 및 Tool Calling, 워크플로우 오케스트레이션을 연계한 복합 AI 서비스 구현","대규모 AI 학습·추론을 위한 GPU 인프라 아키텍처 설계 및 vLLM 서빙 최적화를 통한 AI HPC급 환경 구축","성능, 비용, 지연시간을 종합적으로 고려하여 대용량 트래픽 처리가 가능한 인프라 환경 구축 경험 보유"]}]},b=[{id:"proj1",title:"S 증권사 생성형 AI 리서치 포털 구축 (Gen AI Research Assistant)",role:"총괄 AI PM (Architecture Design & Delivery Lead)",period:"2025.07 ~ 진행 중 | GenON AI",tags:["On-Premise","RAG","Multi-Agent","vLLM","K8s","금융권 폐쇄망"],coverColor:"linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4d7a 100%)",coverIcon:"🏦",summary:"금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축했다.",challenge:"",solution:"",results:[],techStack:["K8s","RHEL 9.6","DMZ Relay","H200","vLLM","VDB","RDB","Multi-Tool","OOD"],architecture:`
       <div class="panel" style="background:#1e293b; padding:1.5rem; border-radius:12px; margin-bottom:3rem; border:1px solid #334155;">
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; align-items:stretch;">
           
@@ -156,6 +156,57 @@
           요구사항 정의 &nbsp;·&nbsp; 아키텍처 의사결정 &nbsp;·&nbsp; 기술 이슈 조율 &nbsp;·&nbsp; 보안 심의 대응 &nbsp;·&nbsp; 개발팀 리딩
         </div>
       </div>
+
+      <div style="margin-top:4rem;">
+        <h4 style="color:var(--text-main); font-size:1.4rem; margin-bottom:1.5rem; border-bottom:1px solid #334155; padding-bottom:0.8rem;">기술적 해결 과정 및 워크플로우 상세</h4>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">1. Hybrid Retrieval Agent (복합 지능형 챗봇)</h5>
+        <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li>사용자의 질문 의도를 분석하여 실시간 수치 데이터(SQL)와 문맥 정보(RAG) 검색을 <strong>자동 판단 및 수행</strong>하는 중앙 허브 기능</li>
+          <li><strong>Text-to-SQL</strong>: 주가, 재무제표, 컨센서스 등 정형 데이터를 SQL 에이전트를 통해 실시간 조회</li>
+          <li><strong>Markdown Formatter</strong>: 복잡한 DB 조회 결과를 사용자 친화적인 표 형식으로 자동 변환 출력</li>
+        </ul>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">2. 마켓 센싱 (Market Sensing) 및 트렌드 분석</h5>
+        <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li>외부 뉴스 및 SNS 데이터를 VDB 기반으로 검색하여 시장 동향 및 감성 분석 수행</li>
+          <li>실시간 주요 이슈를 시각화하는 <strong>워드클라우드</strong> 및 특정 키워드에 대한 <strong>AI 요약 브리핑</strong> 제공</li>
+          <li>이상 징후 감지 시 지정된 채널(팝업, 메일, 문자)로 즉시 알림을 발송하는 <strong>모니터링 에이전트</strong></li>
+        </ul>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">3. 상관관계 분석 (Correlation Analysis)</h5>
+        <ul style="margin: 0 0 1.5rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li>주가, 매크로 지표, 주요 이벤트(뉴스/공시) 간의 복잡한 관계를 시각화하고 원인을 추론하는 분석 도구</li>
+          <li><strong>Python Code Interpreter</strong>: RDB에서 추출된 데이터의 상관계수를 산출하고 차트로 시각화</li>
+          <li><strong>미래 주가 영향도 예측</strong>: 과거 패턴과 최신 뉴스를 종합 분석하여 이벤트 발생 시 시나리오별 전망 제시</li>
+        </ul>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">4. 리서치 어시스턴트 및 문서 자동화</h5>
+        <ul style="margin: 0 0 2rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li>애널리스트의 업무를 보조하는 번역, 요약, 콘텐츠 포맷팅(PPT/Excel 템플릿 기반) 도구 지원</li>
+          <li><strong>Document Intelligence</strong>: 복잡한 테이블과 이미지 내 텍스트를 인식하여 의미 기반 청킹 및 RAG 품질 고도화</li>
+        </ul>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">Multi-Agent Tool Calling 설계도</h5>
+        <figure style="margin: 1rem 0;">
+          <img src="./multi-agent-1.png" alt="전체 Agent 구조도" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
+          <figcaption style="font-size:0.85rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">VDB + RDB 하이브리드 방식 및 Master-Sub Agent 계층 구조</figcaption>
+        </figure>
+        <ul style="margin: 0 0 2rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li>리포트·뉴스와 같은 비정형 텍스트(VDB)와 재무/가격 등 정형 수치 데이터(RDB)의 극명한 특성 차이로 인한 수치 환각을 방지하기 위해 <strong>단일 RAG 대신 하이브리드 파이프라인</strong> 채택</li>
+          <li>Master Agent가 사용자의 의도를 분석하여 도메인 전문성이 있는 4개의 Sub-Agent(실적, 리포트, 시황 등)로 작업을 분리 할당</li>
+          <li>각 Sub-Agent는 부여된 자신의 도메인 툴에만 접근 가능한 <strong>Tool Isolation(격리)</strong> 패턴을 적용하여 잘못된 소스 참조를 원천 차단</li>
+        </ul>
+
+        <h5 style="color: var(--accent-primary); margin: 1.2rem 0 0.4rem;">Tool Calling 설계</h5>
+        <figure style="margin: 1rem 0;">
+          <img src="./multi-agent-2.png" alt="Tool Calling 상세 흐름도" style="width:100%; border-radius:8px; border:1px solid var(--border-color);">
+          <figcaption style="font-size:0.85rem; color:var(--text-light); margin-top:0.4rem; text-align:center;">동적 Parameter 추출 및 탐색 공간 축소 설계도</figcaption>
+        </figure>
+        <ul style="margin: 0 0 2rem 1rem; color: var(--text-muted); line-height: 1.7;">
+          <li><strong>동적 파라미터 추출</strong>: Agent가 질의에서 데이터 타입·대상 엔티티·기간·범위를 스스로 추론해 파라미터를 구성합니다. 메타데이터 Pre-filter로 탐색 공간을 먼저 줄인 뒤, 그 안에서 시맨틱 유사도를 계산하는 AND 구조가 정밀도와 속도를 동시에 확보하는 핵심 설계입니다.</li>
+        </ul>
+      </div>
     `},{id:"proj2",title:"미래에셋증권 My-AI Assistant 고도화 (Agentic Workflow)",role:"프로젝트 PM",period:"2025 | Genon AI",tags:["Multi-Agent","MCP","RAG","LLMOps","A2A"],coverColor:"linear-gradient(135deg, #0f172a 0%, #3b1f5e 50%, #1a0a3d 100%)",coverIcon:"📈",summary:"기존 도입된 단일 AI Assistant 모델의 검색 품질을 높이고, 상황별 최적화된 목적별 AI 서브 에이전트를 모듈화하여 연계한 Agentic 시스템 고도화.",challenge:"단일 LLM 모델이 모든 금융 도메인의 복합 질문(실적 분석, 리포트 요약, 시황 해설 등)에 동시에 답변하는 구조는 답변 정확도와 환각(Hallucination) 문제에 취약합니다. 역할이 뚜렷한 전문 에이전트 체계로의 전환이 필요했습니다.",solution:"Biz Agent를 중앙 라우터로 두고 실적 분석, 리포트 조회, 시황 브리핑 등 목적별 서브 에이전트가 협업하는 MCP(A2A) 기반 Multi-Agent 워크플로우를 기획했습니다. 메타데이터/키워드를 결합한 하이브리드 RAG와 의미 기반 Semantic Chunking을 도입하여 컨텍스트 유실(Lost in the Middle) 문제를 최소화했습니다.",results:["에이전트 간 역할 분담으로 시스템 유지보수성 대폭 향상","복합 쿼리 오답률 기존 대비 40% 이상 개선","Multi-turn 질의응답 최적화 및 답변 근거 소스 하이라이팅 UX 구현"],techStack:["LangGraph","MCP (A2A)","RAG","Semantic Chunking","Tool Calling"],architecture:`
       <h4 style="color: var(--accent-primary); margin: 1rem 0 0.5rem;">Multi-Agent 구성도 (요약)</h4>
       <table style="width:100%; border-collapse: collapse; margin-bottom: 1.5rem;">
@@ -308,7 +359,7 @@
           <tr><td>품평 워크플로우</td><td>디자인 검토 → 어노테이션(수정 지시) → 반영 확인까지 일원화된 VR 내 의사결정 프로세스</td></tr>
         </tbody>
       </table>
-    `}];function u(){const o=s.coreRoles.map(t=>{const i=t.bullets?`<ul>${t.bullets.map(n=>`<li style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem;">${n}</li>`).join("")}</ul>`:"";return`
+    `}];function y(){const o=s.coreRoles.map(t=>{const i=t.bullets?`<ul>${t.bullets.map(n=>`<li style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 0.4rem;">${n}</li>`).join("")}</ul>`:"";return`
       <div class="skill-category">
         <h3>${t.title}</h3>
         ${t.desc?`<p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">${t.desc}</p>`:""}
@@ -419,7 +470,7 @@
         </a>
       </div>
     </section>
-  `}function x(o){I.forEach(t=>{t.classList.remove("active"),(t.getAttribute("href")===o||o===""&&t.getAttribute("href")==="#home")&&t.classList.add("active")})}function f(){const o=window.location.hash,t=y[o]||y[""];x(o),l.innerHTML="";const i=t();setTimeout(()=>{l.innerHTML=i},10)}window.openPortfolioDetail=function(o){x("#portfolio"),l.innerHTML="",setTimeout(()=>{l.innerHTML=A(o),window.scrollTo(0,0)},10)};window.navigateTo=function(o){window.location.hash=o,f()};window.printFullPortfolio=function(){const o=window.scrollY,t=l.innerHTML,i=`
+  `}function x(o){I.forEach(t=>{t.classList.remove("active"),(t.getAttribute("href")===o||o===""&&t.getAttribute("href")==="#home")&&t.classList.add("active")})}function f(){const o=window.location.hash,t=u[o]||u[""];x(o),d.innerHTML="";const i=t();setTimeout(()=>{d.innerHTML=i},10)}window.openPortfolioDetail=function(o){x("#portfolio"),d.innerHTML="",setTimeout(()=>{d.innerHTML=A(o),window.scrollTo(0,0)},10)};window.navigateTo=function(o){window.location.hash=o,f()};window.printFullPortfolio=function(){const o=window.scrollY,t=d.innerHTML,i=`
     <div class="pdf-cover" style="height: 277mm; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 20px; box-sizing: border-box; overflow: hidden;">
       <h1 style="font-size: 3.5rem; margin-bottom: 0.8rem; letter-spacing: 3px; color: #38bdf8; font-weight: 700;">Portfolio</h1>
       <div style="width: 60px; height: 3px; background: #38bdf8; margin: 1.5rem auto; border-radius: 2px;"></div>
@@ -427,9 +478,9 @@
       <h3 style="font-size: 1.3rem; color: #a1a1aa; font-weight: 400; letter-spacing: 1px;">AI Project Manager</h3>
     </div>
     <div class="html2pdf__page-break"></div>
-  `,n=s.coreRoles.map(d=>{const h=d.bullets?`<ul style="margin: 0 0 0 1rem; padding: 0; list-style-type: disc;">${d.bullets.map(c=>`<li style="color: #ffffff; font-size: 0.88rem; line-height: 1.65; margin-bottom: 0.3rem;">${c}</li>`).join("")}</ul>`:"";return`
+  `,n=s.coreRoles.map(l=>{const h=l.bullets?`<ul style="margin: 0 0 0 1rem; padding: 0; list-style-type: disc;">${l.bullets.map(c=>`<li style="color: #ffffff; font-size: 0.88rem; line-height: 1.65; margin-bottom: 0.3rem;">${c}</li>`).join("")}</ul>`:"";return`
       <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 14px 16px; break-inside: avoid;">
-        <h4 style="font-size: 0.95rem; color: #38bdf8; margin: 0 0 0.6rem 0; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(56,189,248,0.2);">${d.title}</h4>
+        <h4 style="font-size: 0.95rem; color: #38bdf8; margin: 0 0 0.6rem 0; padding-bottom: 0.4rem; border-bottom: 1px solid rgba(56,189,248,0.2);">${l.title}</h4>
         ${h}
       </div>
     `}).join(""),r=`
@@ -443,7 +494,7 @@
       </div>
     </div>
     <div class="html2pdf__page-break"></div>
-  `,e=b.map((d,h)=>{let c=A(d.id);return c=c.replace(/<button class="back-btn".*?<\/button>/,""),h<b.length-1&&(c+='<div class="html2pdf__page-break"></div>'),c}).join(""),a=document.querySelector('button[onclick="window.printFullPortfolio()"]');a&&a.innerHTML,a&&(a.innerHTML='<i class="fas fa-spinner fa-spin"></i> 이미지 로딩 중...',a.disabled=!0);const w=`
+  `,e=b.map((l,h)=>{let c=A(l.id);return c=c.replace(/<button class="back-btn".*?<\/button>/,""),h<b.length-1&&(c+='<div class="html2pdf__page-break"></div>'),c}).join(""),a=document.querySelector('button[onclick="window.printFullPortfolio()"]');a&&a.innerHTML,a&&(a.innerHTML='<i class="fas fa-spinner fa-spin"></i> 이미지 로딩 중...',a.disabled=!0);const w=`
     <style>
       .pdf-wrapper { background: #0a0a0a !important; padding: 0 !important; margin: 0 !important; }
       .pdf-wrapper .detail-article { max-width: 100% !important; width: 100% !important; margin: 0 !important; padding: 0 15px !important; }
@@ -457,4 +508,4 @@
       .pdf-wrapper th { color: #ffffff !important; }
       .pdf-wrapper .detail-header h1 { color: #ffffff !important; }
     </style>
-  `;l.innerHTML=w+'<div class="pdf-wrapper">'+i+r+e+"</div>",window.scrollTo(0,0);const P={margin:0,filename:"Ahn_Sungjin_Portfolio.pdf",image:{type:"jpeg",quality:.98},html2canvas:{scale:2,useCORS:!0,logging:!1,backgroundColor:"#0a0a0a"},jsPDF:{unit:"mm",format:"a4",orientation:"portrait"}},g=Array.from(l.querySelectorAll("img"));let m=0;const p=()=>{a&&(a.innerHTML='<i class="fas fa-spinner fa-spin"></i> PDF 변환 중...'),setTimeout(()=>{window.html2pdf().set(P).from(l).save().then(()=>{l.innerHTML=t,window.scrollTo(0,o)}).catch(d=>{console.error("PDF 생성 에러:",d),l.innerHTML=t,window.scrollTo(0,o),alert("PDF 생성 중 오류가 발생했습니다.")})},600)};g.length===0?p():g.forEach(d=>{d.complete?(m++,m===g.length&&p()):(d.onload=()=>{m++,m===g.length&&p()},d.onerror=()=>{m++,m===g.length&&p()})})};window.addEventListener("hashchange",f);window.addEventListener("DOMContentLoaded",f);
+  `;d.innerHTML=w+'<div class="pdf-wrapper">'+i+r+e+"</div>",window.scrollTo(0,0);const P={margin:0,filename:"Ahn_Sungjin_Portfolio.pdf",image:{type:"jpeg",quality:.98},html2canvas:{scale:2,useCORS:!0,logging:!1,backgroundColor:"#0a0a0a"},jsPDF:{unit:"mm",format:"a4",orientation:"portrait"}},g=Array.from(d.querySelectorAll("img"));let m=0;const p=()=>{a&&(a.innerHTML='<i class="fas fa-spinner fa-spin"></i> PDF 변환 중...'),setTimeout(()=>{window.html2pdf().set(P).from(d).save().then(()=>{d.innerHTML=t,window.scrollTo(0,o)}).catch(l=>{console.error("PDF 생성 에러:",l),d.innerHTML=t,window.scrollTo(0,o),alert("PDF 생성 중 오류가 발생했습니다.")})},600)};g.length===0?p():g.forEach(l=>{l.complete?(m++,m===g.length&&p()):(l.onload=()=>{m++,m===g.length&&p()},l.onerror=()=>{m++,m===g.length&&p()})})};window.addEventListener("hashchange",f);window.addEventListener("DOMContentLoaded",f);
