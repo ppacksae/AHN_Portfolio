@@ -3,3 +3,5 @@ dist/
 *.pdf
 *.txt
 *.resolved
+.DS_Store
+**/.DS_Store
