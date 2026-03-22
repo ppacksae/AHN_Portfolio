@@ -1,4 +1,4 @@
-(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))l(t);new MutationObserver(t=>{for(const d of t)if(d.type==="childList")for(const c of d.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&l(c)}).observe(document,{childList:!0,subtree:!0});function e(t){const d={};return t.integrity&&(d.integrity=t.integrity),t.referrerPolicy&&(d.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?d.credentials="include":t.crossOrigin==="anonymous"?d.credentials="omit":d.credentials="same-origin",d}function l(t){if(t.ep)return;t.ep=!0;const d=e(t);fetch(t.href,d)}})();const v=document.getElementById("main-content"),M=document.querySelectorAll(".nav-links a"),b={"":y,"#home":y,"#portfolio":A,"#blog":vi},r={name:"Ahn Sungjin",title:"Enterprise GenAI Architect + Product Lead",description:"대규모 IT/DX 프로젝트 총괄 경험을 바탕으로, 생성형 AI(vLLM · Multi-Agent · RAG · MCP)를 활용해 엔터프라이즈 환경의 복잡한 비즈니스 문제를 해결하는 AI Product Lead입니다. 기술 아키텍처 설계부터 AI 서비스 제품화까지 전 과정을 End-to-End로 리딩합니다.",coreRoles:[{title:"1. GenAI Platform Architecture & Integration Lead",subTitle:"GenAI 플랫폼 아키텍처 설계 및 통합 리딩",bullets:["엔터프라이즈 환경(On-Premise / Cloud)에서 GenAI 플랫폼 아키텍처 설계 및 기술 전략 수립","Kubernetes 기반 인프라 제약을 고려한 생성형 AI 파이프라인 설계 및 운영 이슈 해결 리딩","레거시 및 내부 시스템과의 연계를 포함한 End-to-End 통합 아키텍처 설계","정형/비정형 데이터 통합 처리 기반의 AI 서비스 아키텍처 및 데이터 파이프라인 총괄"]},{title:"2. Agentic AI Workflow & Product Leadership",subTitle:"Agentic AI 워크플로우 및 제품 리딩",bullets:["요구사항 정의부터 설계, 개발, 배포까지 AI 제품 Lifecycle 전반 리딩 (PM 역할)","LLM 및 Agentic AI 구조 이해를 기반으로 Multi-Agent Workflow 설계","단일 챗봇을 넘어 Task 기반 Sub-Agent 협업 구조 및 자동화 파이프라인 설계","도메인 특화 AI 서비스 기획 및 실제 업무 생산성 개선 모델 설계"]},{title:"3. AI-driven Productivity & Rapid Prototyping",subTitle:"AI 기반 생산성 혁신 및 빠른 실행",bullets:["AI 기반 업무 자동화 및 생산성 향상을 위한 실험 및 적용 지속 추진","바이브 코딩 및 AI 도구 활용한 빠른 PoC 및 내부 서비스 프로토타이핑 주도","기획 → 개발 → 배포까지 End-to-End 직접 수행을 통한 실행력 확보","불확실한 환경에서 빠른 검증과 의사결정을 가능하게 하는 프로토타이핑 전략 운영"]},{title:"4. LLM Systems & AI Infrastructure Architecture",subTitle:"LLM 시스템 및 AI 인프라 아키텍처",bullets:["LLM 기반 AI 시스템 아키텍처 설계 및 전체 구축 Lifecycle 리딩","RAG, Tool Calling, Agent Orchestration을 결합한 복합 AI 서비스 구조 설계","GPU 인프라 기반 대규모 추론 환경 설계 및 vLLM 최적화 경험","성능, 비용, 지연시간을 고려한 대규모 AI 서비스 인프라 설계 및 운영"]}]},S=`
+(function(){const i=document.createElement("link").relList;if(i&&i.supports&&i.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))l(t);new MutationObserver(t=>{for(const d of t)if(d.type==="childList")for(const o of d.addedNodes)o.tagName==="LINK"&&o.rel==="modulepreload"&&l(o)}).observe(document,{childList:!0,subtree:!0});function e(t){const d={};return t.integrity&&(d.integrity=t.integrity),t.referrerPolicy&&(d.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?d.credentials="include":t.crossOrigin==="anonymous"?d.credentials="omit":d.credentials="same-origin",d}function l(t){if(t.ep)return;t.ep=!0;const d=e(t);fetch(t.href,d)}})();const v=document.getElementById("main-content"),M=document.querySelectorAll(".nav-links a"),y={"":b,"#home":b,"#portfolio":A,"#blog":vi},c={name:"Ahn Sungjin",title:"Enterprise GenAI Architect + Product Lead",description:"대규모 IT/DX 프로젝트 총괄 경험을 바탕으로, 생성형 AI(vLLM · Multi-Agent · RAG · MCP)를 활용해 엔터프라이즈 환경의 복잡한 비즈니스 문제를 해결하는 AI Product Lead입니다. 기술 아키텍처 설계부터 AI 서비스 제품화까지 전 과정을 End-to-End로 리딩합니다.",coreRoles:[{title:"1. GenAI Platform Architecture & Integration Lead",subTitle:"GenAI 플랫폼 아키텍처 설계 및 통합 리딩",bullets:["엔터프라이즈 환경(On-Premise / Cloud)에서 GenAI 플랫폼 아키텍처 설계 및 기술 전략 수립","Kubernetes 기반 인프라 제약을 고려한 생성형 AI 파이프라인 설계 및 운영 이슈 해결 리딩","레거시 및 내부 시스템과의 연계를 포함한 End-to-End 통합 아키텍처 설계","정형/비정형 데이터 통합 처리 기반의 AI 서비스 아키텍처 및 데이터 파이프라인 총괄"]},{title:"2. Agentic AI Workflow & Product Leadership",subTitle:"Agentic AI 워크플로우 및 제품 리딩",bullets:["요구사항 정의부터 설계, 개발, 배포까지 AI 제품 Lifecycle 전반 리딩 (PM 역할)","LLM 및 Agentic AI 구조 이해를 기반으로 Multi-Agent Workflow 설계","단일 챗봇을 넘어 Task 기반 Sub-Agent 협업 구조 및 자동화 파이프라인 설계","도메인 특화 AI 서비스 기획 및 실제 업무 생산성 개선 모델 설계"]},{title:"3. AI-driven Productivity & Rapid Prototyping",subTitle:"AI 기반 생산성 혁신 및 빠른 실행",bullets:["AI 기반 업무 자동화 및 생산성 향상을 위한 실험 및 적용 지속 추진","바이브 코딩 및 AI 도구 활용한 빠른 PoC 및 내부 서비스 프로토타이핑 주도","기획 → 개발 → 배포까지 End-to-End 직접 수행을 통한 실행력 확보","불확실한 환경에서 빠른 검증과 의사결정을 가능하게 하는 프로토타이핑 전략 운영"]},{title:"4. LLM Systems & AI Infrastructure Architecture",subTitle:"LLM 시스템 및 AI 인프라 아키텍처",bullets:["LLM 기반 AI 시스템 아키텍처 설계 및 전체 구축 Lifecycle 리딩","RAG, Tool Calling, Agent Orchestration을 결합한 복합 AI 서비스 구조 설계","GPU 인프라 기반 대규모 추론 환경 설계 및 vLLM 최적화 경험","성능, 비용, 지연시간을 고려한 대규모 AI 서비스 인프라 설계 및 운영"]}]},S=`
   <p class="det-body-text">금융권 특유의 강력한 망분리 규제로 외부 클라우드 AI(ChatGPT 등) 도입이 전면 차단된 환경에서, 단순 Q&A 챗봇을 넘어 애널리스트·PB의 실제 리서치 업무(시황 분석, 종목 비교, 과거 통계 추론)에 깊숙이 개입하는 <strong>사내 구축형(On-Premise) 생성형 AI 플랫폼</strong>을 E2E 설계하고 딜리버리하는 것이 핵심 미션.</p>
   <p class="det-body-text">자사 LLMOps 솔루션 기반으로 K8s + H200 GPU 인프라 위에 모델 서빙·VectorDB·전처리기까지 통합 운영하는 온프레미스 AI 플랫폼을 구축하고, vLLM으로 오픈소스 LLM을 서빙하여 금융 보안 심의를 통과한 안정적인 AI 서비스를 구현 중.</p>
   <div class="psa">
@@ -27,56 +27,53 @@
     </div>
   </div>
 `,R=`
-  <p class="det-body-text">아키텍처에 직접 영향을 미친 핵심 문제와 해결 방향 4가지.</p>
-  <div class="c-list">
-    <div class="c-item">
-      <div class="c-left">
-        <div class="c-num">problem_01</div>
-        <div class="c-title">VDB 적재 병목</div>
-        <div class="c-desc">수만 건 리포트·공시·뉴스를 순차 임베딩·적재<br>DB 반영 지연 → 최신 정보 갱신 지연</div>
-      </div>
-      <div class="c-arrow"><span>→</span></div>
-      <div class="c-right">
-        <div class="c-sol-title">비동기 배치 파이프라인</div>
-        <div class="c-sol-desc">배치 임베딩 + 비동기 적재로 처리량 개선<br>스케줄 기반 자동 갱신 + 증분 업데이트</div>
-      </div>
-    </div>
-    <div class="c-item">
-      <div class="c-left">
-        <div class="c-num">problem_02</div>
-        <div class="c-title">수치 환각</div>
-        <div class="c-desc">정형(재무·수치) 데이터를 단일 RAG로 처리<br>벡터 유사도 기반 수치 검색 → 환각 불가피</div>
-      </div>
-      <div class="c-arrow"><span>→</span></div>
-      <div class="c-right">
-        <div class="c-sol-title">하이브리드 RAG (VDB + RDB)</div>
-        <div class="c-sol-desc">수치 → PostgreSQL SQL 직접 쿼리<br>비정형 텍스트 → Weaviate 시맨틱 검색 분리</div>
+  <div style="display:flex;flex-direction:column;gap:1.2rem;">
+
+    <div style="padding:1.1rem 1.3rem;border-left:3px solid var(--blue);background:rgba(99,102,241,0.05);border-radius:0 8px 8px 0;">
+      <div style="font-size:0.93rem;font-weight:700;color:var(--text-1);margin-bottom:0.7rem;">① [Infra &amp; Performance] 대규모 데이터 VDB 적재 병목 해결 및 인프라 최적화</div>
+      <div style="color:var(--text-3);font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.3rem;">도전 과제</div>
+      <div style="font-size:0.88rem;color:var(--text-2);line-height:1.75;margin-bottom:0.75rem;">수만 건 이상의 과거 리포트와 매일 수천 건씩 쏟아지는 국내외 뉴스 데이터를 Vector DB에 적재하는 과정에서, 초기 동기(Sync) 처리 방식 적용 시 심각한 속도 병목 발생.</div>
+      <div style="color:var(--text-3);font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.4rem;">해결 전략</div>
+      <div style="display:flex;flex-direction:column;gap:0.35rem;">
+        <div style="display:flex;gap:0.55rem;font-size:0.88rem;color:var(--text-2);line-height:1.7;"><span style="color:var(--blue);flex-shrink:0;">•</span><span>데이터 적재 아키텍처를 <strong>비동기 및 배치(Batch) 처리</strong> 방식으로 전면 전환하여 적재 리드타임 대폭 단축.</span></div>
+        <div style="display:flex;gap:0.55rem;font-size:0.88rem;color:var(--text-2);line-height:1.7;"><span style="color:var(--blue);flex-shrink:0;">•</span><span><strong>H200 GPU</strong> 인프라 환경에서 <strong>vLLM</strong> 프레임워크를 활용, LLM 모델 Pod를 다중 배포(Scale-out)하는 구조를 선제적으로 설계하여 본사 인프라 조직과 조율 및 최적화 리딩.</span></div>
+        <div style="display:flex;gap:0.55rem;font-size:0.88rem;color:var(--text-2);line-height:1.7;"><span style="color:var(--blue);flex-shrink:0;">•</span><span>과거 뉴스는 LLM 메타데이터 생성 없이 적재하고 신규 뉴스에만 LLM 전처리를 태우는 합리적인 데이터 정책 수립.</span></div>
       </div>
     </div>
-    <div class="c-item">
-      <div class="c-left">
-        <div class="c-num">problem_03</div>
-        <div class="c-title">복합 질의 한계</div>
-        <div class="c-desc">단일 Agent + 다수 Tool 구조에서 복합 도메인 질의<br>컨텍스트 폭증 → 응답 품질·속도 저하</div>
-      </div>
-      <div class="c-arrow"><span>→</span></div>
-      <div class="c-right">
-        <div class="c-sol-title">Master-Sub Multi-Agent + Tool Isolation</div>
-        <div class="c-sol-desc">Master가 의도 분석 → 도메인별 Sub-Agent 위임<br>각 Agent 전용 Tool만 접근 → 크로스-오염 차단</div>
-      </div>
-    </div>
-    <div class="c-item">
-      <div class="c-left">
-        <div class="c-num">problem_04</div>
-        <div class="c-title">금융 규제 & 신뢰성</div>
-        <div class="c-desc">일반 LLM 거절 로직으론 금융 컴플라이언스 불충분<br>OOD 질의 응답 시 신뢰성·추적성 확보 불가</div>
-      </div>
-      <div class="c-arrow"><span>→</span></div>
-      <div class="c-right">
-        <div class="c-sol-title">5유형 OOD 판별 + 출처 인덱스</div>
-        <div class="c-sol-desc">금융 도메인 특화 5유형 분류 체계 설계<br>전 답변 출처 인덱스 의무 부착 → 추적성 확보</div>
+
+    <div style="padding:1.1rem 1.3rem;border-left:3px solid var(--blue);background:rgba(99,102,241,0.05);border-radius:0 8px 8px 0;">
+      <div style="font-size:0.93rem;font-weight:700;color:var(--text-1);margin-bottom:0.7rem;">② [Data Architecture] 환각(Hallucination) 제로를 위한 하이브리드 RAG 설계</div>
+      <div style="color:var(--text-3);font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.3rem;">도전 과제</div>
+      <div style="font-size:0.88rem;color:var(--text-2);line-height:1.75;margin-bottom:0.75rem;">재무 수치나 주가 등 정확도가 100%여야 하는 정형 데이터와 뉴스/리포트 등 맥락이 중요한 비정형 데이터가 혼재되어 있어, 단일 RAG 파이프라인 적용 시 수치 환각 리스크가 매우 컸음.</div>
+      <div style="color:var(--text-3);font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.4rem;">해결 전략</div>
+      <div style="display:flex;flex-direction:column;gap:0.35rem;">
+        <div style="display:flex;gap:0.55rem;font-size:0.88rem;color:var(--text-2);line-height:1.7;"><span style="color:var(--blue);flex-shrink:0;">•</span><span>데이터를 특성에 따라 분리하는 <strong>하이브리드 아키텍처(VDB + RDB)</strong> 채택.</span></div>
+        <div style="display:flex;gap:0.55rem;font-size:0.88rem;color:var(--text-2);line-height:1.7;"><span style="color:var(--blue);flex-shrink:0;">•</span><span>수치 데이터는 <strong>MCP 툴을 통해 RDB에서 직접 추출(Tool Calling)</strong>하고, 텍스트 데이터는 Vector DB 시맨틱 검색으로 분기. VDB 검색과 동시에 메타데이터 필터링을 진행하여 검색 속도 향상.</span></div>
+        <div style="display:flex;gap:0.55rem;font-size:0.88rem;color:var(--text-2);line-height:1.7;"><span style="color:var(--blue);flex-shrink:0;">•</span><span>AI의 모든 답변에 원본 문서의 <strong>출처 인덱스(Source Index)</strong> 부착을 의무화하여 현업 사용자의 교차 검증 시간 단축 및 신뢰도 확보.</span></div>
       </div>
     </div>
+
+    <div style="padding:1.1rem 1.3rem;border-left:3px solid var(--blue);background:rgba(99,102,241,0.05);border-radius:0 8px 8px 0;">
+      <div style="font-size:0.93rem;font-weight:700;color:var(--text-1);margin-bottom:0.7rem;">③ [Agent Workflow] 멀티 에이전트(Multi-Agent) 및 도메인 격리(Isolation) 도입</div>
+      <div style="color:var(--text-3);font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.3rem;">도전 과제</div>
+      <div style="font-size:0.88rem;color:var(--text-2);line-height:1.75;margin-bottom:0.75rem;">"최근 한 달 A섹터 뉴스 요약하고 관련 기업 실적 비교해 줘"와 같은 복합 질의를 단일 프롬프트나 에이전트가 처리할 경우, 논리적 오류가 발생하고 속도가 저하됨.</div>
+      <div style="color:var(--text-3);font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.4rem;">해결 전략</div>
+      <div style="display:flex;flex-direction:column;gap:0.35rem;">
+        <div style="display:flex;gap:0.55rem;font-size:0.88rem;color:var(--text-2);line-height:1.7;"><span style="color:var(--blue);flex-shrink:0;">•</span><span>사용자 의도를 분석하는 <strong>Master Agent</strong>와, 도메인별(Market, Report, Quant 등) 특화된 툴만 사용할 수 있는 <strong>Sub-Agent 구조</strong>로 분리하여 복잡도 분산.</span></div>
+        <div style="display:flex;gap:0.55rem;font-size:0.88rem;color:var(--text-2);line-height:1.7;"><span style="color:var(--blue);flex-shrink:0;">•</span><span>각 에이전트가 자신의 도메인 데이터에만 접근할 수 있도록 <strong>격리(Isolation) 패턴</strong>을 적용하여, 출처 데이터 간의 오염을 원천 차단.</span></div>
+      </div>
+    </div>
+
+    <div style="padding:1.1rem 1.3rem;border-left:3px solid var(--blue);background:rgba(99,102,241,0.05);border-radius:0 8px 8px 0;">
+      <div style="font-size:0.93rem;font-weight:700;color:var(--text-1);margin-bottom:0.7rem;">④ [Compliance] 금융권 규제 대응 및 OOD(Out-of-Domain) 통제</div>
+      <div style="color:var(--text-3);font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.3rem;">도전 과제</div>
+      <div style="font-size:0.88rem;color:var(--text-2);line-height:1.75;margin-bottom:0.75rem;">AI의 답변이 금융권의 투자 권유 기준이나 광고 심의 규정을 위반할 경우 심각한 법적 리스크 초래.</div>
+      <div style="color:var(--text-3);font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:0.4rem;">해결 전략</div>
+      <div style="display:flex;flex-direction:column;gap:0.35rem;">
+        <div style="display:flex;gap:0.55rem;font-size:0.88rem;color:var(--text-2);line-height:1.7;"><span style="color:var(--blue);flex-shrink:0;">•</span><span>AI 시스템 설계 초기 단계부터 <strong>5가지 유형의 OOD 판별 로직</strong>을 적용하여, 사내 데이터 범위를 벗어나거나 심의에 위배되는 질문은 선제적으로 답변을 차단 <em>("모른다고 답하는 것이 환각보다 낫다"는 원칙 적용)</em>.</span></div>
+      </div>
+    </div>
+
   </div>
 `,P=`
   <p class="det-body-text">사용자 자연어 질의 → Master Agent 의도 분석 → 도메인별 Sub-Agent 위임 → Synthesis → 최종 출력</p>
@@ -314,8 +311,8 @@
     <div class="c-item">
       <div class="c-left">
         <div class="c-num">problem_01</div>
-        <div class="c-title">분산 챗봇 사일로</div>
-        <div class="c-desc">HR·사규·IT 부서별 챗봇이 각각 분리<br>복합 질의 시 여러 챗봇을 따로 조회해야 함</div>
+        <div class="c-title">부서별 분산된 챗봇 체계</div>
+        <div class="c-desc">HR · 사규 · IT 부서 챗봇이 각각 독립 운영<br>복합 질의 시 여러 챗봇을 따로 조회해야 하는 비효율</div>
       </div>
       <div class="c-arrow"><span>→</span></div>
       <div class="c-right">
@@ -361,66 +358,66 @@
     </div>
   </div>
 `,D=`
-  <p class="det-body-text">전사 AI 인프라 수준의 5가지 핵심 기능.</p>
+  <p class="det-body-text">이번 프로젝트에서 실제 설계·구축·운영한 5가지 AI 시스템.</p>
   <div class="c-list">
     <div class="c-item">
       <div class="c-left">
-        <div class="c-num">feature_01</div>
-        <div class="c-title">멀티턴 대화</div>
-        <div class="c-desc">단일 턴 응답 구조 → 대화 맥락 단절<br>연속 질문 시 컨텍스트 소실</div>
+        <div class="c-num">system_01</div>
+        <div class="c-title">통합 AI 어시스턴트</div>
+        <div class="c-desc">HR · 사규 · IT 등 부서별로 분리 운영되던 챗봇<br>하나의 인터페이스로 전사 지식을 통합 검색</div>
       </div>
       <div class="c-arrow"><span>→</span></div>
       <div class="c-right">
-        <div class="c-sol-title">Memory + AgentFlow 멀티턴 구조</div>
-        <div class="c-sol-desc">이전 컨텍스트 유지 · 의도 변화 감지<br>명확화 질문 자동 유도 · 대화 흐름 끊김 없음</div>
+        <div class="c-sol-title">멀티턴 대화 + BM25·벡터 하이브리드 검색 + 도메인 자동 인식</div>
+        <div class="c-sol-desc">이전 대화 맥락 유지 · 의도 변화 자동 감지<br>복합 질의도 단일 인터페이스에서 멀티 문서 횡단 응답</div>
       </div>
     </div>
     <div class="c-item">
       <div class="c-left">
-        <div class="c-num">feature_02</div>
-        <div class="c-title">하이브리드 검색</div>
-        <div class="c-desc">키워드 검색 한계 → 의미 기반 검색 실패<br>금융 도메인 특수 표현 정규화 불가</div>
+        <div class="c-num">system_02</div>
+        <div class="c-title">실적 에이전트 (데이터 분석)</div>
+        <div class="c-desc">수치 데이터 분석은 개발자만 가능<br>비개발자는 CSV 업로드 후 SQL 직접 작성 필요</div>
       </div>
       <div class="c-arrow"><span>→</span></div>
       <div class="c-right">
-        <div class="c-sol-title">BM25 + 벡터 + 메타필터 3단 구조</div>
-        <div class="c-sol-desc">한글 형태소 분석기 + 금융 동의어 사전<br>정밀성과 유연성 동시 확보 · 도메인 특화 표현 정규화</div>
+        <div class="c-sol-title">자연어 → Text-to-SQL 자동 변환 + 최대 3회 재시도 루프</div>
+        <div class="c-sol-desc">CSV/XLS 업로드 → DB 자동 생성 → SQL 변환·실행<br>비개발자도 자연어 한 문장으로 실적·수수료 즉시 분석</div>
       </div>
     </div>
     <div class="c-item">
       <div class="c-left">
-        <div class="c-num">feature_03</div>
-        <div class="c-title">통합 Agent</div>
-        <div class="c-desc">HR · 사규 · IT 부서별 분산 챗봇 사일로<br>복합 질의 시 여러 챗봇을 따로 질문해야 함</div>
+        <div class="c-num">system_03</div>
+        <div class="c-title">리서치 에이전트</div>
+        <div class="c-desc">파편화된 투자 정보를 수동 수집<br>종목 분석 리포트 작성에 수 시간 소요</div>
       </div>
       <div class="c-arrow"><span>→</span></div>
       <div class="c-right">
-        <div class="c-sol-title">전사 지식 DB 단일 통합</div>
-        <div class="c-sol-desc">도메인 자동 인식 · 멀티 문서 횡단 검색<br>하나의 질문으로 복합 도메인 통합 응답</div>
+        <div class="c-sol-title">외부 금융 API 통합 + 리포트 초안 자동 생성</div>
+        <div class="c-sol-desc">실시간 실적 · 재무 · 뉴스 자동 수집<br>종목 분석 리포트 초안 생성 · 포트폴리오 조정 의견 제공</div>
       </div>
     </div>
     <div class="c-item">
       <div class="c-left">
-        <div class="c-num">feature_04</div>
-        <div class="c-title">실적 Agent (Text-to-SQL)</div>
-        <div class="c-desc">수치 데이터 분석 → 개발자만 가능<br>비정형 CSV 업로드 후 분석 진입 장벽</div>
+        <div class="c-num">system_04</div>
+        <div class="c-title">전사 메타 관리</div>
+        <div class="c-desc">비정형 문서 업로드 시 분류·키워드·출처 수동 입력<br>메타 누락으로 검색 정확도 저하</div>
       </div>
       <div class="c-arrow"><span>→</span></div>
       <div class="c-right">
-        <div class="c-sol-title">자연어 → SQL 자동 변환 + 재시도 루프</div>
-        <div class="c-sol-desc">CSV/XLS 업로드 → DB 자동 생성 → SQL 변환·실행<br>실패 시 최대 3회 재시도 · 비개발자도 즉시 분석</div>
+        <div class="c-sol-title">비정형 문서 메타데이터 자동 추출 (GenOS 플랫폼 업그레이드)</div>
+        <div class="c-sol-desc">업로드 시 분류·키워드·출처 등 메타 자동 생성<br>검색 품질 일관성 유지 · 운영 담당자 수작업 최소화</div>
       </div>
     </div>
     <div class="c-item">
       <div class="c-left">
-        <div class="c-num">feature_05</div>
-        <div class="c-title">리서치 Agent</div>
-        <div class="c-desc">파편화된 투자 정보 수동 수집<br>종목 분석 리포트 작성에 수 시간 소요</div>
+        <div class="c-num">system_05</div>
+        <div class="c-title">전사 지식 DB</div>
+        <div class="c-desc">미검증 콘텐츠 즉시 노출 → 환각·컴플라이언스 리스크<br>전사 지식의 신뢰성·일관성 관리 체계 부재</div>
       </div>
       <div class="c-arrow"><span>→</span></div>
       <div class="c-right">
-        <div class="c-sol-title">외부 금융 API 통합 + 리포트 자동 생성</div>
-        <div class="c-sol-desc">실시간 실적·재무·뉴스 자동 수집<br>종목 분석 리포트 초안 생성 · 포트폴리오 조정 의견</div>
+        <div class="c-sol-title">3단계 승인 기반 지식 등록 프로세스</div>
+        <div class="c-sol-desc">등록 → 검토 → 승인 후 RAG 반영 · 미검증 콘텐츠 원천 차단<br>금융 컴플라이언스 준수 · 전사 지식 신뢰도 확보</div>
       </div>
     </div>
   </div>
@@ -552,7 +549,7 @@
       <div class="t-line"><span class="t-key">evaluator</span>.<span class="t-val">check</span>(<span class="t-str">sql</span>, <span class="t-str">error</span>) → <span class="t-val">retry</span>(<span class="t-str">max=3</span>)</div>
     </div>
   </div>
-`,J=`
+`,z=`
   <div class="insights">
     <div class="insight">
       <div class="i-num">①</div>
@@ -590,8 +587,8 @@
       </div>
     </div>
   </div>
-`,z=`
-  <p class="det-body-text">실제 미래에셋증권 직원들이 사용하는 시나리오 기반으로 설계된 주요 활용 사례.</p>
+`,J=`
+  <p class="det-body-text">실제 미래에셋증권 직원들이 사용하는 시나리오 기반 주요 활용 사례 및 도입 효과.</p>
   <table class="dtable">
     <thead>
       <tr>
@@ -1576,7 +1573,7 @@
       </div>
     </div>
   </div>
-`,ci=`
+`,oi=`
   <div class="insights">
     <div class="insight">
       <div class="i-num">01</div>
@@ -1605,7 +1602,7 @@
     <img src="./kia-namyang/vr-contents.png" alt="VR 콘텐츠 구성" style="width:100%;border-radius:6px;border:1px solid var(--border-hi);">
     <figcaption style="font-size:0.8rem;color:var(--text-3);margin-top:0.4rem;text-align:center;">Multi VR 콘텐츠 · 발표 환경 · 가상 쇼룸</figcaption>
   </figure>
-`,oi=`
+`,ri=`
   <div class="r-grid">
     <div class="r-card">
       <div class="r-title">국내 최초 무선 VR 품평</div>
@@ -1629,7 +1626,7 @@
     <img src="./kia-namyang/tracking.png" alt="Antilatency 트래킹 시스템" style="width:100%;border-radius:6px;border:1px solid var(--border-hi);">
     <figcaption style="font-size:0.8rem;color:var(--text-3);margin-top:0.4rem;text-align:center;">Antilatency 위치 추적 · 무선 스트리밍 · 실시간 커버링</figcaption>
   </figure>
-`,n=[{id:"proj1",title:"S 증권사 생성형 AI 리서치 포털 구축 (Gen AI Research Assistant)",role:"총괄 AI PM (Architecture Design & Delivery Lead)",period:"2025.12 ~ 진행 중 | GenON AI",tags:["On-Premise","RAG","Multi-Agent","vLLM","K8s","금융권 폐쇄망","AI포탈구축"],coverColor:"linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4d7a 100%)",summary:"금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축함.",techStack:["K8s","RHEL 9.6","DMZ Relay","H200","vLLM","VDB","RDB","Multi-Tool","OOD"],sections:[{id:"overview",title:"overview",body:S},{id:"decisions",title:"problem_solving",body:R},{id:"architecture",title:"system_architecture",body:P},{id:"stack",title:"core_architecture_&_technologies",body:I},{id:"principles",title:"핵심_아키텍처_및_시스템_설계_원칙",body:B}]},{id:"proj2",title:"미래에셋증권 전사 통합 AI 어시스턴트 고도화",role:"AI PM 총괄",period:"2025.07 ~ 2025.10 | 미래에셋증권",tags:["AI PM","Multi-Agent","RAG","Text-to-SQL","하이브리드 검색","MSA","GenOS","금융AI"],coverColor:"linear-gradient(135deg, #0f172a 0%, #3b1f5e 50%, #1a0a3d 100%)",summary:"부서별로 분산된 챗봇 구조의 한계를 극복하고, 멀티턴 대화 · 하이브리드 검색 · Multi-Agent 구조를 도입하여 전사 정보 허브로 확장한 AI 어시스턴트 고도화 프로젝트를 PM으로서 총괄 리딩함.",techStack:["Kubernetes","vLLM","Weaviate","MariaDB","GenOS","Multi-Agent","Text-to-SQL"],sections:[{id:"overview",title:"overview",body:L},{id:"decisions",title:"problem_solving",body:_},{id:"features",title:"key_features",body:D},{id:"architecture",title:"system_architecture",body:O},{id:"stack",title:"core_architecture_&_technologies",body:J},{id:"usecases",title:"use_cases",body:z}]},{id:"proj3",title:"WBS 기반 사내 통합 프로젝트 관리 시스템 구축",role:"기획 및 풀스택 프론트/백엔드 완전 개발",period:"2025.12 ~ 2026.03 | 사내 프로젝트",tags:["Vibe Coding","React 19","Node.js","PostgreSQL","Docker","풀스택"],coverColor:"linear-gradient(135deg, #0f172a 0%, #0a2e1a 50%, #1a3d22 100%)",coverIcon:"⚙️",summary:"AI 스타트업 내부에서 사용하는 프로젝트 WBS 관리 시스템과 AI PM 온보딩 가이드 대시보드를 직접 기획하고 Vibe Coding 방식으로 개발하여 실무 적용한 풀스택 웹 애플리케이션.",techStack:["React 19 (Vite)","Node.js / Express.js","PostgreSQL 16","Docker Compose","Nginx","JWT + Google OAuth 2.0"],sections:[{id:"overview",title:"overview",body:Q},{id:"problems",title:"problem_solving",body:X},{id:"features",title:"key_features",body:K},{id:"results",title:"results",body:F}]},{id:"proj4",title:"ARIBOX & GENGA — AI 기반 3D 컨텐츠 자동화 플랫폼",role:"프로젝트 총괄 및 AI 기반 플랫폼 전략 수립",period:"2022.01 ~ 2024.09",tags:["Photogrammetry","Vision AI","Gaussian Splatting","Deep Learning","Generative AI"],coverColor:"linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #1a1a3e 100%)",coverIcon:"🧊",summary:"딥러닝·생성형 AI·Gaussian Splatting 기술을 융합한 3D 콘텐츠 자동화 플랫폼 구축. 네이버 브랜드 스토어 공식 3D 솔루션 파트너 선정, 30개 이상 글로벌 브랜드 서비스 제공.",techStack:["Photogrammetry","Vision AI","Gaussian Splatting","Deep Learning","Generative AI","Blender"],sections:[{id:"overview",title:"overview",body:Y},{id:"problems",title:"problem_solving",body:q},{id:"contributions",title:"key_contributions",body:Z},{id:"results",title:"results",body:ii}]},{id:"proj5",title:"건돌이닷컴 — AI 기반 소셜 미디어 통합 분석 SaaS 플랫폼",role:"프로젝트 총괄 및 AI 기반 서비스 전략 수립",period:"2019.08 ~ 2021.02",tags:["SNS API","NLP","AWS Cloud","RPA","SaaS"],coverColor:"linear-gradient(135deg, #0a2e1a 0%, #1a3d2a 50%, #0d1f14 100%)",coverIcon:"📊",summary:"Instagram·Facebook·YouTube 다중 SNS 채널 데이터를 통합 분석하고 NLP로 마케팅 인사이트를 제공하는 SaaS 플랫폼 기획 및 상용화. 유료 계정 2,500+, Meta 공식 미디어 파트너 API 승인 획득.",techStack:["Meta Graph API","YouTube Data API","NLP","AWS Cloud","RPA","SaaS"],sections:[{id:"overview",title:"overview",body:si},{id:"problems",title:"problem_solving",body:ti},{id:"features",title:"key_features",body:ei},{id:"results",title:"results",body:ai}]},{id:"proj6",title:"현대/기아 360° 3D Configurator Platform 구축",role:"프로젝트 총괄 PM 및 유니티 엔진 기반 시스템 기획",period:"2020.02 ~ 2023.09",tags:["Unity","Real-time 3D","Web API","글로벌 배포","다국어","3D 경량화"],coverColor:"linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",summary:"전 세계 현대/기아 자동차 매장에서 사용되는 실시간 3D 차량 정보 제공 플랫폼을 유니티 엔진 기반으로 구축. 3년간 20여 개국 딜러십 글로벌 배포를 총괄.",techStack:["Unity Engine","Real-time 3D Rendering","Web API","글로벌 CDN","다국어(i18n)"],sections:[{id:"overview",title:"overview",body:E},{id:"contributions",title:"key_contributions",body:T},{id:"challenges",title:"technical_challenges",body:C},{id:"stack",title:"tech_stack",body:V},{id:"results",title:"results",body:G}]},{id:"proj7",title:"현대글로비스 AR 기반 차량 관리 시스템 구축",role:"지능형 차량 관리 시스템 기획 및 PM",period:"2019.06 ~ 2019.11",tags:["AR","Google Vision API","OCR","Smart Mirror","Mobile App"],coverColor:"linear-gradient(135deg, #2d1b0e 0%, #3d2b1e 50%, #1a0f05 100%)",summary:"광학 문자 인식(OCR) 및 증강 현실(AR) 기술을 활용한 지능형 차량 관리 플랫폼 구축. Google Vision API 기반 OCR 엔진으로 번호판을 자동 인식하고, AR 기술로 야적장 내 차량 정보를 실시간 시각화하여 기존 수작업 점검 프로세스를 디지털화. 스마트 미러(고정형)와 모바일 앱(이동형) 이중 디바이스 체계로 현장 운영 효율성을 극대화.",techStack:["AR (Augmented Reality)","Google Vision API (OCR)","Smart Mirror","Mobile App"],sections:[{id:"overview",title:"overview",body:U},{id:"decisions",title:"key_decisions",body:W},{id:"challenges",title:"technical_challenges",body:N},{id:"flow",title:"system_flow",body:$},{id:"stack",title:"tech_stack",body:H},{id:"results",title:"results",body:j}]},{id:"proj8",title:"기아 남양연구소 가상 디자인 품평장 시스템 구축",role:"국내 최초 무선 방식 VR 품평 시스템 기획 및 개발 총괄",period:"2020.05 ~ 2020.11",tags:["VR","Antilatency Tracking","다중 접속","무선 스트리밍","디자인 품평","혼합현실"],coverColor:"linear-gradient(135deg, #0e2d1b 0%, #1e3d2b 50%, #051a0f 100%)",coverIcon:"🥽",summary:"국내 최초 Antilatency 기반 무선 다중 접속 VR 디자인 품평 시스템을 기아 남양연구소에 구축. 실물 클레이 모델과 VR 시안을 AR 패스스루로 동시 비교하는 혼합현실 품평 환경 구현.",techStack:["VR / MR","Antilatency Tracking","Real-time Wireless Streaming","다중 접속 동기화","AR 패스스루"],sections:[{id:"overview",title:"overview",body:di},{id:"problems",title:"problem_solving",body:li},{id:"contributions",title:"key_contributions",body:ci},{id:"results",title:"results",body:oi}]}],ni={AI플랫폼:["proj1","proj2","proj4","proj5"],시스템개발:["proj3","proj6","proj7","proj8"]};function y(){const s=r.coreRoles.map(i=>{const e=i.bullets?`<ul>${i.bullets.map(l=>`<li>${l}</li>`).join("")}</ul>`:"";return`
+`,n=[{id:"proj1",title:"S 증권사 생성형 AI 리서치 포털 구축 (Gen AI Research Assistant)",role:"총괄 AI PM (Architecture Design & Delivery Lead)",period:"2025.12 ~ 진행 중 | GenON AI",tags:["On-Premise","RAG","Multi-Agent","vLLM","K8s","금융권 폐쇄망","AI포탈구축"],coverColor:"linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0e4d7a 100%)",summary:"금융 폐쇄망이라는 가장 까다로운 제약 조건 안에서, 단순 챗봇이 아닌 리서치 업무 전 과정에 AI를 통합한 엔터프라이즈 플랫폼을 PM으로서 총괄 설계하고 구축함.",techStack:["K8s","RHEL 9.6","DMZ Relay","H200","vLLM","VDB","RDB","Multi-Tool","OOD"],sections:[{id:"overview",title:"overview",body:S},{id:"decisions",title:"problem_solving",body:R},{id:"architecture",title:"system_architecture",body:P},{id:"stack",title:"core_architecture_&_technologies",body:I},{id:"principles",title:"핵심_아키텍처_및_시스템_설계_원칙",body:B}]},{id:"proj2",title:"미래에셋증권 전사 통합 AI 어시스턴트 고도화",role:"AI PM 총괄",period:"2025.07 ~ 2025.10 | 미래에셋증권",tags:["AI PM","Multi-Agent","RAG","Text-to-SQL","하이브리드 검색","MSA","GenOS","금융AI"],coverColor:"linear-gradient(135deg, #0f172a 0%, #3b1f5e 50%, #1a0a3d 100%)",summary:"부서별로 분산된 챗봇 구조의 한계를 극복하고, 멀티턴 대화 · 하이브리드 검색 · Multi-Agent 구조를 도입하여 전사 정보 허브로 확장한 AI 어시스턴트 고도화 프로젝트를 PM으로서 총괄 리딩함.",techStack:["Kubernetes","vLLM","Weaviate","MariaDB","GenOS","Multi-Agent","Text-to-SQL"],sections:[{id:"overview",title:"overview",body:L},{id:"decisions",title:"problem_solving",body:_},{id:"features",title:"built_functions",body:D},{id:"architecture",title:"system_architecture",body:O},{id:"stack",title:"core_architecture_&_technologies",body:z},{id:"results",title:"results_&_use_cases",body:J}]},{id:"proj3",title:"WBS 기반 사내 통합 프로젝트 관리 시스템 구축",role:"기획 및 풀스택 프론트/백엔드 완전 개발",period:"2025.12 ~ 2026.03 | 사내 프로젝트",tags:["Vibe Coding","React 19","Node.js","PostgreSQL","Docker","풀스택"],coverColor:"linear-gradient(135deg, #0f172a 0%, #0a2e1a 50%, #1a3d22 100%)",coverIcon:"⚙️",summary:"AI 스타트업 내부에서 사용하는 프로젝트 WBS 관리 시스템과 AI PM 온보딩 가이드 대시보드를 직접 기획하고 Vibe Coding 방식으로 개발하여 실무 적용한 풀스택 웹 애플리케이션.",techStack:["React 19 (Vite)","Node.js / Express.js","PostgreSQL 16","Docker Compose","Nginx","JWT + Google OAuth 2.0"],sections:[{id:"overview",title:"overview",body:Q},{id:"problems",title:"problem_solving",body:X},{id:"features",title:"key_features",body:K},{id:"results",title:"results",body:F}]},{id:"proj4",title:"ARIBOX & GENGA — AI 기반 3D 컨텐츠 자동화 플랫폼",role:"프로젝트 총괄 및 AI 기반 플랫폼 전략 수립",period:"2022.01 ~ 2024.09",tags:["Photogrammetry","Vision AI","Gaussian Splatting","Deep Learning","Generative AI"],coverColor:"linear-gradient(135deg, #1a0a2e 0%, #2d1b4e 50%, #1a1a3e 100%)",coverIcon:"🧊",summary:"딥러닝·생성형 AI·Gaussian Splatting 기술을 융합한 3D 콘텐츠 자동화 플랫폼 구축. 네이버 브랜드 스토어 공식 3D 솔루션 파트너 선정, 30개 이상 글로벌 브랜드 서비스 제공.",techStack:["Photogrammetry","Vision AI","Gaussian Splatting","Deep Learning","Generative AI","Blender"],sections:[{id:"overview",title:"overview",body:Y},{id:"problems",title:"problem_solving",body:q},{id:"contributions",title:"key_contributions",body:Z},{id:"results",title:"results",body:ii}]},{id:"proj5",title:"건돌이닷컴 — AI 기반 소셜 미디어 통합 분석 SaaS 플랫폼",role:"프로젝트 총괄 및 AI 기반 서비스 전략 수립",period:"2019.08 ~ 2021.02",tags:["SNS API","NLP","AWS Cloud","RPA","SaaS"],coverColor:"linear-gradient(135deg, #0a2e1a 0%, #1a3d2a 50%, #0d1f14 100%)",coverIcon:"📊",summary:"Instagram·Facebook·YouTube 다중 SNS 채널 데이터를 통합 분석하고 NLP로 마케팅 인사이트를 제공하는 SaaS 플랫폼 기획 및 상용화. 유료 계정 2,500+, Meta 공식 미디어 파트너 API 승인 획득.",techStack:["Meta Graph API","YouTube Data API","NLP","AWS Cloud","RPA","SaaS"],sections:[{id:"overview",title:"overview",body:si},{id:"problems",title:"problem_solving",body:ti},{id:"features",title:"key_features",body:ei},{id:"results",title:"results",body:ai}]},{id:"proj6",title:"현대/기아 360° 3D Configurator Platform 구축",role:"프로젝트 총괄 PM 및 유니티 엔진 기반 시스템 기획",period:"2020.02 ~ 2023.09",tags:["Unity","Real-time 3D","Web API","글로벌 배포","다국어","3D 경량화"],coverColor:"linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",summary:"전 세계 현대/기아 자동차 매장에서 사용되는 실시간 3D 차량 정보 제공 플랫폼을 유니티 엔진 기반으로 구축. 3년간 20여 개국 딜러십 글로벌 배포를 총괄.",techStack:["Unity Engine","Real-time 3D Rendering","Web API","글로벌 CDN","다국어(i18n)"],sections:[{id:"overview",title:"overview",body:E},{id:"contributions",title:"key_contributions",body:T},{id:"challenges",title:"technical_challenges",body:C},{id:"stack",title:"tech_stack",body:V},{id:"results",title:"results",body:G}]},{id:"proj7",title:"현대글로비스 AR 기반 차량 관리 시스템 구축",role:"지능형 차량 관리 시스템 기획 및 PM",period:"2019.06 ~ 2019.11",tags:["AR","Google Vision API","OCR","Smart Mirror","Mobile App"],coverColor:"linear-gradient(135deg, #2d1b0e 0%, #3d2b1e 50%, #1a0f05 100%)",summary:"광학 문자 인식(OCR) 및 증강 현실(AR) 기술을 활용한 지능형 차량 관리 플랫폼 구축. Google Vision API 기반 OCR 엔진으로 번호판을 자동 인식하고, AR 기술로 야적장 내 차량 정보를 실시간 시각화하여 기존 수작업 점검 프로세스를 디지털화. 스마트 미러(고정형)와 모바일 앱(이동형) 이중 디바이스 체계로 현장 운영 효율성을 극대화.",techStack:["AR (Augmented Reality)","Google Vision API (OCR)","Smart Mirror","Mobile App"],sections:[{id:"overview",title:"overview",body:U},{id:"decisions",title:"key_decisions",body:W},{id:"challenges",title:"technical_challenges",body:N},{id:"flow",title:"system_flow",body:$},{id:"stack",title:"tech_stack",body:H},{id:"results",title:"results",body:j}]},{id:"proj8",title:"기아 남양연구소 가상 디자인 품평장 시스템 구축",role:"국내 최초 무선 방식 VR 품평 시스템 기획 및 개발 총괄",period:"2020.05 ~ 2020.11",tags:["VR","Antilatency Tracking","다중 접속","무선 스트리밍","디자인 품평","혼합현실"],coverColor:"linear-gradient(135deg, #0e2d1b 0%, #1e3d2b 50%, #051a0f 100%)",coverIcon:"🥽",summary:"국내 최초 Antilatency 기반 무선 다중 접속 VR 디자인 품평 시스템을 기아 남양연구소에 구축. 실물 클레이 모델과 VR 시안을 AR 패스스루로 동시 비교하는 혼합현실 품평 환경 구현.",techStack:["VR / MR","Antilatency Tracking","Real-time Wireless Streaming","다중 접속 동기화","AR 패스스루"],sections:[{id:"overview",title:"overview",body:di},{id:"problems",title:"problem_solving",body:li},{id:"contributions",title:"key_contributions",body:oi},{id:"results",title:"results",body:ri}]}],ni={AI플랫폼:["proj1","proj2","proj4","proj5"],시스템개발:["proj3","proj6","proj7","proj8"]};function b(){const s=c.coreRoles.map(i=>{const e=i.bullets?`<ul>${i.bullets.map(l=>`<li>${l}</li>`).join("")}</ul>`:"";return`
       <div class="core-role-card">
         <div class="core-role-title">
           ${i.title}
@@ -1642,9 +1639,9 @@
       <div class="hero-inner">
         <div class="hero-text">
           <span class="hero-badge">AI PM &amp; Product Lead</span>
-          <h1 class="hero-name">${r.name}</h1>
-          <h2 class="hero-title">${r.title}</h2>
-          <p class="hero-desc">${r.description}</p>
+          <h1 class="hero-name">${c.name}</h1>
+          <h2 class="hero-title">${c.title}</h2>
+          <p class="hero-desc">${c.description}</p>
           <div class="hero-actions">
             <button class="btn btn-primary" onclick="navigateTo('#portfolio')">포트폴리오 보기</button>
             <button class="btn btn-ghost" onclick="navigateTo('#blog')"><i class="fas fa-book-open"></i> Blog 보기</button>
@@ -1690,21 +1687,21 @@
   `).join("")}</div>
       <div class="port-list" id="port-list">${u("전체")}</div>
     </section>
-  `}function ri(s){var h,g,f,x;const i=n.find(a=>a.id===s);if(!i)return A();const e=i.tags.map(a=>`<span class="det-chip">${a}</span>`).join(""),l=((h=i.techStack)==null?void 0:h.map(a=>`<code class="tech-chip">${a}</code>`).join(" "))||"",t=n.map((a,o)=>`
+  `}function ci(s){var g,h,f,x;const i=n.find(a=>a.id===s);if(!i)return A();const e=i.tags.map(a=>`<span class="det-chip">${a}</span>`).join(""),l=((g=i.techStack)==null?void 0:g.map(a=>`<code class="tech-chip">${a}</code>`).join(" "))||"",t=n.map((a,r)=>`
     <button class="det-sidebar-item${a.id===s?" active":""}" onclick="openPortfolioDetail('${a.id}')">
-      <span class="det-sidebar-icon">${String(o+1).padStart(2,"0")}</span>
+      <span class="det-sidebar-icon">${String(r+1).padStart(2,"0")}</span>
       <span class="det-sidebar-title">${a.title}</span>
     </button>
-  `).join("");let d=0;const c=(a,o)=>`
+  `).join("");let d=0;const o=(a,r)=>`
       <div class="det-section">
         <div class="det-sec-header">
           <span class="det-sec-num">${String(++d).padStart(2,"0")}</span>
           <span class="det-sec-title">${a}</span>
           <div class="det-sec-rule"></div>
         </div>
-        <div class="det-arch-body">${o}</div>
+        <div class="det-arch-body">${r}</div>
       </div>
-    `;let p;if(i.sections&&i.sections.length>0)p=i.sections.map(a=>c(a.title.replace(/_/g," ").toUpperCase(),a.body)).join("");else{const a=((g=i.results)==null?void 0:g.map(o=>`<li>${o}</li>`).join(""))||"";p=[i.summary&&c("OVERVIEW",`<p>${i.summary}</p>`),i.challenge&&c("CHALLENGE",`<p>${i.challenge}</p>`),i.solution&&c("SOLUTION & ARCHITECTURE",`<p>${i.solution}</p>`),i.architecture&&c("TECHNICAL DETAILS",i.architecture),((f=i.results)==null?void 0:f.length)&&c("RESULTS",`<ul class="detail-results">${a}</ul>`),((x=i.techStack)==null?void 0:x.length)&&c("TECH STACK",`<div class="tech-stack">${l}</div>`)].filter(Boolean).join("")}const k=i.period.includes("진행 중")?'<span class="det-status active"><span class="det-pulse"></span> ACTIVE</span>':'<span class="det-status done">COMPLETED</span>';return`
+    `;let p;if(i.sections&&i.sections.length>0)p=i.sections.map(a=>o(a.title.replace(/_/g," ").toUpperCase(),a.body)).join("");else{const a=((h=i.results)==null?void 0:h.map(r=>`<li>${r}</li>`).join(""))||"";p=[i.summary&&o("OVERVIEW",`<p>${i.summary}</p>`),i.challenge&&o("CHALLENGE",`<p>${i.challenge}</p>`),i.solution&&o("SOLUTION & ARCHITECTURE",`<p>${i.solution}</p>`),i.architecture&&o("TECHNICAL DETAILS",i.architecture),((f=i.results)==null?void 0:f.length)&&o("RESULTS",`<ul class="detail-results">${a}</ul>`),((x=i.techStack)==null?void 0:x.length)&&o("TECH STACK",`<div class="tech-stack">${l}</div>`)].filter(Boolean).join("")}const k=i.period.includes("진행 중")?'<span class="det-status active"><span class="det-pulse"></span> ACTIVE</span>':'<span class="det-status done">COMPLETED</span>';return`
     <div class="det-layout">
       <aside class="det-sidebar">
         <button class="det-sidebar-back" onclick="navigateTo('#portfolio')">← back</button>
@@ -1755,4 +1752,4 @@
         </div>
       </div>
     </section>
-  `}function w(s){M.forEach(i=>{i.classList.remove("active"),(i.getAttribute("href")===s||s===""&&i.getAttribute("href")==="#home")&&i.classList.add("active")})}function m(){const s=window.location.hash,i=b[s]||b[""];w(s),v.innerHTML="";const e=i();setTimeout(()=>{v.innerHTML=e},10)}window.openPortfolioDetail=function(s){w("#portfolio"),v.innerHTML="",setTimeout(()=>{v.innerHTML=ri(s),window.scrollTo(0,0)},10)};window.navigateTo=function(s){window.location.hash=s,m()};window.addEventListener("hashchange",m);window.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".nav-links a").forEach(s=>{s.addEventListener("click",i=>{i.preventDefault(),window.navigateTo(s.getAttribute("href"))})}),m()});
+  `}function w(s){M.forEach(i=>{i.classList.remove("active"),(i.getAttribute("href")===s||s===""&&i.getAttribute("href")==="#home")&&i.classList.add("active")})}function m(){const s=window.location.hash,i=y[s]||y[""];w(s),v.innerHTML="";const e=i();setTimeout(()=>{v.innerHTML=e},10)}window.openPortfolioDetail=function(s){w("#portfolio"),v.innerHTML="",setTimeout(()=>{v.innerHTML=ci(s),window.scrollTo(0,0)},10)};window.navigateTo=function(s){window.location.hash=s,m()};window.addEventListener("hashchange",m);window.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll(".nav-links a").forEach(s=>{s.addEventListener("click",i=>{i.preventDefault(),window.navigateTo(s.getAttribute("href"))})}),m()});
